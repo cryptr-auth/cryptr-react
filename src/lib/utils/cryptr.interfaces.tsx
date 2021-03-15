@@ -1,3 +1,9 @@
+import { Config } from "@cryptr/cryptr-spa-js/dist/types/interfaces";
+export interface ProviderConfig extends Config{
+  onRedirectCallback: (claims: object | null) => void;
+  onLogOutCallback: () => void;
+  defaultScopes: string;
+}
 export interface CleeckTokens {
   accessToken: string
 }
