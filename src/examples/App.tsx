@@ -35,7 +35,7 @@ import ProfilePage from './pages/ProfilePage'
 //   audience: process.env.CRYPTR_AUDIENCE || 'http://127.0.0.1:3000',
 //   redirect_uri: process.env.CRYPTR_REDIRECT_URI || 'http://127.0.0.1:3000',
 //   locale: process.env.CRYPTR_LOCALE || 'fr',
-//   cleeck_base_url: process.env.CRYPTR_CRYPTR_BASE_URL || 'http://localhost:4000',
+//   cryptr_base_url: process.env.CRYPTR_CRYPTR_BASE_URL || 'http://localhost:4000',
 //   telemetry: false,
 // }
 

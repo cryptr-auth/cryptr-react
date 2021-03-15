@@ -5,11 +5,11 @@ export interface ProviderConfig extends Config{
   onLogOutCallback: () => void;
   defaultScopes: string;
 }
-export interface CleeckTokens {
+export interface CryptrTokens {
   accessToken: string
 }
 
-export interface CleeckClient {
+export interface CryptrClient {
   canHandleAuthentication: () => void
   getClaimsFromAccess: () => void
   handleRedirectCallback: () => void

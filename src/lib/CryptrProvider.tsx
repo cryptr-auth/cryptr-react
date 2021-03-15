@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState, useCallback, useRef } from 'react'
-import CleeckSpa from '@cryptr/cryptr-spa-js'
+import CryptrSpa from '@cryptr/cryptr-spa-js'
 // import PropTypes from 'prop-types'
 import Client from '../../node_modules/@cryptr/cryptr-spa-js/dist/types/client'
 import CryptrContext from './CryptrContext'
@@ -56,7 +56,7 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
   const { children, ...options} = props
   const [config] = useState<ProviderConfig>(prepareConfig(options))
 
-  const [cryptrClient] = useState<Client>(new CleeckSpa.client(config))
+  const [cryptrClient] = useState<Client>(new CryptrSpa.client(config))
   const [accountPopup, setAccountPopup] = useState<Window | null>()
   const [state, dispatch] = useReducer(CryptrReducer, initialCryptrState)
 
@@ -141,8 +141,8 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
     }, [eventName, element])
   }
 
-  useEventListener(CleeckSpa.events.REFRESH_EXPIRED, popupHandler)
-  useEventListener(CleeckSpa.events.REFRESH_INVALID_GRANT, popupHandler)
+  useEventListener(CryptrSpa.events.REFRESH_EXPIRED, popupHandler)
+  useEventListener(CryptrSpa.events.REFRESH_INVALID_GRANT, popupHandler)
 
   if (cryptrClient === undefined) {
     return children
