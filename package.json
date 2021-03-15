@@ -40,9 +40,6 @@
       "last 1 safari version"
     ]
   },
-  "publishConfig": {
-    "registry": "https://cryptr-npm.onrender.com"
-  },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/plugin-proposal-export-default-from": "^7.12.1",
