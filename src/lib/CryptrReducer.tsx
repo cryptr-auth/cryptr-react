@@ -1,0 +1,33 @@
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const CryptrReducer = (state, action) => {
+  switch (action.type) {
+    // case 'LOGIN_POPUP_STARTED':
+    //   return {
+    //     ...state,
+    //     isLoading: true,
+    //   }
+    case 'INITIALISED':
+      return {
+        ...state,
+        isAuthenticated: action.isAuthenticated,
+        user: action.user,
+        isLoading: false,
+        error: undefined,
+      }
+    case 'ERROR':
+      return {
+        ...state,
+        isLoading: false,
+        error: action.error,
+      }
+    default:
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        user: undefined,
+      }
+  }
+}
+
+export default CryptrReducer
