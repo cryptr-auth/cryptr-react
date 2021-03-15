@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+
+    <title>Cryptr React Dev</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!--
+      Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+      Read the documentation to get started: https://tailwindui.com/documentation
+    -->
+    <div>
+      <div class="bg-gray-800 pb-32">
+        <nav class="bg-gray-800">
+          <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="border-b border-gray-700">
+              <div class="flex items-center justify-between h-16 px-4 sm:px-0">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0">
+                    <svg
+                      class="h-8 w-8"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="806"
+                      height="806"
+                      viewBox="0 0 806 806"
+                      fill="none"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M54.3809 201.946V308.979L387.41 501.492C395.588 506.22 400.626 514.95 400.626 524.396L400.628 605.626C420.93 615.464 434.931 636.286 434.931 660.383C434.931 693.96 407.745 721.179 374.21 721.179C340.675 721.179 313.489 693.96 313.489 660.383C313.489 636.317 327.455 615.517 347.714 605.664L347.712 539.663L54.3809 370.097V604.418L402.501 805.655L488.019 756.22V370.359C488.019 360.912 493.057 352.182 501.236 347.454L571.591 306.784C571.491 305.356 571.44 303.915 571.44 302.462C571.44 268.885 598.627 241.666 632.162 241.666C665.697 241.666 692.884 268.885 692.884 302.462C692.884 336.039 665.697 363.258 632.162 363.258C619.462 363.258 607.672 359.355 597.925 352.68L540.933 385.625V725.632L750.62 604.418L750.61 201.94L659.47 149.254L320.283 345.322C312.092 350.057 301.994 350.057 293.803 345.322L223.569 304.723C213.84 311.358 202.085 315.237 189.426 315.237C155.89 315.237 128.705 288.018 128.705 254.441C128.705 220.864 155.89 193.644 189.426 193.644C222.961 193.644 250.147 220.864 250.147 254.441C250.147 255.932 250.093 257.411 249.987 258.876L307.043 291.857L606.605 118.695L402.501 0.708984L54.3809 201.946Z"
+                        fill="url(#paint0_linear)"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="paint0_linear"
+                          x1="147.056"
+                          y1="566.727"
+                          x2="620.388"
+                          y2="1.2881"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-color="#4BBFCC" />
+                          <stop offset="0.0001" stop-color="#33CBD5" />
+                          <stop offset="1" stop-color="#C6E989" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                      <a
+                        href="https://www.cryptr.co"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                      >
+                        Cryptr.co
+                      </a>
+                      <a
+                        href="#"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                      >
+                        Doc
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <header class="py-10">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl leading-9 font-bold text-white">Cryptr React SDK</h1>
+          </div>
+        </header>
+      </div>
+
+      <main class="-mt-32">
+        <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
+          <div class="bg-white rounded-lg shadow overflow-hidden">
+            <div id="root"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
