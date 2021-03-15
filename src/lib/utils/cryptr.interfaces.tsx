@@ -1,6 +1,7 @@
 import { Config } from "@cryptr/cryptr-spa-js/dist/types/interfaces";
 export interface ProviderConfig extends Config{
-  onRedirectCallback: (claims: object | null) => void;
+  /* tslint:disable-next-line */
+  onRedirectCallback: (claims: CryptrTokenClaims | null) => void;
   onLogOutCallback: () => void;
   defaultScopes: string;
 }
@@ -16,19 +17,22 @@ export interface CleeckClient {
   signInWithRedirect: () => void
 }
 
-export interface CleeckTokenClaims {
+
+export interface CryptrTokenClaims {
+  iat: number
   aud: string
   cid: string
-  exp: number
-  iat: number
+  dbs: string
   iss: string
+  scp: string[]
+  tnt: string
+  sub: string
+  exp: number
   jti: string
+  ver: number
   jtt: string
   resource_owner_metadata?: { [key: string]: string | number | boolean }
-  scp: string[]
-  sub: string
-  tnt: string
-  version: number
+  application_metadata?: { [key: string]: string | number | boolean }
 }
 
 // export interface ProviderProps {

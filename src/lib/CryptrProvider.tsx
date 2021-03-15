@@ -5,7 +5,8 @@ import Client from '../../node_modules/@cryptr/cryptr-spa-js/dist/types/client'
 import CryptrContext from './CryptrContext'
 import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
-import { ProviderConfig } from './utils/cryptr.interfaces'
+import { CryptrTokenClaims, ProviderConfig } from './utils/cryptr.interfaces'
+import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 
 /** Define a default action to perform after authentication */
 const DEFAULT_REDIRECT_CALLBACK = () => {
@@ -23,7 +24,16 @@ const DEFAULT_LOGOUT_CALLBACK = () => {
 
 const DEFAULT_SCOPE = 'email profile openid'
 
-const prepareConfig = (options: {[key: string]: any}): ProviderConfig => {
+interface ProviderOptions extends Config {
+  onRedirectCallback?: (claims: CryptrTokenClaims | null) => void
+  onLogOutCallback?: () => void
+  defaultScopes?: string
+}
+interface ProviderProps extends ProviderOptions {
+  children: JSX.Element
+}
+
+const prepareConfig = (options: ProviderOptions): ProviderConfig => {
   return {
     ...options,
     tenant_domain: options.tenant_domain,
@@ -35,15 +45,16 @@ const prepareConfig = (options: {[key: string]: any}): ProviderConfig => {
     default_redirect_uri: options.default_redirect_uri || window.location.origin,
     onRedirectCallback: options.onRedirectCallback || DEFAULT_REDIRECT_CALLBACK,
 
-    onLogOutCallback: options.onlogOutCallback || DEFAULT_LOGOUT_CALLBACK,
+    onLogOutCallback: options.onLogOutCallback || DEFAULT_LOGOUT_CALLBACK,
     defaultScopes: options.defaultScopes || DEFAULT_SCOPE,
     telemetry: false,
   }
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, react/prop-types
-const CryptrProvider = ({ children, ...options }): JSX.Element => {
-  const [config, setConfig] = useState<ProviderConfig>(prepareConfig(options))
+const CryptrProvider = ( props: ProviderProps): JSX.Element => {
+  const { children, ...options} = props
+  const [config] = useState<ProviderConfig>(prepareConfig(options))
 
   const [cryptrClient] = useState<Client>(new CleeckSpa.client(config))
   const [accountPopup, setAccountPopup] = useState<Window | null>()
@@ -73,7 +84,7 @@ const CryptrProvider = ({ children, ...options }): JSX.Element => {
       try {
         if (cryptrClient && (await cryptrClient.canHandleAuthentication())) {
           const tokens = await cryptrClient.handleRedirectCallback()
-          const claims = cryptrClient.getClaimsFromAccess(tokens.accessToken)
+          const claims = cryptrClient.getClaimsFromAccess(tokens.accessToken) as unknown as CryptrTokenClaims | null
           config.onRedirectCallback(claims)
         } else if (cryptrClient && (await cryptrClient.canHandleInvitation())) {
           await cryptrClient.handleInvitationState()
