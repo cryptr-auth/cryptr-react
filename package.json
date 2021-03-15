@@ -1,10 +1,9 @@
 {
   "name": "cryptr-react",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Cryptr React Authentication SDK",
   "author": "Cryptr",
   "license": "MIT",
-  "repository": "@cryptr/cryptr-react",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -12,16 +11,33 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
-    "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "start": "react-scripts start",
+    "build:react": "react-scripts build",
+    "lint": "eslint --ext=tsx ./src",
+    "test": "jest --coverage",
+    "eject": "react-scripts eject",
+    "publish-force": "npm unpublish --force && npm run build && ls && npm publish",
+    "build": "npm run lint && rm -rf dist && rollup -c --environment NODE_ENV:production",
+    "publish:lib": "npm run build && npm publish",
+    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "peerDependencies": {
     "react": "^16.0.0"
@@ -59,5 +75,20 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "keywords": [
+    "cryptr",
+    "react",
+    "sdk",
+    "authentication",
+    "passwordless"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptr-auth/cryptr-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cryptr-auth/cryptr-react/issues"
+  },
+  "homepage": "https://github.com/cryptr-auth/cryptr-react#readme"
 }
