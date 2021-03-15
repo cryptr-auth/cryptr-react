@@ -30,9 +30,9 @@ const prepareConfig = (options: {[key: string]: any}): ProviderConfig => {
     client_id: options.client_id,
     audience: options.audience || window.location.origin,
     cryptr_base_url: options.cryptr_base_url,
-    default_locale: options.locale || 'en',
+    default_locale: options.default_locale || 'en',
 
-    default_redirect_uri: options.redirect_uri || window.location.origin,
+    default_redirect_uri: options.default_redirect_uri || window.location.origin,
     onRedirectCallback: options.onRedirectCallback || DEFAULT_REDIRECT_CALLBACK,
 
     onLogOutCallback: options.onlogOutCallback || DEFAULT_LOGOUT_CALLBACK,
