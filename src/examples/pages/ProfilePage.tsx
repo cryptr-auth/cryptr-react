@@ -1,10 +1,9 @@
 import React, { ReactElement } from 'react'
 import { AccountButton, useCryptr } from '../../lib'
-import { User } from '../../lib/utils/cryptr.interfaces'
 
 const ProfilePage = (): ReactElement => {
   const {user, isAuthenticated} = useCryptr()
-  const currentUser = user() as unknown as User | null
+  const currentUser = user()
   const defaultPicUrl = 'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80h'
 
 
