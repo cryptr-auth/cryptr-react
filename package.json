@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": false,
   "dependencies": {
-    "@cryptr/cryptr-spa-js": "github:cryptr-auth/cryptr-spa-js#feature/debugging-worker",
+    "@cryptr/cryptr-spa-js": "^0.1.6",
     "axios": "^0.21.0",
     "npm-watch": "^0.9.0",
     "prop-types": "^15.7.2"
