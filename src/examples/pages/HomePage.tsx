@@ -3,7 +3,7 @@ import { useCryptr } from '../../lib'
 
 
 const HomePage = (): ReactElement => {
-  const { signupWithRedirect, signinWithRedirect, isAuthenticated, defaultScopes } = useCryptr()
+  const { logOut, signupWithRedirect, signinWithRedirect, isAuthenticated, defaultScopes } = useCryptr()
 
   const signIn = () => {
     signinWithRedirect(defaultScopes())
@@ -44,7 +44,17 @@ const HomePage = (): ReactElement => {
             </div>
           </>
         ) : (
-          <strong>Logged in !</strong>
+          <>
+            <strong>Logged in !</strong>
+            <div className="inline-flex rounded-md shadow">
+              <button
+                onClick={logOut}
+                className="inline-flex items-center justify-center ml-5 px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+              >
+                Logout
+              </button>
+            </div>
+          </>
         )}
 
       </div>
