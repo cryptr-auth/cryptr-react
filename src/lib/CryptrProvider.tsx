@@ -1,10 +1,12 @@
 import React, { useEffect, useReducer, useState, useCallback, useRef } from 'react'
-import CleeckSpa from '@cryptr/cryptr-spa-js'
+import CryptrSpa from '@cryptr/cryptr-spa-js'
 // import PropTypes from 'prop-types'
 import Client from '../../node_modules/@cryptr/cryptr-spa-js/dist/types/client'
 import CryptrContext from './CryptrContext'
 import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
+import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
+import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 
 /** Define a default action to perform after authentication */
 const DEFAULT_REDIRECT_CALLBACK = () => {
@@ -22,27 +24,42 @@ const DEFAULT_LOGOUT_CALLBACK = () => {
 
 const DEFAULT_SCOPE = 'email profile openid'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, react/prop-types
-const CryptrProvider = ({ children, ...options }): JSX.Element => {
-  const [config] = useState({
+interface ProviderOptions extends Config {
+  onRedirectCallback?: (claims: CryptrTokenClaims | null) => void
+  onLogOutCallback?: () => void
+  defaultScopes?: string
+}
+interface ProviderProps extends ProviderOptions {
+  children: JSX.Element
+}
+
+const prepareConfig = (options: ProviderOptions): ProviderConfig => {
+  return {
     ...options,
     tenant_domain: options.tenant_domain,
     client_id: options.client_id,
-    cleeck_base_url: options.cleeck_base_url,
-    locale: options.locale || 'en',
+    audience: options.audience || window.location.origin,
+    cryptr_base_url: options.cryptr_base_url,
+    default_locale: options.default_locale || 'en',
 
-    default_redirect_uri: options.redirect_uri || window.location.origin,
+    default_redirect_uri: options.default_redirect_uri || window.location.origin,
     onRedirectCallback: options.onRedirectCallback || DEFAULT_REDIRECT_CALLBACK,
 
-    audience: options.audience || window.location.origin,
-    onLogOutCallback: options.onlogOutCallback || DEFAULT_LOGOUT_CALLBACK,
+    onLogOutCallback: options.onLogOutCallback || DEFAULT_LOGOUT_CALLBACK,
     defaultScopes: options.defaultScopes || DEFAULT_SCOPE,
     telemetry: false,
-  })
+  }
+}
 
-  const [cryptrClient] = useState<Client>(new CleeckSpa.client(config))
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, react/prop-types
+const CryptrProvider = (props: ProviderProps): JSX.Element => {
+  const { children, ...options } = props
+  const [config] = useState<ProviderConfig>(prepareConfig(options))
+
+  const [cryptrClient] = useState<Client>(new CryptrSpa.client(config))
   const [accountPopup, setAccountPopup] = useState<Window | null>()
   const [state, dispatch] = useReducer(CryptrReducer, initialCryptrState)
+  // console.debug(CryptrSpa.version)
 
   const logOutCallback = () => {
     dispatchNewState({ type: 'INITIALIZED', isAuthenticated: false, user: null })
@@ -59,7 +76,6 @@ const CryptrProvider = ({ children, ...options }): JSX.Element => {
   )
 
   const dispatchNewState = (newState) => {
-    console.log(newState)
     dispatch(newState)
   }
 
@@ -68,9 +84,14 @@ const CryptrProvider = ({ children, ...options }): JSX.Element => {
       try {
         if (cryptrClient && (await cryptrClient.canHandleAuthentication())) {
           const tokens = await cryptrClient.handleRedirectCallback()
-          const claims = cryptrClient.getClaimsFromAccess(tokens.accessToken)
+          const claims = (cryptrClient.getClaimsFromAccess(
+            tokens.accessToken,
+          ) as unknown) as CryptrTokenClaims | null
           config.onRedirectCallback(claims)
-        } else if (cryptrClient && (await cryptrClient.canHandleInvitation())) {
+        } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
+          // console.log("should refresh")
+          await cryptrClient.handleRefreshTokens()
+        } else if (cryptrClient && cryptrClient.canHandleInvitation()) {
           await cryptrClient.handleInvitationState()
         } else {
           console.log('not hanling redirection')
@@ -80,11 +101,11 @@ const CryptrProvider = ({ children, ...options }): JSX.Element => {
         dispatchNewState({ type: 'ERROR', error: error.message })
       } finally {
         if (cryptrClient !== undefined) {
-          const user = cryptrClient.getUser()
+          const user = (cryptrClient.getUser() as unknown) as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()
           // Quick fix: maybe need spa-js improve
           // cryptrClient.refreshTokens()
-          dispatchNewState({ type: 'INITIALISED', isAuthenticated, user })
+          dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
         }
       }
     }
@@ -125,8 +146,8 @@ const CryptrProvider = ({ children, ...options }): JSX.Element => {
     }, [eventName, element])
   }
 
-  useEventListener(CleeckSpa.events.REFRESH_EXPIRED, popupHandler)
-  useEventListener(CleeckSpa.events.REFRESH_INVALID_GRANT, popupHandler)
+  useEventListener(CryptrSpa.events.REFRESH_EXPIRED, popupHandler)
+  useEventListener(CryptrSpa.events.REFRESH_INVALID_GRANT, popupHandler)
 
   if (cryptrClient === undefined) {
     return children
@@ -141,17 +162,17 @@ const CryptrProvider = ({ children, ...options }): JSX.Element => {
           return state.isAuthenticated
         },
         logOut: () => cryptrClient.logOut(logOutCallback),
-        signinWithRedirect: (scope: string = DEFAULT_SCOPE) =>
-          cryptrClient.signInWithRedirect(scope),
-        signupWithRedirect: (scope: string = DEFAULT_SCOPE) =>
-          cryptrClient.signUpWithRedirect(scope),
+        signinWithRedirect: (scope?: string, locale?: string, redirectUri?: string) =>
+          cryptrClient.signInWithRedirect(scope, redirectUri, locale),
+        signupWithRedirect: (scope?: string, locale?: string, redirectUri?: string) =>
+          cryptrClient.signUpWithRedirect(scope, redirectUri, locale),
         userAccountAccess: () => handleUserAccountAccess(),
         user: () => {
           return state.user
         },
         decoratedRequest: (config) => cryptrClient.decoratedRequest(config),
         defaultScopes: () => config.defaultScopes,
-        getAccessTokenSilently: () => cryptrClient.getCurrentAccessToken(),
+        getCurrentAccessToken: () => cryptrClient.getCurrentAccessToken(),
       }}
     >
       {children}

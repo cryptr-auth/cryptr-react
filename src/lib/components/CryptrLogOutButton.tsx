@@ -16,11 +16,12 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
   className,
   autoHide = true,
 }: LogOutProps) => {
-  const { isAuthenticated, logOut } = useCryptr()
+  const { isAuthenticated, isLoading, logOut } = useCryptr()
   const signOut = () => {
     logOut(callback)
   }
-  if (isAuthenticated !== undefined && !isAuthenticated() && autoHide) {
+
+  if ((isAuthenticated !== undefined && !isAuthenticated() && autoHide) || isLoading) {
     return <div data-testid="CryptrLogOutButton"></div>
   }
   return (

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import './App.css'
-// import { CleeckTokenClaims, Provider } from '../lib'
+import { Provider } from '../lib'
 import SideNav, { NavLink } from './SideNav'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -13,17 +13,17 @@ import ProfilePage from './pages/ProfilePage'
 
 /*
 
- in real world replace ../lib by cryptr-react/ 
-  
+ in real world replace ../lib by cryptr-react/
+
  ex: import CryptrLogin from cryptr-react/widgets/CryptrLogin
 
  ex: import { CryptrLogin } as Login from '...'
 
- ex: 
+ ex:
   import { isAUthenticated, CryptrLogin, CryptrNotification, ... }  from '@cryptr/cryptr-react'
 
-  
-  ex Stripe Elements & Algolia ... etc 
+
+  ex Stripe Elements & Algolia ... etc
 
     -> import { isAuthenticated, Login, Notification, ... } from '@cryptr/cryptr-react'
 
@@ -35,7 +35,7 @@ import ProfilePage from './pages/ProfilePage'
 //   audience: process.env.CRYPTR_AUDIENCE || 'http://127.0.0.1:3000',
 //   redirect_uri: process.env.CRYPTR_REDIRECT_URI || 'http://127.0.0.1:3000',
 //   locale: process.env.CRYPTR_LOCALE || 'fr',
-//   cleeck_base_url: process.env.CRYPTR_CRYPTR_BASE_URL || 'http://localhost:4000',
+//   cryptr_base_url: process.env.CRYPTR_CRYPTR_BASE_URL || 'http://localhost:4000',
 //   telemetry: false,
 // }
 
@@ -46,31 +46,43 @@ const ROUTES: Array<NavLink> = [
   { name: 'Billings', active: false, path: '/billings' },
 ]
 
-const App = (): ReactElement => (
-  <Router>
-    <div
-      style={{ minHeight: '780px' }}
-      className="divide-y divide-gray-200 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x"
-    >
-      <SideNav routes={ROUTES} />
+const config = {
+  audience: 'http://localhost:5000',
+  cryptr_base_url: 'http://localhost:4000',
+  tenant_domain: 'shark-academy',
+  client_id: '7dd5eeaa-1cf3-49a7-a07a-2b588cc70ed9',
+  default_redirect_uri: 'http://localhost:5000',
+  locale: 'fr',
+  telemetry: false,
+}
 
-      <div className="divide-y divide-gray-200 lg:col-span-9">
-        <div className="py-6 px-4 space-y-6 sm:p-6 lg:pb-8">
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/profile">
-            <ProfilePage />
-          </Route>
-          <Route path="/account">
-            <SettingsPage />
-          </Route>
-          <Route path="/billings">
-            <BillingsPage />
-          </Route>
+const App = (): ReactElement => (
+  <Provider {...config}>
+    <Router>
+      <div
+        style={{ minHeight: '780px' }}
+        className="divide-y divide-gray-200 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x"
+      >
+        <SideNav routes={ROUTES} />
+
+        <div className="divide-y divide-gray-200 lg:col-span-9">
+          <div className="py-6 px-4 space-y-6 sm:p-6 lg:pb-8">
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route path="/profile">
+              <ProfilePage />
+            </Route>
+            <Route path="/account">
+              <SettingsPage />
+            </Route>
+            <Route path="/billings">
+              <BillingsPage />
+            </Route>
+          </div>
         </div>
       </div>
-    </div>
-  </Router>
+    </Router>
+  </Provider>
 )
 export default App
