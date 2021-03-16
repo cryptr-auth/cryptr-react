@@ -162,10 +162,10 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
           return state.isAuthenticated
         },
         logOut: () => cryptrClient.logOut(logOutCallback),
-        signinWithRedirect: (scope: string = DEFAULT_SCOPE) =>
-          cryptrClient.signInWithRedirect(scope),
-        signupWithRedirect: (scope: string = DEFAULT_SCOPE) =>
-          cryptrClient.signUpWithRedirect(scope),
+        signinWithRedirect: (scope?: string, locale?: string, redirectUri?: string) =>
+          cryptrClient.signInWithRedirect(scope, redirectUri, locale),
+        signupWithRedirect: (scope?: string, locale?: string, redirectUri?: string) =>
+          cryptrClient.signUpWithRedirect(scope, redirectUri, locale),
         userAccountAccess: () => handleUserAccountAccess(),
         user: () => {
           return state.user
