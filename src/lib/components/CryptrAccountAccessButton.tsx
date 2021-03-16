@@ -40,8 +40,8 @@ const CryptrAccountAccessButton = ({
 
   const email = (): string | undefined => {
     const currentUser = user()
-    if (currentUser !== null) {
-      return currentUser['email']
+    if (currentUser) {
+      return currentUser.email
     }
   }
 
