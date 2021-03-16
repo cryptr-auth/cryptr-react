@@ -5,7 +5,7 @@ import Client from '../../node_modules/@cryptr/cryptr-spa-js/dist/types/client'
 import CryptrContext from './CryptrContext'
 import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
-import { CryptrTokenClaims, ProviderConfig } from './utils/cryptr.interfaces'
+import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
 import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 
 /** Define a default action to perform after authentication */
@@ -101,7 +101,7 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
         dispatchNewState({ type: 'ERROR', error: error.message })
       } finally {
         if (cryptrClient !== undefined) {
-          const user = cryptrClient.getUser()
+          const user = cryptrClient.getUser() as unknown as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()
           // Quick fix: maybe need spa-js improve
           // cryptrClient.refreshTokens()
