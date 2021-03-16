@@ -74,19 +74,16 @@ const CryptrAccountAccessButton = ({
   }
 
   if (isLoading) {
-    return <div data-testid="CryptrAccountAccessButton"></div>;
+    return <div data-testid="CryptrAccountAccessButton"></div>
   }
 
-  const snakeToCamel = str =>
-  str.toLowerCase().replace(/([-_][a-z])/g, group =>
-    group
-      .replace('-', ' ')
-  );
+  const snakeToCamel = (str) =>
+    str.toLowerCase().replace(/([-_][a-z])/g, (group) => group.replace('-', ' '))
 
-  if(tenantName === undefined) {
+  if (tenantName === undefined) {
     const currentUser = user()
-    if(currentUser) {
-      const tnt = currentUser["tnt"]
+    if (currentUser) {
+      const tnt = currentUser['tnt']
       tenantName = snakeToCamel(tnt)
     }
   }

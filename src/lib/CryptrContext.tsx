@@ -15,8 +15,8 @@ const initialContext = {
   isAuthenticated: error,
   userAccountAccess: error,
   logOut: error,
-  user: error as unknown as () => User | null,
-  decoratedRequest: error as unknown as AxiosPromise<unknown> | null ,
+  user: (error as unknown) as () => User | null,
+  decoratedRequest: (error as unknown) as AxiosPromise<unknown> | null,
   defaultScopes: error,
   getCurrentAccessToken: error,
 }

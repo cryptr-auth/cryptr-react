@@ -1,9 +1,9 @@
-import { Config } from "@cryptr/cryptr-spa-js/dist/types/interfaces";
-export interface ProviderConfig extends Config{
+import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+export interface ProviderConfig extends Config {
   /* tslint:disable-next-line */
-  onRedirectCallback: (claims: CryptrTokenClaims | null) => void;
-  onLogOutCallback: () => void;
-  defaultScopes: string;
+  onRedirectCallback: (claims: CryptrTokenClaims | null) => void
+  onLogOutCallback: () => void
+  defaultScopes: string
 }
 export interface CryptrTokens {
   accessToken: string
@@ -24,7 +24,6 @@ export interface User {
   nickname?: string
   picture?: string
 }
-
 
 export interface CryptrTokenClaims {
   iat: number

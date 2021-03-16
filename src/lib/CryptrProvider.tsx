@@ -52,8 +52,8 @@ const prepareConfig = (options: ProviderOptions): ProviderConfig => {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, react/prop-types
-const CryptrProvider = ( props: ProviderProps): JSX.Element => {
-  const { children, ...options} = props
+const CryptrProvider = (props: ProviderProps): JSX.Element => {
+  const { children, ...options } = props
   const [config] = useState<ProviderConfig>(prepareConfig(options))
 
   const [cryptrClient] = useState<Client>(new CryptrSpa.client(config))
@@ -79,18 +79,19 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
     dispatch(newState)
   }
 
-
   useEffect(() => {
     const configFn = async () => {
       try {
         if (cryptrClient && (await cryptrClient.canHandleAuthentication())) {
           const tokens = await cryptrClient.handleRedirectCallback()
-          const claims = cryptrClient.getClaimsFromAccess(tokens.accessToken) as unknown as CryptrTokenClaims | null
+          const claims = (cryptrClient.getClaimsFromAccess(
+            tokens.accessToken,
+          ) as unknown) as CryptrTokenClaims | null
           config.onRedirectCallback(claims)
-        } else if (cryptrClient &&  cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
+        } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           // console.log("should refresh")
           await cryptrClient.handleRefreshTokens()
-        } else if (cryptrClient &&  cryptrClient.canHandleInvitation()) {
+        } else if (cryptrClient && cryptrClient.canHandleInvitation()) {
           await cryptrClient.handleInvitationState()
         } else {
           console.log('not hanling redirection')
@@ -100,7 +101,7 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
         dispatchNewState({ type: 'ERROR', error: error.message })
       } finally {
         if (cryptrClient !== undefined) {
-          const user = cryptrClient.getUser() as unknown as User | null
+          const user = (cryptrClient.getUser() as unknown) as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()
           // Quick fix: maybe need spa-js improve
           // cryptrClient.refreshTokens()
