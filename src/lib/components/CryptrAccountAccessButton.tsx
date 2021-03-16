@@ -27,7 +27,7 @@ const CryptrAccountAccessButton = ({
   tenantName,
   tenantLogo,
 }: AccountAccessProps): JSX.Element => {
-  const { isAuthenticated, userAccountAccess, user } = useCryptr()
+  const { isAuthenticated, isLoading, userAccountAccess, user } = useCryptr()
   const [widgetOpened, setWidgetOpened] = useState(false)
   const goToAccount = () => {
     userAccountAccess()
@@ -57,6 +57,10 @@ const CryptrAccountAccessButton = ({
       const match = mFullName.match(/\b(\w)/g)
       return match !== null ? match.join('') : undefined
     }
+  }
+
+  if (isLoading) {
+    return <div data-testid="CryptrAccountAccessButton"></div>;
   }
 
   if (isAuthenticated !== undefined && !isAuthenticated()) {

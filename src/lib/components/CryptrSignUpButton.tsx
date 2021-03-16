@@ -16,12 +16,12 @@ const CryptrSignUpButton: React.FC<SignUpProps> = ({
   className,
   autoHide = true,
 }: SignUpProps) => {
-  const { signupWithRedirect, isAuthenticated, defaultScopes } = useCryptr()
+  const { signupWithRedirect, isAuthenticated, isLoading, defaultScopes } = useCryptr()
   const signIn = () => {
     signupWithRedirect(scopes || defaultScopes())
   }
 
-  if (isAuthenticated !== undefined && isAuthenticated() && autoHide) {
+  if (isLoading && (isAuthenticated !== undefined && isAuthenticated() && autoHide)) {
     return <div data-testid="CryptrSignUpButton"></div>
   }
 

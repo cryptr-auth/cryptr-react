@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { useCryptr } from '../../lib'
+import { AccountButton, useCryptr } from '../../lib'
 
 
 const HomePage = (): ReactElement => {
@@ -24,6 +24,7 @@ const HomePage = (): ReactElement => {
         <span className="text-indigo-600">With a ready to use setup</span>
       </h2>
       <div className="mt-8 flex">
+        <AccountButton className="cursor-pointer mt-2 w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-gray-900 bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:border-yellow-600 focus:shadow-outline-yellow transition duration-150 ease-in-out"/>
         {isLoading ? (
           <strong>
             <span className="animate-spin mr-2">&#8278;</span>
