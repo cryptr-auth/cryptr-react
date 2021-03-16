@@ -47,12 +47,12 @@ const ROUTES: Array<NavLink> = [
 ]
 
 const config = {
-  "audience": "http://localhost:3001",
+  "audience": "http://localhost:5000",
   "cryptr_base_url": "http://localhost:4000",
   "tenant_domain": "shark-academy",
-  "client_id": "58a424f2-0a80-4275-837e-ebb7adfd2212",
-  "default_redirect_uri": "http://localhost:3001",
-  "locale": "en",
+  "client_id": "7dd5eeaa-1cf3-49a7-a07a-2b588cc70ed9",
+  "default_redirect_uri": "http://localhost:5000",
+  "locale": "fr",
   "telemetry": false
 }
 
