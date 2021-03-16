@@ -5,7 +5,6 @@ const ProfilePage = (): ReactElement => {
   const {user, isAuthenticated, isLoading} = useCryptr()
   const currentUser = user()
   const defaultPicUrl = 'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80h'
-  console.log(isLoading)
 
   return (
   <div className="py-6 px-4 space-y-6 sm:p-6 lg:pb-8">

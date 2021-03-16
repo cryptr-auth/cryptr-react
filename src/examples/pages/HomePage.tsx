@@ -11,8 +11,6 @@ const HomePage = (): ReactElement => {
   const signUp = () => {
     signupWithRedirect(defaultScopes())
   }
-  console.debug('serviceWorker' in navigator)
-  console.debug(window.location.search)
 
   return (
   <>
