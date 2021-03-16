@@ -59,6 +59,7 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
   const [cryptrClient] = useState<Client>(new CryptrSpa.client(config))
   const [accountPopup, setAccountPopup] = useState<Window | null>()
   const [state, dispatch] = useReducer(CryptrReducer, initialCryptrState)
+  // console.debug(CryptrSpa.version)
 
   const logOutCallback = () => {
     dispatchNewState({ type: 'INITIALIZED', isAuthenticated: false, user: null })
@@ -79,6 +80,7 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
     dispatch(newState)
   }
 
+
   useEffect(() => {
     const configFn = async () => {
       try {
@@ -86,7 +88,10 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
           const tokens = await cryptrClient.handleRedirectCallback()
           const claims = cryptrClient.getClaimsFromAccess(tokens.accessToken) as unknown as CryptrTokenClaims | null
           config.onRedirectCallback(claims)
-        } else if (cryptrClient && (await cryptrClient.canHandleInvitation())) {
+        } else if (cryptrClient &&  cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
+          // console.log("should refresh")
+          await cryptrClient.handleRefreshTokens()
+        } else if (cryptrClient &&  cryptrClient.canHandleInvitation()) {
           await cryptrClient.handleInvitationState()
         } else {
           console.log('not hanling redirection')
