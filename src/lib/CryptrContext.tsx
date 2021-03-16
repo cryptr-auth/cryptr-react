@@ -1,3 +1,4 @@
+import { AxiosPromise } from 'axios'
 import { createContext } from 'react'
 import initialCryptrState from './initialCryptrState'
 
@@ -14,7 +15,7 @@ const initialContext = {
   userAccountAccess: error,
   logOut: error,
   user: error,
-  decoratedRequest: error,
+  decoratedRequest: error as unknown as AxiosPromise<unknown> | null ,
   defaultScopes: error,
   getCurrentAccessToken: error,
 }
