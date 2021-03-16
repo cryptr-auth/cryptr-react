@@ -29,6 +29,7 @@ const CryptrAccountAccessButton = ({
 }: AccountAccessProps): JSX.Element => {
   const { isAuthenticated, isLoading, userAccountAccess, user } = useCryptr()
   const [widgetOpened, setWidgetOpened] = useState(false)
+
   const goToAccount = () => {
     userAccountAccess()
   }
@@ -59,10 +60,6 @@ const CryptrAccountAccessButton = ({
     }
   }
 
-  if (isLoading) {
-    return <div data-testid="CryptrAccountAccessButton"></div>;
-  }
-
   if (isAuthenticated !== undefined && !isAuthenticated()) {
     return (
       <div data-testid="CryptrAccountAccessButton">
@@ -74,6 +71,10 @@ const CryptrAccountAccessButton = ({
         )}
       </div>
     )
+  }
+
+  if (isLoading) {
+    return <div data-testid="CryptrAccountAccessButton"></div>;
   }
 
   if (isWidget) {
