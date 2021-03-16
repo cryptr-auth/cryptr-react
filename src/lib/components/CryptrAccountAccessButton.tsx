@@ -60,7 +60,18 @@ const CryptrAccountAccessButton = ({
     }
   }
 
-  if (isAuthenticated !== undefined && !isAuthenticated()) {
+  const snakeToCamel = (str) =>
+    str.toLowerCase().replace(/([-_][a-z])/g, (group) => group.replace('-', ' '))
+
+  if (tenantName === undefined) {
+    const currentUser = user()
+    if (currentUser) {
+      const tnt = currentUser['tnt']
+      tenantName = snakeToCamel(tnt)
+    }
+  }
+
+  if (isAuthenticated === undefined || !isAuthenticated()) {
     return (
       <div data-testid="CryptrAccountAccessButton">
         {defaultSignType === 'signin' && (
@@ -75,17 +86,6 @@ const CryptrAccountAccessButton = ({
 
   if (isLoading) {
     return <div data-testid="CryptrAccountAccessButton"></div>
-  }
-
-  const snakeToCamel = (str) =>
-    str.toLowerCase().replace(/([-_][a-z])/g, (group) => group.replace('-', ' '))
-
-  if (tenantName === undefined) {
-    const currentUser = user()
-    if (currentUser) {
-      const tnt = currentUser['tnt']
-      tenantName = snakeToCamel(tnt)
-    }
   }
 
   if (isWidget) {
