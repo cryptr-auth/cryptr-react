@@ -105,7 +105,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           const isAuthenticated = await cryptrClient.isAuthenticated()
           // Quick fix: maybe need spa-js improve
           // cryptrClient.refreshTokens()
-          dispatchNewState({ type: 'INITIALISED', isAuthenticated, user })
+          dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
         }
       }
     }
