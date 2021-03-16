@@ -14,7 +14,11 @@ const BillingsPage = (): ReactElement => {
       setBillings(data.data)
     })
     setAccessToken(getCurrentAccessToken())
-  }, [decoratedRequest, getCurrentAccessToken()])
+  }, [decoratedRequest ])
+
+  useEffect(() => {
+    setAccessToken(getCurrentAccessToken())
+  }, [getCurrentAccessToken()])
   return (
     <section aria-labelledby="billing_history_heading">
       <div className="bg-white pt-6 space-y-6  sm:overflow-hidden">
