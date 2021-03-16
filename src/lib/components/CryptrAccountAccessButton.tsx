@@ -77,6 +77,20 @@ const CryptrAccountAccessButton = ({
     return <div data-testid="CryptrAccountAccessButton"></div>;
   }
 
+  const snakeToCamel = str =>
+  str.toLowerCase().replace(/([-_][a-z])/g, group =>
+    group
+      .replace('-', ' ')
+  );
+
+  if(tenantName === undefined) {
+    const currentUser = user()
+    if(currentUser) {
+      const tnt = currentUser["tnt"]
+      tenantName = snakeToCamel(tnt)
+    }
+  }
+
   if (isWidget) {
     return (
       <div data-testid="CryptrAccountAccessButton" className="flex items-center">
