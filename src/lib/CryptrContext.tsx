@@ -16,7 +16,7 @@ const initialContext = {
   user: error,
   decoratedRequest: error,
   defaultScopes: error,
-  getAccessTokenSilently: error,
+  getCurrentAccessToken: error,
 }
 
 const CryptrContext = createContext(initialContext)

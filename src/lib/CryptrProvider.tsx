@@ -172,7 +172,7 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
         },
         decoratedRequest: (config) => cryptrClient.decoratedRequest(config),
         defaultScopes: () => config.defaultScopes,
-        getAccessTokenSilently: () => cryptrClient.getCurrentAccessToken(),
+        getCurrentAccessToken: () => cryptrClient.getCurrentAccessToken(),
       }}
     >
       {children}
