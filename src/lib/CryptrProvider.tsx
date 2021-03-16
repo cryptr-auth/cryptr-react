@@ -76,7 +76,6 @@ const CryptrProvider = ( props: ProviderProps): JSX.Element => {
   )
 
   const dispatchNewState = (newState) => {
-    console.log(newState)
     dispatch(newState)
   }
 
