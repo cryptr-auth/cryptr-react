@@ -17,7 +17,7 @@ const initialCryptrState = {
   isAuthenticated: false,
   // In SSR mode the library will never check the session, so loading should be initialised as false
   isLoading: typeof window !== 'undefined',
-  user: undefined,
+  user: null,
   error: null,
 }
 

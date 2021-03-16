@@ -1,3 +1,5 @@
+import { User } from './utils/cryptr.interfaces'
+
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const CryptrReducer = (state, action) => {
   switch (action.type) {
@@ -6,14 +8,15 @@ const CryptrReducer = (state, action) => {
     //     ...state,
     //     isLoading: true,
     //   }
-    case 'INITIALISED':
-      return {
+    case 'INITIALIZED':
+      const newState = {
         ...state,
         isAuthenticated: action.isAuthenticated,
-        user: action.user,
+        user: (action.user as unknown) as User | null,
         isLoading: false,
         error: undefined,
       }
+      return newState
     case 'ERROR':
       return {
         ...state,

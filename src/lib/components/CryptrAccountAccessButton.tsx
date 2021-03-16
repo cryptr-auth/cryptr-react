@@ -27,8 +27,9 @@ const CryptrAccountAccessButton = ({
   tenantName,
   tenantLogo,
 }: AccountAccessProps): JSX.Element => {
-  const { isAuthenticated, userAccountAccess, user } = useCryptr()
+  const { isAuthenticated, isLoading, userAccountAccess, user } = useCryptr()
   const [widgetOpened, setWidgetOpened] = useState(false)
+
   const goToAccount = () => {
     userAccountAccess()
   }
@@ -38,8 +39,9 @@ const CryptrAccountAccessButton = ({
   }
 
   const email = (): string | undefined => {
-    if (typeof user() == 'object') {
-      return user()['email']
+    const currentUser = user()
+    if (currentUser) {
+      return currentUser.email
     }
   }
 
@@ -58,7 +60,18 @@ const CryptrAccountAccessButton = ({
     }
   }
 
-  if (isAuthenticated !== undefined && !isAuthenticated()) {
+  const snakeToCamel = (str) =>
+    str.toLowerCase().replace(/([-_][a-z])/g, (group) => group.replace('-', ' '))
+
+  if (tenantName === undefined) {
+    const currentUser = user()
+    if (currentUser) {
+      const tnt = currentUser['tnt']
+      tenantName = snakeToCamel(tnt)
+    }
+  }
+
+  if (isAuthenticated === undefined || !isAuthenticated()) {
     return (
       <div data-testid="CryptrAccountAccessButton">
         {defaultSignType === 'signin' && (
@@ -69,6 +82,10 @@ const CryptrAccountAccessButton = ({
         )}
       </div>
     )
+  }
+
+  if (isLoading) {
+    return <div data-testid="CryptrAccountAccessButton"></div>
   }
 
   if (isWidget) {

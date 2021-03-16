@@ -20,7 +20,7 @@ export const AccountButton = CryptrAccountAccessButton
 export const Provider = CryptrProvider
 export { default as useCryptr } from './useCryptr'
 
-export interface CleeckTokenClaims {
+export interface CryptrTokenClaims {
   aud: string
   cid: string
   exp: number
