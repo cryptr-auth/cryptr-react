@@ -20,6 +20,10 @@ export const AccountButton = CryptrAccountAccessButton
 export const Provider = CryptrProvider
 export { default as useCryptr } from './useCryptr'
 
+interface MetaDatas {
+  [key: string]: unknown
+}
+
 export interface CryptrTokenClaims {
   aud: string
   cid: string
@@ -28,7 +32,8 @@ export interface CryptrTokenClaims {
   iss: string
   jti: string
   jtt: string
-  resource_owner_metadata?: any
+  resource_owner_metadata?: MetaDatas
+  application_metadata?: MetaDatas
   scp: string[]
   sub: string
   tnt: string
