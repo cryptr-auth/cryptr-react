@@ -13,7 +13,7 @@ const BillingsPage = (): ReactElement => {
     }).then((data) => {
       setBillings(data.data)
     })
-  }, [decoratedRequest ])
+  }, [decoratedRequest])
 
   useEffect(() => {
     setAccessToken(getCurrentAccessToken())
