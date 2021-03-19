@@ -18,7 +18,7 @@ type AccountAccessProps = {
 
 const CryptrAccountAccessButton = ({
   children,
-  text = 'My account',
+  text,
   defaultSignType = 'signin',
   defaultSignText,
   style,
@@ -27,8 +27,21 @@ const CryptrAccountAccessButton = ({
   tenantName,
   tenantLogo,
 }: AccountAccessProps): JSX.Element => {
-  const { isAuthenticated, isLoading, userAccountAccess, user } = useCryptr()
+  const { isAuthenticated, isLoading, userAccountAccess, user, config } = useCryptr()
   const [widgetOpened, setWidgetOpened] = useState(false)
+
+  const currentLocale = config().default_locale || 'en'
+
+  const accountText = (): string => {
+    if (text) {
+      return text
+    }
+    return currentLocale == 'en' ? 'My account' : 'Mon compte'
+  }
+
+  const logOutText = (): string => {
+    return currentLocale == 'en' ? 'Log out' : 'Deconnexion'
+  }
 
   const goToAccount = () => {
     userAccountAccess()
@@ -146,7 +159,7 @@ const CryptrAccountAccessButton = ({
                               <div className="rounded-md shadow">
                                 <CryptrAccountAccessButton
                                   className="cursor-pointer mt-2 w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-gray-900 bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:border-yellow-600 focus:shadow-outline-yellow transition duration-150 ease-in-out"
-                                  text="Manage my account"
+                                  text={accountText()}
                                   isWidget={false}
                                 />
                               </div>
@@ -163,7 +176,7 @@ const CryptrAccountAccessButton = ({
                             <div className="rounded-md shadow">
                               <CryptrLogOutButton
                                 className="cursor-pointer w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-yellow-500 bg-white hover:text-yellow-400 focus:outline-none focus:border-yellow-300 focus:shadow-outline-yellow transition duration-150 ease-in-out"
-                                text="Log out"
+                                text={logOutText()}
                                 callback={() => {
                                   console.debug('logged out')
                                 }}
@@ -190,7 +203,7 @@ const CryptrAccountAccessButton = ({
       style={style}
       className={className}
     >
-      {text}
+      {accountText()}
     </button>
   )
 }

@@ -22,13 +22,20 @@ type SignInProps = {
  */
 // const CryptrSignInButton: FunctionComponent<SignInState> = ({text = "Sign in", scopes, autoHide = true}) => {
 const CryptrSignInButton: React.FC<SignInProps> = ({
-  text = 'Sign in',
+  text,
   scopes,
   style,
   className,
   autoHide = true,
 }: SignInProps) => {
-  const { isAuthenticated, isLoading, signinWithRedirect, defaultScopes } = useCryptr()
+  const { isAuthenticated, isLoading, signinWithRedirect, defaultScopes, config } = useCryptr()
+
+  const signinText = (): string => {
+    if (text) {
+      return text
+    }
+    return config().default_locale == 'en' ? 'Sign in' : 'Connexion'
+  }
 
   const signIn = () => {
     signinWithRedirect(scopes || defaultScopes())
@@ -39,7 +46,7 @@ const CryptrSignInButton: React.FC<SignInProps> = ({
 
   return (
     <button onClick={signIn} data-testid="CryptrSignInButton" style={style} className={className}>
-      {text}
+      {signinText()}
     </button>
   )
 }
