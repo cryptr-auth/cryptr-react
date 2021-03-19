@@ -52,7 +52,7 @@ const config = {
   tenant_domain: 'shark-academy',
   client_id: '7dd5eeaa-1cf3-49a7-a07a-2b588cc70ed9',
   default_redirect_uri: 'http://localhost:5000',
-  locale: 'fr',
+  default_locale: 'fr',
   telemetry: false,
 }
 

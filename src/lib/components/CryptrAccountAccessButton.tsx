@@ -146,7 +146,7 @@ const CryptrAccountAccessButton = ({
                               <div className="rounded-md shadow">
                                 <CryptrAccountAccessButton
                                   className="cursor-pointer mt-2 w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-gray-900 bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:border-yellow-600 focus:shadow-outline-yellow transition duration-150 ease-in-out"
-                                  text="Manage my account"
+                                  text={text}
                                   isWidget={false}
                                 />
                               </div>
