@@ -5,7 +5,7 @@ import { User } from './utils/cryptr.interfaces'
 
 const error = (...args) => {
   console.debug(args)
-  throw new Error('You have to wrap your component in <CryptrContext.Provider>.')
+  throw new Error('You have to wrap your component in <CryptrProvider>.')
 }
 
 const initialContext = {

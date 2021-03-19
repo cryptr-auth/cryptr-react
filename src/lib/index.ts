@@ -10,14 +10,13 @@ import CryptrSignInBtn from './components/CryptrSignInButton'
 import CryptrSignUpBtn from './components/CryptrSignUpButton'
 import CryptrLogOutBtn from './components/CryptrLogOutButton'
 import CryptrAccountAccessButton from './components/CryptrAccountAccessButton'
-import CryptrProvider from './CryptrProvider'
 // import { cryptrUseEffect } from './utils/cryptr.helpers'
 
 export const SignInButton = CryptrSignInBtn
 export const SignUpButton = CryptrSignUpBtn
 export const LogOutButton = CryptrLogOutBtn
 export const AccountButton = CryptrAccountAccessButton
-export const Provider = CryptrProvider
+export {default as CryptrProvider} from './CryptrProvider'
 export { default as useCryptr } from './useCryptr'
 
 interface MetaDatas {
