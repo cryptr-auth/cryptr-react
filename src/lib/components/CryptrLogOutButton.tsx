@@ -10,15 +10,22 @@ type LogOutProps = {
 }
 
 const CryptrLogOutButton: React.FC<LogOutProps> = ({
-  text = 'Log out',
+  text,
   callback,
   style,
   className,
   autoHide = true,
 }: LogOutProps) => {
-  const { isAuthenticated, isLoading, logOut } = useCryptr()
+  const { isAuthenticated, isLoading, logOut, config } = useCryptr()
   const signOut = () => {
     logOut(callback)
+  }
+
+  const logoutText = (): string => {
+    if (text) {
+      return text
+    }
+    return config().default_locale == 'en' ? 'Log out' : 'Déconnexion'
   }
 
   if ((isAuthenticated !== undefined && !isAuthenticated() && autoHide) || isLoading) {
@@ -26,7 +33,7 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
   }
   return (
     <button onClick={signOut} data-testid="CryptrLogOutButton" style={style} className={className}>
-      {text}
+      {logoutText()}
     </button>
   )
 }

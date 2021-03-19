@@ -10,15 +10,22 @@ type SignUpProps = {
 }
 
 const CryptrSignUpButton: React.FC<SignUpProps> = ({
-  text = 'Sign up',
+  text,
   scopes,
   style,
   className,
   autoHide = true,
 }: SignUpProps) => {
-  const { signupWithRedirect, isAuthenticated, isLoading, defaultScopes } = useCryptr()
+  const { signupWithRedirect, isAuthenticated, isLoading, defaultScopes, config } = useCryptr()
   const signIn = () => {
     signupWithRedirect(scopes || defaultScopes())
+  }
+
+  const signupText = (): string => {
+    if (text) {
+      return text
+    }
+    return config().default_locale == 'en' ? 'Sign up' : 'Inscription'
   }
 
   if ((isAuthenticated !== undefined && isAuthenticated() && autoHide) || isLoading) {
@@ -27,7 +34,7 @@ const CryptrSignUpButton: React.FC<SignUpProps> = ({
 
   return (
     <button onClick={signIn} data-testid="CryptrSignUpButton" style={style} className={className}>
-      {text}
+      {signupText()}
     </button>
   )
 }
