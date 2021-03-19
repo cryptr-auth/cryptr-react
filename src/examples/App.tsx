@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import './App.css'
-import { Provider } from '../lib'
 import SideNav, { NavLink } from './SideNav'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -8,6 +7,7 @@ import HomePage from './pages/HomePage'
 import BillingsPage from './pages/BillingsPage'
 import SettingsPage from './pages/SettingsPage'
 import ProfilePage from './pages/ProfilePage'
+import { CryptrProvider } from '../lib'
 
 // import SubComponent from './SubComponent';
 
@@ -52,12 +52,12 @@ const config = {
   tenant_domain: 'shark-academy',
   client_id: '7dd5eeaa-1cf3-49a7-a07a-2b588cc70ed9',
   default_redirect_uri: 'http://localhost:5000',
-  locale: 'fr',
+  default_locale: 'fr',
   telemetry: false,
 }
 
 const App = (): ReactElement => (
-  <Provider {...config}>
+  <CryptrProvider {...config}>
     <Router>
       <div
         style={{ minHeight: '780px' }}
@@ -83,6 +83,6 @@ const App = (): ReactElement => (
         </div>
       </div>
     </Router>
-  </Provider>
+  </CryptrProvider>
 )
 export default App
