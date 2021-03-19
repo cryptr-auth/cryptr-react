@@ -16,7 +16,7 @@ export const SignInButton = CryptrSignInBtn
 export const SignUpButton = CryptrSignUpBtn
 export const LogOutButton = CryptrLogOutBtn
 export const AccountButton = CryptrAccountAccessButton
-export {default as CryptrProvider} from './CryptrProvider'
+export { default as CryptrProvider } from './CryptrProvider'
 export { default as useCryptr } from './useCryptr'
 
 interface MetaDatas {
