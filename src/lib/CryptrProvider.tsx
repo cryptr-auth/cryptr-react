@@ -92,6 +92,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           // console.log("should refresh")
+          alert("canRefresh")
           await cryptrClient.handleRefreshTokens()
         } else if (cryptrClient && cryptrClient.canHandleInvitation()) {
           await cryptrClient.handleInvitationState()
