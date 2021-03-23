@@ -21,7 +21,7 @@ const plugins = [
   typescript({ useTsconfigDeclarationDir: true }),
   external(),
   resolve(),
-  replace({ __VERSION__: `'${pkg.version}'` }),
+  replace({ preventAssignment: true, __VERSION__: `'${pkg.version}'` }),
   analyze({ summaryOnly: true }),
 ]
 
