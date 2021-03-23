@@ -92,7 +92,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           // console.log("should refresh")
-          alert("canRefresh")
           await cryptrClient.handleRefreshTokens()
         } else if (cryptrClient && cryptrClient.canHandleInvitation()) {
           await cryptrClient.handleInvitationState()
@@ -103,7 +102,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         console.error(error)
         dispatchNewState({ type: 'ERROR', error: error.message })
       } finally {
-        alert("finally")
         if (cryptrClient !== undefined) {
           const user = (cryptrClient.getUser() as unknown) as User | null
           console.log(user)
@@ -112,8 +110,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
             console.log(`is authenticated ${isAuthenticated}`)
             // Quick fix: maybe need spa-js improve
             // cryptrClient.refreshTokens()
-            alert(isAuthenticated)
-            // throw new Error("isauthenticated")
           }
           dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
         }
