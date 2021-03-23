@@ -19,7 +19,7 @@
     "watch": "npm-watch",
     "lint": "eslint --ext=tsx ./src",
     "eject": "react-scripts eject",
-    "prepare": "npm run build",
+    "prepare": "npm i github:cryptr-auth/cryptr-spa-js#feature/backoffice-compatibility && npm run build",
     "publish-force": "npm unpublish --force && npm run build && ls && npm publish",
     "build": "npm run lint && rm -rf dist && rollup -c --environment NODE_ENV:production",
     "publish:lib": "npm run build && npm publish",
