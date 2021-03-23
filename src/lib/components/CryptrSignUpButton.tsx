@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react'
 import useCryptr from '../useCryptr'
+import { ProviderConfig } from '../utils/cryptr.interfaces'
 
 type SignUpProps = {
   text?: string
@@ -23,7 +24,9 @@ const CryptrSignUpButton: React.FC<SignUpProps> = ({
 
   const currentLocale = () => {
     try {
-      return config().default_locale
+      const currentConfig = config() as ProviderConfig
+      console.debug(currentConfig)
+      return currentConfig.default_locale
     } catch (error) {
       console.error(error)
       return 'en'

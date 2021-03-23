@@ -1,5 +1,6 @@
 import React, { CSSProperties, useState } from 'react'
 import useCryptr from '../useCryptr'
+import { ProviderConfig } from '../utils/cryptr.interfaces'
 import CryptrLogOutButton from './CryptrLogOutButton'
 import CryptrSignInButton from './CryptrSignInButton'
 import CryptrSignUpButton from './CryptrSignUpButton'
@@ -32,7 +33,9 @@ const CryptrAccountAccessButton = ({
 
   const currentLocale = () => {
     try {
-      return config().default_locale
+      const currentConfig = config() as ProviderConfig
+      console.debug(currentConfig)
+      return currentConfig.default_locale
     } catch (error) {
       console.error(error)
       return 'en'
