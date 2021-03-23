@@ -19,7 +19,7 @@
     "watch": "npm-watch",
     "lint": "eslint --ext=tsx ./src",
     "eject": "react-scripts eject",
-    "install": "npm run build",
+    "install": "rollup -c --environment NODE_ENV:production",
     "publish-force": "npm unpublish --force && npm run build && ls && npm publish",
     "build": "npm run lint && rm -rf dist && rollup -c --environment NODE_ENV:production",
     "publish:lib": "npm run build && npm publish",
