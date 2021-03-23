@@ -82,7 +82,8 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
   useEffect(() => {
     const configFn = async () => {
       try {
-        if (cryptrClient && (await cryptrClient.canHandleAuthentication())) {
+        alert(cryptrClient.canHandleAuthentication())
+        if (cryptrClient && cryptrClient.canHandleAuthentication()) {
           const tokens = await cryptrClient.handleRedirectCallback()
           const claims = (cryptrClient.getClaimsFromAccess(
             tokens.accessToken,
