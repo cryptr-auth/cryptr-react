@@ -1,6 +1,6 @@
 {
   "name": "@cryptr/cryptr-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "dependencies": {
     "@cryptr/cryptr-spa-js": "github:cryptr-auth/cryptr-spa-js#feature/backoffice-compatibility",
