@@ -107,12 +107,14 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           const user = (cryptrClient.getUser() as unknown) as User | null
           console.log(user)
           const isAuthenticated = await cryptrClient.isAuthenticated()
-          console.log(`is authenticated ${isAuthenticated}`)
-          // Quick fix: maybe need spa-js improve
-          // cryptrClient.refreshTokens()
-          alert(isAuthenticated)
-          // dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
-          alert("supposed to dispatch new state")
+          if(isAuthenticated) {
+            console.log(`is authenticated ${isAuthenticated}`)
+            // Quick fix: maybe need spa-js improve
+            // cryptrClient.refreshTokens()
+            alert(isAuthenticated)
+            throw new Error("isauthenticated")
+          }
+          dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
         }
       }
     }
