@@ -114,9 +114,8 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
             // cryptrClient.refreshTokens()
             alert(isAuthenticated)
             throw new Error("isauthenticated")
-          } else {
-            dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
           }
+          dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
         }
       }
     }
