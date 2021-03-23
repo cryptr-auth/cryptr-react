@@ -105,6 +105,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         alert("finally")
         if (cryptrClient !== undefined) {
           const user = (cryptrClient.getUser() as unknown) as User | null
+          console.log(user)
           const isAuthenticated = await cryptrClient.isAuthenticated()
           console.log(`is authenticated ${isAuthenticated}`)
           // Quick fix: maybe need spa-js improve
