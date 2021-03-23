@@ -21,11 +21,20 @@ const CryptrSignUpButton: React.FC<SignUpProps> = ({
     signupWithRedirect(scopes || defaultScopes())
   }
 
+  const currentLocale = () => {
+    try {
+      return config().default_locale
+    } catch (error) {
+      console.error(error)
+      return 'en'
+    }
+  }
+
   const signupText = (): string => {
     if (text) {
       return text
     }
-    return config().default_locale == 'en' ? 'Sign up' : 'Inscription'
+    return currentLocale() == 'en' ? 'Sign up' : 'Inscription'
   }
 
   if ((isAuthenticated !== undefined && isAuthenticated() && autoHide) || isLoading) {

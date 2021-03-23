@@ -30,11 +30,20 @@ const CryptrSignInButton: React.FC<SignInProps> = ({
 }: SignInProps) => {
   const { isAuthenticated, isLoading, signinWithRedirect, defaultScopes, config } = useCryptr()
 
+  const currentLocale = () => {
+    try {
+      return config().default_locale
+    } catch (error) {
+      console.error(error)
+      return 'en'
+    }
+  }
+
   const signinText = (): string => {
     if (text) {
       return text
     }
-    return config().default_locale == 'en' ? 'Sign in' : 'Connexion'
+    return currentLocale() == 'en' ? 'Sign in' : 'Connexion'
   }
 
   const signIn = () => {

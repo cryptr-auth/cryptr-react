@@ -30,17 +30,24 @@ const CryptrAccountAccessButton = ({
   const { isAuthenticated, isLoading, userAccountAccess, user, config } = useCryptr()
   const [widgetOpened, setWidgetOpened] = useState(false)
 
-  const currentLocale = config().default_locale || 'en'
+  const currentLocale = () => {
+    try {
+      return config().default_locale
+    } catch (error) {
+      console.error(error)
+      return 'en'
+    }
+  }
 
   const accountText = (): string => {
     if (text) {
       return text
     }
-    return currentLocale == 'en' ? 'My account' : 'Mon compte'
+    return currentLocale() == 'en' ? 'My account' : 'Mon compte'
   }
 
   const logOutText = (): string => {
-    return currentLocale == 'en' ? 'Log out' : 'Deconnexion'
+    return currentLocale() == 'en' ? 'Log out' : 'Deconnexion'
   }
 
   const goToAccount = () => {

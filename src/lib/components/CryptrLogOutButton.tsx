@@ -21,11 +21,20 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
     logOut(callback)
   }
 
+  const currentLocale = () => {
+    try {
+      return config().default_locale
+    } catch (error) {
+      console.error(error)
+      return 'en'
+    }
+  }
+
   const logoutText = (): string => {
     if (text) {
       return text
     }
-    return config().default_locale == 'en' ? 'Log out' : 'Déconnexion'
+    return currentLocale() == 'en' ? 'Log out' : 'Déconnexion'
   }
 
   if ((isAuthenticated !== undefined && !isAuthenticated() && autoHide) || isLoading) {
