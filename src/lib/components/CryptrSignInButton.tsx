@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react'
 import useCryptr from '../useCryptr'
-import { ProviderConfig } from '../utils/cryptr.interfaces'
 
 type SignInProps = {
   text?: string
@@ -31,22 +30,11 @@ const CryptrSignInButton: React.FC<SignInProps> = ({
 }: SignInProps) => {
   const { isAuthenticated, isLoading, signinWithRedirect, defaultScopes, config } = useCryptr()
 
-  const currentLocale = () => {
-    try {
-      const currentConfig = config() as ProviderConfig
-      console.debug(currentConfig)
-      return currentConfig.default_locale
-    } catch (error) {
-      console.error(error)
-      return 'en'
-    }
-  }
-
   const signinText = (): string => {
     if (text) {
       return text
     }
-    return currentLocale() == 'en' ? 'Sign in' : 'Connexion'
+    return config().default_locale == 'en' ? 'Sign in' : 'Connexion'
   }
 
   const signIn = () => {

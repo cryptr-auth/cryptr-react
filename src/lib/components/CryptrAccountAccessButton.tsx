@@ -1,6 +1,5 @@
 import React, { CSSProperties, useState } from 'react'
 import useCryptr from '../useCryptr'
-import { ProviderConfig } from '../utils/cryptr.interfaces'
 import CryptrLogOutButton from './CryptrLogOutButton'
 import CryptrSignInButton from './CryptrSignInButton'
 import CryptrSignUpButton from './CryptrSignUpButton'
@@ -31,26 +30,17 @@ const CryptrAccountAccessButton = ({
   const { isAuthenticated, isLoading, userAccountAccess, user, config } = useCryptr()
   const [widgetOpened, setWidgetOpened] = useState(false)
 
-  const currentLocale = () => {
-    try {
-      const currentConfig = config() as ProviderConfig
-      console.debug(currentConfig)
-      return currentConfig.default_locale
-    } catch (error) {
-      console.error(error)
-      return 'en'
-    }
-  }
+  const currentLocale = config().default_locale || 'en'
 
   const accountText = (): string => {
     if (text) {
       return text
     }
-    return currentLocale() == 'en' ? 'My account' : 'Mon compte'
+    return currentLocale == 'en' ? 'My account' : 'Mon compte'
   }
 
   const logOutText = (): string => {
-    return currentLocale() == 'en' ? 'Log out' : 'Deconnexion'
+    return currentLocale == 'en' ? 'Log out' : 'Deconnexion'
   }
 
   const goToAccount = () => {
