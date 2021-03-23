@@ -1,4 +1,15 @@
-import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+// import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+
+export interface Config {
+    tenant_domain: string;
+    client_id: string;
+    audience: string;
+    default_redirect_uri: string;
+    default_locale?: string;
+    region?: string;
+    cryptr_base_url?: string;
+    telemetry?: boolean;
+}
 export interface ProviderConfig extends Config {
   /* tslint:disable-next-line */
   onRedirectCallback: (claims: CryptrTokenClaims | null) => void
