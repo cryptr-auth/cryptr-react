@@ -15,6 +15,7 @@ const input = 'src/lib/index.ts'
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
+  'react/jsx-runtime': 'jsxRuntime'
 }
 const plugins = [
   del({ targets: 'dist/*', runOnce: true }),
@@ -35,6 +36,7 @@ export default [
         format: 'umd',
         globals,
         sourcemap: true,
+        exports: 'named',
       },
     ],
     plugins: [
@@ -62,6 +64,7 @@ export default [
               format: 'umd',
               globals,
               sourcemap: true,
+              exports: 'named',
             },
           ],
           plugins: [...plugins, terser()],
@@ -73,6 +76,7 @@ export default [
             file: pkg.main,
             format: 'cjs',
             sourcemap: true,
+            exports: 'named',
           },
           plugins,
         },
