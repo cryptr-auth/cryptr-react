@@ -82,12 +82,13 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
   useEffect(() => {
     const configFn = async () => {
       try {
-        alert(cryptrClient.canHandleAuthentication())
         if (cryptrClient && cryptrClient.canHandleAuthentication()) {
           const tokens = await cryptrClient.handleRedirectCallback()
+          console.log(tokens)
           const claims = (cryptrClient.getClaimsFromAccess(
             tokens.accessToken,
           ) as unknown) as CryptrTokenClaims | null
+          console.log(claims)
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           // console.log("should refresh")
@@ -101,9 +102,11 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         console.error(error)
         dispatchNewState({ type: 'ERROR', error: error.message })
       } finally {
+        alert("finally")
         if (cryptrClient !== undefined) {
           const user = (cryptrClient.getUser() as unknown) as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()
+          console.log(`is authenticated ${isAuthenticated}`)
           // Quick fix: maybe need spa-js improve
           // cryptrClient.refreshTokens()
           dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
