@@ -64,7 +64,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
     try {
       dispatchNewState({ type: 'INITIALIZED', isAuthenticated: false, user: null })
     } catch (error) {
-      console.error("logoutCallback error")
+      console.error('logoutCallback error')
       console.error(error)
     }
   }
