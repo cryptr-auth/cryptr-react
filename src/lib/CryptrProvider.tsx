@@ -59,11 +59,14 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
   const [cryptrClient] = useState<Client>(new CryptrSpa.client(config))
   const [accountPopup, setAccountPopup] = useState<Window | null>()
   const [state, dispatch] = useReducer(CryptrReducer, initialCryptrState)
-  // console.debug(CryptrSpa.version)
 
   const logOutCallback = () => {
-    dispatchNewState({ type: 'INITIALIZED', isAuthenticated: false, user: null })
-    config.onLogOutCallback()
+    try {
+      dispatchNewState({ type: 'INITIALIZED', isAuthenticated: false, user: null })
+    } catch (error) {
+      console.error("logoutCallback error")
+      console.error(error)
+    }
   }
 
   const popupHandler = useCallback(
