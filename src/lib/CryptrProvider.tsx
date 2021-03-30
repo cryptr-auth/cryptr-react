@@ -59,11 +59,14 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
   const [cryptrClient] = useState<Client>(new CryptrSpa.client(config))
   const [accountPopup, setAccountPopup] = useState<Window | null>()
   const [state, dispatch] = useReducer(CryptrReducer, initialCryptrState)
-  // console.debug(CryptrSpa.version)
 
   const logOutCallback = () => {
-    dispatchNewState({ type: 'INITIALIZED', isAuthenticated: false, user: null })
-    config.onLogOutCallback()
+    try {
+      dispatchNewState({ type: 'INITIALIZED', isAuthenticated: false, user: null })
+    } catch (error) {
+      console.error('logoutCallback error')
+      console.error(error)
+    }
   }
 
   const popupHandler = useCallback(
@@ -82,14 +85,13 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
   useEffect(() => {
     const configFn = async () => {
       try {
-        if (cryptrClient && (await cryptrClient.canHandleAuthentication())) {
+        if (cryptrClient && cryptrClient.canHandleAuthentication()) {
           const tokens = await cryptrClient.handleRedirectCallback()
           const claims = (cryptrClient.getClaimsFromAccess(
             tokens.accessToken,
           ) as unknown) as CryptrTokenClaims | null
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
-          // console.log("should refresh")
           await cryptrClient.handleRefreshTokens()
         } else if (cryptrClient && cryptrClient.canHandleInvitation()) {
           await cryptrClient.handleInvitationState()
@@ -103,8 +105,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         if (cryptrClient !== undefined) {
           const user = (cryptrClient.getUser() as unknown) as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()
-          // Quick fix: maybe need spa-js improve
-          // cryptrClient.refreshTokens()
           dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
         }
       }
@@ -161,10 +161,10 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         isAuthenticated: () => {
           return state.isAuthenticated
         },
-        logOut: () => cryptrClient.logOut(logOutCallback),
-        signinWithRedirect: (scope?: string, locale?: string, redirectUri?: string) =>
+        logOut: async () => cryptrClient.logOut(logOutCallback),
+        signinWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
           cryptrClient.signInWithRedirect(scope, redirectUri, locale),
-        signupWithRedirect: (scope?: string, locale?: string, redirectUri?: string) =>
+        signupWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
           cryptrClient.signUpWithRedirect(scope, redirectUri, locale),
         userAccountAccess: () => handleUserAccountAccess(),
         user: () => {
