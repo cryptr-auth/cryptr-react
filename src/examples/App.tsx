@@ -48,13 +48,23 @@ const ROUTES: Array<NavLink> = [
 
 const config = {
   audience: 'http://localhost:5000',
-  cryptr_base_url: 'http://localhost:4000',
-  tenant_domain: 'shark-academy',
-  client_id: '7dd5eeaa-1cf3-49a7-a07a-2b588cc70ed9',
+  cryptr_base_url: 'http://localhost:4000/backoffice',
+  tenant_domain: 'cryptr',
+  client_id: 'd9d4e7e9-22c3-4cdc-9f8f-4f2e39d9e41e',
   default_redirect_uri: 'http://localhost:5000',
   default_locale: 'fr',
-  telemetry: false,
+  telemetry: true,
 }
+
+// const config = {
+//   audience: 'http://localhost:5000',
+//   cryptr_base_url: 'http://localhost:4000',
+//   tenant_domain: 'shark-academy',
+//   client_id: '7dd5eeaa-1cf3-49a7-a07a-2b588cc70ed9',
+//   default_redirect_uri: 'http://localhost:5000',
+//   default_locale: 'fr',
+//   telemetry: true,
+// }
 
 const App = (): ReactElement => (
   <CryptrProvider {...config}>
