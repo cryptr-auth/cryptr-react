@@ -10,12 +10,6 @@ type SignInProps = {
   autoHide?: boolean
 }
 
-// interface SignInState {
-//   text?: string,
-//   scopes: string,
-//   autoHide?: boolean
-// }
-
 /**
  * Component is described here.
  *
