@@ -20,15 +20,29 @@ const HomePage = (): ReactElement => {
                 Loading
               </strong>
             ) : (
-                <strong>Logged in !</strong>
+              <strong>Logged in !</strong>
             )}
-            <AccountButton className="cursor-pointer mt-2 w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-gray-900 bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:border-yellow-600 focus:shadow-outline-yellow transition duration-150 ease-in-out" style={{marginRight: '4px'}}/>
-            <SignInButton className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-indigo-300 transition duration-150 ease-in-out" style={{marginRight: '4px'}}/>
-            <LogOutButton className="inline-flex items-center justify-center ml-5 px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out" style={{marginRight: '4px'}} callback={() => {console.log("toto")}}/>
-            <SignUpButton className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out" style={{marginRight: '4px'}}/>
+            <AccountButton
+              className="cursor-pointer mt-2 w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-gray-900 bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:border-yellow-600 focus:shadow-outline-yellow transition duration-150 ease-in-out"
+              style={{ marginRight: '4px' }}
+            />
+            <SignInButton
+              className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-indigo-300 transition duration-150 ease-in-out"
+              style={{ marginRight: '4px' }}
+            />
+            <LogOutButton
+              className="inline-flex items-center justify-center ml-5 px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+              style={{ marginRight: '4px' }}
+              callback={() => {
+                console.log('toto')
+              }}
+            />
+            <SignUpButton
+              className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+              style={{ marginRight: '4px' }}
+            />
           </div>
-          <div className="mt-8 flex justify-between">
-          </div>
+          <div className="mt-8 flex justify-between"></div>
         </div>
       </div>
     </>
