@@ -9,14 +9,13 @@ const CryptrReducer = (state, action) => {
     //     isLoading: true,
     //   }
     case 'INITIALIZED':
-      const newState = {
+      return {
         ...state,
         isAuthenticated: action.isAuthenticated,
         user: (action.user as unknown) as User | null,
         isLoading: false,
         error: undefined,
       }
-      return newState
     case 'ERROR':
       return {
         ...state,
