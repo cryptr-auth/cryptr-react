@@ -1,5 +1,6 @@
 import React, { CSSProperties, useState } from 'react'
 import useCryptr from '../useCryptr'
+import { hiddenStyle } from '../utils/constants'
 import CryptrLogOutButton from './CryptrLogOutButton'
 import CryptrSignInButton from './CryptrSignInButton'
 import CryptrSignUpButton from './CryptrSignUpButton'
@@ -98,7 +99,7 @@ const CryptrAccountAccessButton = ({
   }
 
   if (isLoading) {
-    return <div data-testid="CryptrAccountAccessButton"></div>
+    return <div data-testid="CryptrAccountAccessButton" style={hiddenStyle}></div>
   }
 
   if (isWidget) {

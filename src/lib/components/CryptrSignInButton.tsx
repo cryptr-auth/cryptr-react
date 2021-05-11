@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react'
 import useCryptr from '../useCryptr'
+import { hiddenStyle } from '../utils/constants'
 
 type SignInProps = {
   text?: string
@@ -41,7 +42,7 @@ const CryptrSignInButton: React.FC<SignInProps> = ({
     signinWithRedirect(scopes || defaultScopes())
   }
   if ((isAuthenticated !== undefined && isAuthenticated() && autoHide) || isLoading) {
-    return <div data-testid="CryptrSignInButton"></div>
+    return <div data-testid="CryptrSignInButton" style={hiddenStyle}></div>
   }
 
   return (
