@@ -13,6 +13,7 @@
     "react-dom": "^17.0.1"
   },
   "scripts": {
+    "compodoc": "npx compodoc -p tsconfig.doc.json",
     "start": "react-scripts start",
     "build:react": "react-scripts build",
     "build:serve:react": "react-scripts build && serve -s build",
