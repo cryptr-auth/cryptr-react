@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react'
 import useCryptr from '../useCryptr'
+import { hiddenStyle } from '../utils/constants'
 
 type SignInProps = {
   text?: string
@@ -8,12 +9,6 @@ type SignInProps = {
   className?: string
   autoHide?: boolean
 }
-
-// interface SignInState {
-//   text?: string,
-//   scopes: string,
-//   autoHide?: boolean
-// }
 
 /**
  * Component is described here.
@@ -41,7 +36,7 @@ const CryptrSignInButton: React.FC<SignInProps> = ({
     signinWithRedirect(scopes || defaultScopes())
   }
   if ((isAuthenticated !== undefined && isAuthenticated() && autoHide) || isLoading) {
-    return <div data-testid="CryptrSignInButton"></div>
+    return <div data-testid="CryptrSignInButton" style={hiddenStyle}></div>
   }
 
   return (

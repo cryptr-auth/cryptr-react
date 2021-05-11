@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react'
 import useCryptr from '../useCryptr'
+import { hiddenStyle } from '../utils/constants'
 
 type LogOutProps = {
   text?: string
@@ -29,7 +30,7 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
   }
 
   if ((isAuthenticated !== undefined && !isAuthenticated() && autoHide) || isLoading) {
-    return <div data-testid="CryptrLogOutButton"></div>
+    return <div data-testid="CryptrLogOutButton" style={hiddenStyle}></div>
   }
   return (
     <button onClick={signOut} data-testid="CryptrLogOutButton" style={style} className={className}>
