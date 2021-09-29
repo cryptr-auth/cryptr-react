@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { AccountButton, LogOutButton, SignInButton, SignUpButton, useCryptr } from '../../lib'
+import { AccountButton, LogOutButton, SignInButton, SignUpButton, SsoSignInButton, useCryptr } from '../../lib'
 
 const HomePage = (): ReactElement => {
   const { isLoading } = useCryptr()
@@ -42,7 +42,13 @@ const HomePage = (): ReactElement => {
               style={{ marginRight: '4px' }}
             />
           </div>
-          <div className="mt-8 flex justify-between"></div>
+          <div className="mt-8 flex justify-between">
+            <SsoSignInButton
+              idpId="misapret_QtqpTS7itBLt4HdoCj5Qck"
+              className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+              style={{ marginRight: '4px' }}
+            />
+          </div>
         </div>
       </div>
     </>
