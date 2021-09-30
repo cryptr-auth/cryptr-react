@@ -4,6 +4,9 @@ import { AccountButton, LogOutButton, SignInButton, SignUpButton, SsoSignInButto
 const HomePage = (): ReactElement => {
   const { isLoading } = useCryptr()
 
+  // const idpId = "misapret_QtqpTS7itBLt4HdoCj5Qck"
+  const idpId = "leanpay_BmXKRvxe9X5bcUqjKPPRKH"
+
   return (
     <>
       <div className="bg-white">
@@ -44,7 +47,7 @@ const HomePage = (): ReactElement => {
           </div>
           <div className="mt-8 flex justify-between">
             <SsoSignInButton
-              idpId="misapret_QtqpTS7itBLt4HdoCj5Qck"
+              idpId={idpId}
               className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
               style={{ marginRight: '4px' }}
             />
