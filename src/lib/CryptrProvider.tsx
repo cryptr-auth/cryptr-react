@@ -100,7 +100,11 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         }
       } catch (error) {
         console.error(error)
-        dispatchNewState({ type: 'ERROR', error: error.message })
+        if (error instanceof Error) {
+          dispatchNewState({ type: 'ERROR', error: error.message })
+        } else {
+          dispatchNewState({ type: 'ERROR', error: error })
+        }
       } finally {
         if (cryptrClient !== undefined) {
           const user = (cryptrClient.getUser() as unknown) as User | null
@@ -166,6 +170,8 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           cryptrClient.signInWithRedirect(scope, redirectUri, locale),
         signupWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
           cryptrClient.signUpWithRedirect(scope, redirectUri, locale),
+        signinWithSSO: (idpId: string, scope?: string, redirectUri?: string, locale?: string) =>
+          cryptrClient.signInWithSSO(idpId, scope, redirectUri, locale),
         userAccountAccess: () => handleUserAccountAccess(),
         user: () => {
           return state.user

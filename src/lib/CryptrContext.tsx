@@ -12,6 +12,7 @@ const initialContext = {
   ...initialCryptrState,
   signinWithRedirect: error,
   signupWithRedirect: error,
+  signinWithSSO: error,
   isAuthenticated: error,
   userAccountAccess: error,
   logOut: error,
