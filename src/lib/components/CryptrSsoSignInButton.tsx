@@ -15,7 +15,7 @@ const CryptrSsoSignInButton: React.FC<SsoSignInProps> = ({
   text,
   className,
   style,
-  autoHide = true
+  autoHide = true,
 }: SsoSignInProps) => {
   const { config, isAuthenticated, isLoading, signinWithSSO } = useCryptr()
 

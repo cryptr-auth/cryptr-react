@@ -1,11 +1,18 @@
 import React, { ReactElement } from 'react'
-import { AccountButton, LogOutButton, SignInButton, SignUpButton, SsoSignInButton, useCryptr } from '../../lib'
+import {
+  AccountButton,
+  LogOutButton,
+  SignInButton,
+  SignUpButton,
+  SsoSignInButton,
+  useCryptr,
+} from '../../lib'
 
 const HomePage = (): ReactElement => {
   const { isLoading } = useCryptr()
 
   // const idpId = "misapret_QtqpTS7itBLt4HdoCj5Qck"
-  const idpId = "leanpay_BmXKRvxe9X5bcUqjKPPRKH"
+  const idpId = 'leanpay_BmXKRvxe9X5bcUqjKPPRKH'
 
   return (
     <>
