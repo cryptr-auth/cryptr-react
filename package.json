@@ -1,6 +1,6 @@
 {
   "name": "@cryptr/cryptr-react",
-  "version": "0.1.2",
+  "version": "1.0.0-rc1",
   "private": false,
   "dependencies": {
     "@cryptr/cryptr-spa-js": "^1.0.0",
@@ -103,7 +103,8 @@
     "react",
     "sdk",
     "authentication",
-    "passwordless"
+    "passwordless",
+    "sso"
   ],
   "author": "Cryptr (https://www.cryptr.co)",
   "license": "ISC"
