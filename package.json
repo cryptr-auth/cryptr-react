@@ -103,7 +103,8 @@
     "react",
     "sdk",
     "authentication",
-    "passwordless"
+    "passwordless",
+    "sso"
   ],
   "author": "Cryptr (https://www.cryptr.co)",
   "license": "ISC"
