@@ -100,7 +100,11 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         }
       } catch (error) {
         console.error(error)
-        dispatchNewState({ type: 'ERROR', error: error.message })
+        if (error instanceof Error) {
+          dispatchNewState({ type: 'ERROR', error: error.message })
+        } else {
+          dispatchNewState({ type: 'ERROR', error: error })
+        }
       } finally {
         if (cryptrClient !== undefined) {
           const user = (cryptrClient.getUser() as unknown) as User | null
