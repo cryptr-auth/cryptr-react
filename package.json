@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "test": "react-scripts test",
     "build:react": "react-scripts build",
     "build:serve:react": "react-scripts build && serve -s build",
     "watch": "npm-watch",
