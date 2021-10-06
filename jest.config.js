@@ -16,9 +16,7 @@ module.exports = {
     },
     __VERSION__: pkg.version,
   },
-  roots: ['<rootDir>'],
-  modulePaths: ['<rootDir>'],
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['js', 'json', 'jsx', 'd.ts', 'ts', 'tsx', 'node'],
   coverageThreshold: {
     global: {
