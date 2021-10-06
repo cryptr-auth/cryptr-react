@@ -56,12 +56,22 @@ const ROUTES: Array<NavLink> = [
 //   telemetry: true,
 // }
 
+// const pingOneconfig = {
+//   audience: 'http://localhost:5000',
+//   cryptr_base_url: 'https://samly.howto:4443',
+//   tenant_domain: 'shark-academy',
+//   client_id: '272e67ee-b84a-4c80-bb75-c6469978e7fe',
+//   default_redirect_uri: 'http://localhost:5000',
+//   default_locale: 'fr',
+//   telemetry: false,
+// }
+
 const config = {
-  audience: 'http://localhost:3000',
-  cryptr_base_url: 'http://localhost:4000',
-  tenant_domain: 'shark-academy',
-  client_id: '541b8ea6-95da-4bc7-8def-98ace7bdec8c',
-  default_redirect_uri: 'http://localhost:3000',
+  audience: 'http://localhost:5000',
+  cryptr_base_url: 'https://samly.howto:4443',
+  tenant_domain: 'leanpay',
+  client_id: '89daae8a-2b6d-4e60-bbfc-7668a4d41af0',
+  default_redirect_uri: 'http://localhost:5000',
   default_locale: 'fr',
   telemetry: false,
 }

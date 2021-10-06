@@ -4,8 +4,18 @@ import '@testing-library/jest-dom/extend-expect'
 import CryptrAccountAccessButton from './CryptrAccountAccessButton'
 import CryptrProvider from '../CryptrProvider'
 
+const config = {
+  audience: 'http://localhost:5000',
+  cryptr_base_url: 'https://samly.howto:4443',
+  tenant_domain: 'leanpay',
+  client_id: '89daae8a-2b6d-4e60-bbfc-7668a4d41af0',
+  default_redirect_uri: 'http://localhost:5000',
+  default_locale: 'fr',
+  telemetry: false,
+}
+
 const renderInProvider = (element) => {
-  render(<CryptrProvider>{element}</CryptrProvider>)
+  render(<CryptrProvider {...config}>{element}</CryptrProvider>)
 }
 
 describe('<CryptrAccountAccessButton />', () => {
