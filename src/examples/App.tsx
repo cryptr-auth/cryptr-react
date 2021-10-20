@@ -71,8 +71,9 @@ const config = {
   cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || 'https://samly.howto:4443',
   tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'first-tenant',
   client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || '2834ba3d-4239-4faa-b5c2-3b047bb374e5',
-  default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5001',
-  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'fr',
+  default_redirect_uri:
+    process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5001',
+  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY || false,
 }
 
