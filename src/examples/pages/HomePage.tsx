@@ -53,13 +53,14 @@ const HomePage = (): ReactElement => {
             />
           </div>
           <div className="mt-8 w-1/3 flex flex-col">
-            {process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID && process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID !== 'to_define' && (
+            {process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID &&
+              process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID !== 'to_define' && (
                 <>
                   <SsoSignInButton
                     idpId={process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID}
                     className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
                     style={{ marginRight: '4px' }}
-                    options={{locale: 'fr'}}
+                    options={{ locale: 'fr' }}
                   />
                   {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
                     <small className="text-gray-400">
@@ -67,7 +68,24 @@ const HomePage = (): ReactElement => {
                     </small>
                   )}
                 </>
-            )}
+              )}
+          </div>
+          <div className="mt-8 w-1/3 flex flex-col">
+            {process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID &&
+              process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID !== 'to_define' && (
+                <>
+                  <SsoSignInButton
+                    idpId={process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID}
+                    className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                    style={{ marginRight: '4px' }}
+                  />
+                  {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
+                    <small className="text-gray-400">
+                      ({process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID})
+                    </small>
+                  )}
+                </>
+              )}
           </div>
         </div>
       </div>
