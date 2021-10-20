@@ -18,7 +18,7 @@ const CryptrSsoSignInButton: React.FC<SsoSignInProps> = ({
   className,
   style,
   autoHide = true,
-  options
+  options,
 }: SsoSignInProps) => {
   const { config, isAuthenticated, isLoading, signinWithSSO } = useCryptr()
 
@@ -26,8 +26,9 @@ const CryptrSsoSignInButton: React.FC<SsoSignInProps> = ({
     if (text) {
       return text
     }
-
-    return config().default_locale == 'en' ? 'Sign in with SSO' : 'Se connecter en SSO'
+    return (options?.locale || config().default_locale) == 'en'
+      ? 'Sign in with SSO'
+      : 'Se connecter en SSO'
   }
 
   const ssoSignIn = () => {
