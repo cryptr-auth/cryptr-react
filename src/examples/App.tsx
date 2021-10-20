@@ -67,12 +67,13 @@ const ROUTES: Array<NavLink> = [
 // }
 
 const config = {
-  audience: process.env.REACT_APP_CRYPTR_AUDIENCE || 'http://localhost:5000',
+  audience: process.env.REACT_APP_CRYPTR_AUDIENCE || 'http://localhost:5001',
   cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || 'https://samly.howto:4443',
-  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'leanpay',
-  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || '89daae8a-2b6d-4e60-bbfc-7668a4d41af0',
-  default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5000',
-  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'fr',
+  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'first-tenant',
+  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || '2834ba3d-4239-4faa-b5c2-3b047bb374e5',
+  default_redirect_uri:
+    process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5001',
+  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY || false,
 }
 
