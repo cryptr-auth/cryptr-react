@@ -9,7 +9,7 @@ import {
 } from '../../lib'
 
 const HomePage = (): ReactElement => {
-  const { isLoading } = useCryptr()
+  const { isAuthenticated, isLoading } = useCryptr()
 
   // const idpId = "misapret_QtqpTS7itBLt4HdoCj5Qck"
   // const idpId = 'leanpay_BmXKRvxe9X5bcUqjKPPRKH'
@@ -61,9 +61,11 @@ const HomePage = (): ReactElement => {
                     style={{ marginRight: '4px' }}
                     options={{locale: 'fr'}}
                   />
-                  <small className="text-gray-400">
-                    ({process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID})
-                  </small>
+                  {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
+                    <small className="text-gray-400">
+                      ({process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID})
+                    </small>
+                  )}
                 </>
             )}
           </div>
