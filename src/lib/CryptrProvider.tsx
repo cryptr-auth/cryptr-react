@@ -6,7 +6,7 @@ import CryptrContext from './CryptrContext'
 import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
 import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
-import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 
 /** Define a default action to perform after authentication */
 const DEFAULT_REDIRECT_CALLBACK = () => {
@@ -170,8 +170,8 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           cryptrClient.signInWithRedirect(scope, redirectUri, locale),
         signupWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
           cryptrClient.signUpWithRedirect(scope, redirectUri, locale),
-        signinWithSSO: (idpId: string, scope?: string, redirectUri?: string, locale?: string) =>
-          cryptrClient.signInWithSSO(idpId, scope, redirectUri, locale),
+        signinWithSSO: (idpId: string, options?: SsoSignOptsAttrs) =>
+          cryptrClient.signInWithSSO(idpId, options),
         userAccountAccess: () => handleUserAccountAccess(),
         user: () => {
           return state.user
