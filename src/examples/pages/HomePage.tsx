@@ -15,7 +15,8 @@ const HomePage = (): ReactElement => {
   // const idpId = 'leanpay_BmXKRvxe9X5bcUqjKPPRKH'
 
   // const idpId = "misapret_QtqpTS7itBLt4HdoCj5Qck"
-  const idpId = 'leanpay_BmXKRvxe9X5bcUqjKPPRKH'
+  // const idpId = 'leanpay_BmXKRvxe9X5bcUqjKPPRKH'
+
 
   return (
     <>
