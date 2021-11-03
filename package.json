@@ -104,7 +104,8 @@
     "sdk",
     "authentication",
     "passwordless",
-    "sso"
+    "sso",
+    "slo"
   ],
   "author": "Cryptr (https://www.cryptr.co)",
   "license": "ISC"
