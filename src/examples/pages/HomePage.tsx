@@ -17,7 +17,6 @@ const HomePage = (): ReactElement => {
   // const idpId = "misapret_QtqpTS7itBLt4HdoCj5Qck"
   // const idpId = 'leanpay_BmXKRvxe9X5bcUqjKPPRKH'
 
-
   return (
     <>
       <div className="bg-white">
@@ -47,9 +46,8 @@ const HomePage = (): ReactElement => {
             <LogOutButton
               className="inline-flex items-center justify-center ml-5 px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
               style={{ marginRight: '4px' }}
-              callback={() => {
-                console.log('toto')
-              }}
+              callback={() => {console.log('toto')}}
+              targetUrl="http://localhost:5001/profile"
             />
             <SignUpButton
               className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
