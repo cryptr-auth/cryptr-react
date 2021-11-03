@@ -141,3 +141,18 @@ describe('<CryptrLogOutButton autoHide={false}/> with style', () => {
     expect(cryptrLogOutButton).toHaveStyle(style)
   })
 })
+
+describe('<CryptrLogOutButton targetUrl={targetUrl}/>', () => {
+  const targetUrl = config.audience
+  const logoutElement = (
+    <CryptrLogOutButton callback={DEFAULT_LOGOUT_CALLBACK} targetUrl={targetUrl} />
+  )
+
+  test('it should mount', () => {
+    renderInProvider(logoutElement)
+
+    const cryptrLogOutButton = screen.getByTestId('CryptrLogOutButton')
+
+    expect(cryptrLogOutButton).toBeInTheDocument()
+  })
+})

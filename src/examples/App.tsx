@@ -57,11 +57,11 @@ const ROUTES: Array<NavLink> = [
 // }
 
 // const pingOneconfig = {
-//   audience: 'http://localhost:5000',
+//   audience: 'http://localhost:5001',
 //   cryptr_base_url: 'https://samly.howto:4443',
-//   tenant_domain: 'shark-academy',
-//   client_id: '272e67ee-b84a-4c80-bb75-c6469978e7fe',
-//   default_redirect_uri: 'http://localhost:5000',
+//   tenant_domain: 'first-tenant',
+//   client_id: '2834ba3d-4239-4faa-b5c2-3b047bb374e5',
+//   default_redirect_uri: 'http://localhost:5001',
 //   default_locale: 'fr',
 //   telemetry: false,
 // }
@@ -69,8 +69,8 @@ const ROUTES: Array<NavLink> = [
 const config = {
   audience: process.env.REACT_APP_CRYPTR_AUDIENCE || 'http://localhost:5001',
   cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || 'https://samly.howto:4443',
-  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'first-tenant',
-  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || '2834ba3d-4239-4faa-b5c2-3b047bb374e5',
+  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'second-tenant',
+  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || 'be332c9f-9d81-4232-9e06-05ecf8c84e09',
   default_redirect_uri:
     process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5001',
   default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
@@ -106,4 +106,5 @@ const App = (): ReactElement => (
     </Router>
   </CryptrProvider>
 )
+
 export default App
