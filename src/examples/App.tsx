@@ -56,13 +56,14 @@ const ROUTES: Array<NavLink> = [
 //   telemetry: true,
 // }
 
-// const pingOneconfig = {
+// pingOneconfig
+// const config = {
 //   audience: 'http://localhost:5001',
 //   cryptr_base_url: 'https://samly.howto:4443',
 //   tenant_domain: 'first-tenant',
 //   client_id: '2834ba3d-4239-4faa-b5c2-3b047bb374e5',
 //   default_redirect_uri: 'http://localhost:5001',
-//   default_locale: 'fr',
+//   default_locale: 'en',
 //   telemetry: false,
 // }
 
