@@ -21,6 +21,7 @@ const initialContext = {
   config: (error as unknown) as () => ProviderConfig,
   defaultScopes: error,
   getCurrentAccessToken: error,
+  getCurrentIdToken: error,
 }
 
 const CryptrContext = createContext(initialContext)
