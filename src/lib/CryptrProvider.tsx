@@ -181,6 +181,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         config: () => config,
         defaultScopes: () => config.defaultScopes,
         getCurrentAccessToken: () => cryptrClient.getCurrentAccessToken(),
+        getCurrentIdToken: () => cryptrClient.getCurrentIdToken(),
       }}
     >
       {children}
