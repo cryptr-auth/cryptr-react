@@ -66,7 +66,7 @@ const HomePage = (): ReactElement => {
                     style={{ marginRight: '4px' }}
                     options={{ locale: 'fr' }}
                     autoHide={false}
-                    text="Accéder à /login pour changer d'utilisateur"
+                    text="Nouveau SSO"
                   />
                   {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
                     <small className="text-gray-400">
