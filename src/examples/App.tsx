@@ -59,29 +59,43 @@ const ROUTES: Array<NavLink> = [
 // }
 
 // pingOneconfig
-const config = {
-  audience: 'http://localhost:5001',
-  cryptr_base_url: 'https://samly.howto:4443',
-  tenant_domain: 'first-tenant',
-  client_id: '2834ba3d-4239-4faa-b5c2-3b047bb374e5',
-  default_redirect_uri: 'http://localhost:5001/login',
-  default_locale: 'en',
-  telemetry: false,
-}
-
 // const config = {
-//   audience: process.env.REACT_APP_CRYPTR_AUDIENCE || 'http://localhost:5001',
-//   cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || 'https://samly.howto:4443',
-//   tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'second-tenant',
-//   client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || 'be332c9f-9d81-4232-9e06-05ecf8c84e09',
-//   default_redirect_uri:
-//     process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5001',
-//   default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
-//   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY || false,
+//   audience: 'http://localhost:5001',
+//   cryptr_base_url: 'https://samly.howto:4443',
+//   tenant_domain: 'first-tenant',
+//   client_id: '2834ba3d-4239-4faa-b5c2-3b047bb374e5',
+//   default_redirect_uri: 'http://localhost:5001/login',
+//   default_locale: 'en',
+//   telemetry: false,
 // }
 
+// talentview/My Confs
+// const config = {
+//   audience: 'http://localhost:5001',
+//   client_id: '88f8465a-f238-4331-bff6-855de9e8429e',
+//   // client_id: '78b82528-795a-40ef-aefd-dd57acc57a4f',
+//   default_locale: 'en',
+//   default_redirect_uri: 'http://localhost:5001',
+//   tenant_domain: 'tf1',
+//   // tenant_domain: 'sercel-saint-gaudens',
+//   telemetry: 'FALSE',
+//   cryptr_base_url: 'https://talentview.authent.me',
+//   // cryptr_base_url: 'https://merciyanis.authent.me',
+// }
+
+const config = {
+  audience: process.env.REACT_APP_CRYPTR_AUDIENCE || 'http://localhost:5001',
+  cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || 'https://samly.howto:4443',
+  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'second-tenant',
+  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || 'be332c9f-9d81-4232-9e06-05ecf8c84e09',
+  default_redirect_uri:
+    process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5001',
+  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
+  telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY || false,
+}
+
 const AppContainer = (): ReactElement => {
-  const {isAuthenticated} = useCryptr()
+  const { isAuthenticated } = useCryptr()
   return (
     <Router>
       <div

@@ -1,11 +1,8 @@
 import React, { ReactElement } from 'react'
-import {
-  SsoSignInButton,
-  useCryptr
-} from '../../lib'
+import { SsoSignInButton, useCryptr } from '../../lib'
 
 const LoginPage = (): ReactElement => {
-  const {isAuthenticated, isLoading} = useCryptr()
+  const { isAuthenticated, isLoading } = useCryptr()
   return (
     <div>
       <div className="mt-8 w-2/3 flex flex-col">
@@ -25,11 +22,13 @@ const LoginPage = (): ReactElement => {
               )}
             </>
           )}
-          {isLoading === false && isAuthenticated() === true && (
-            <div className="w-full">
-              <p className="w-full text-center">Session is live! You can now navigate through app !</p>
-            </div>
-          )}
+        {isLoading === false && isAuthenticated() === true && (
+          <div className="w-full">
+            <p className="w-full text-center">
+              Session is live! You can now navigate through app !
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )
