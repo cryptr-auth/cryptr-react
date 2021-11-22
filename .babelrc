@@ -1,6 +1,7 @@
 {
   "presets": [
-    "@babel/react"
+   "@babel/preset-env",
+  "@babel/preset-react"
   ],
   "ignore": [
     "**/__snapshots__",
