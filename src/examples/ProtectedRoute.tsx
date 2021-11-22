@@ -2,8 +2,8 @@ import React from 'react'
 import { Route, useHistory } from 'react-router-dom'
 import { useCryptr } from '../lib'
 
-// eslint-disable-next-line react/prop-types
-const ProtectedRoute = ({ component: Component, ...rest }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ProtectedRoute = ({ component: Component, ...rest }: React.PropsWithChildren<any>): Route => {
   const { isLoading, isAuthenticated } = useCryptr()
   const history = useHistory()
 
