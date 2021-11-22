@@ -7,7 +7,9 @@ import HomePage from './pages/HomePage'
 import BillingsPage from './pages/BillingsPage'
 import SettingsPage from './pages/SettingsPage'
 import ProfilePage from './pages/ProfilePage'
-import { CryptrProvider } from '../lib'
+import { CryptrProvider, useCryptr } from '../lib'
+import LoginPage from './pages/LoginPage'
+import ProtectedRoute from './ProtectedRoute'
 
 // import SubComponent from './SubComponent';
 
@@ -62,9 +64,23 @@ const ROUTES: Array<NavLink> = [
 //   cryptr_base_url: 'https://samly.howto:4443',
 //   tenant_domain: 'first-tenant',
 //   client_id: '2834ba3d-4239-4faa-b5c2-3b047bb374e5',
-//   default_redirect_uri: 'http://localhost:5001',
+//   default_redirect_uri: 'http://localhost:5001/login',
 //   default_locale: 'en',
 //   telemetry: false,
+// }
+
+// talentview/My Confs
+// const config = {
+//   audience: 'http://localhost:5001',
+//   client_id: '88f8465a-f238-4331-bff6-855de9e8429e',
+//   // client_id: '78b82528-795a-40ef-aefd-dd57acc57a4f',
+//   default_locale: 'en',
+//   default_redirect_uri: 'http://localhost:5001',
+//   tenant_domain: 'tf1',
+//   // tenant_domain: 'sercel-saint-gaudens',
+//   telemetry: 'FALSE',
+//   cryptr_base_url: 'https://talentview.authent.me',
+//   // cryptr_base_url: 'https://merciyanis.authent.me',
 // }
 
 const config = {
@@ -78,33 +94,35 @@ const config = {
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY || false,
 }
 
-const App = (): ReactElement => (
-  <CryptrProvider {...config}>
+const AppContainer = (): ReactElement => {
+  const { isAuthenticated } = useCryptr()
+  return (
     <Router>
       <div
         style={{ minHeight: '780px' }}
         className="divide-y divide-gray-200 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x"
       >
-        <SideNav routes={ROUTES} />
+        {isAuthenticated() && <SideNav routes={ROUTES} />}
 
         <div className="divide-y divide-gray-200 lg:col-span-9">
           <div className="py-6 px-4 space-y-6 sm:p-6 lg:pb-8">
-            <Route exact path="/">
-              <HomePage />
+            <ProtectedRoute exact path="/" component={HomePage} />
+            <Route path="/login">
+              <LoginPage />
             </Route>
-            <Route path="/profile">
-              <ProfilePage />
-            </Route>
-            <Route path="/account">
-              <SettingsPage />
-            </Route>
-            <Route path="/billings">
-              <BillingsPage />
-            </Route>
+            <ProtectedRoute path="/profile" component={ProfilePage} />
+            <ProtectedRoute path="/account" component={SettingsPage} />
+            <ProtectedRoute path="/billings" component={BillingsPage} />
           </div>
         </div>
       </div>
     </Router>
+  )
+}
+
+const App = (): ReactElement => (
+  <CryptrProvider {...config}>
+    <AppContainer />
   </CryptrProvider>
 )
 
