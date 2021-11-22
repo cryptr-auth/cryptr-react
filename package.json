@@ -1,6 +1,6 @@
 {
   "name": "@cryptr/cryptr-react",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "dependencies": {
     "@cryptr/cryptr-spa-js": "^1.0.5",
