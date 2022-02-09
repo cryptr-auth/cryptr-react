@@ -4,7 +4,7 @@
   "private": false,
   "dependencies": {
     "@cryptr/cryptr-spa-js": "^1.0.6",
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
