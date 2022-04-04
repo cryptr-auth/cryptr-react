@@ -49,7 +49,7 @@ export default [
               open: true,
               port: 5001,
             }),
-            livereload({watch: 'src'}),
+            livereload({ watch: 'src' }),
           ]),
     ],
   },

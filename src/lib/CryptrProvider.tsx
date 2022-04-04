@@ -87,9 +87,9 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
       try {
         if (cryptrClient && cryptrClient.canHandleAuthentication()) {
           const tokens = await cryptrClient.handleRedirectCallback()
-          const claims = (cryptrClient.getClaimsFromAccess(
+          const claims = cryptrClient.getClaimsFromAccess(
             tokens.accessToken,
-          ) as unknown) as CryptrTokenClaims | null
+          ) as unknown as CryptrTokenClaims | null
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           await cryptrClient.handleRefreshTokens()
@@ -107,7 +107,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         }
       } finally {
         if (cryptrClient !== undefined) {
-          const user = (cryptrClient.getUser() as unknown) as User | null
+          const user = cryptrClient.getUser() as unknown as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()
           dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
         }
