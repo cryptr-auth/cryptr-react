@@ -45,11 +45,11 @@ export default [
         ? []
         : [
             serve({
-              contentBase: ['dist', 'static'],
+              contentBase: ['build'],
               open: true,
-              port: 3000,
+              port: 5001,
             }),
-            livereload(),
+            livereload({watch: 'src'}),
           ]),
     ],
   },
