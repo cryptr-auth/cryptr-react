@@ -178,9 +178,6 @@ const CryptrAccountAccessButton = ({
                               <CryptrLogOutButton
                                 className="cursor-pointer w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-yellow-500 bg-white hover:text-yellow-400 focus:outline-none focus:border-yellow-300 focus:shadow-outline-yellow transition duration-150 ease-in-out"
                                 text={logOutText()}
-                                callback={() => {
-                                  console.debug('logged out')
-                                }}
                               />
                             </div>
                           </div>

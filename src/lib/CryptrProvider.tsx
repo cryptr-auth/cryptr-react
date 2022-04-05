@@ -7,6 +7,7 @@ import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
 import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
 import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+import { AxiosRequestConfig } from 'axios'
 
 /** Define a default action to perform after authentication */
 const DEFAULT_REDIRECT_CALLBACK = () => {
@@ -87,9 +88,9 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
       try {
         if (cryptrClient && cryptrClient.canHandleAuthentication()) {
           const tokens = await cryptrClient.handleRedirectCallback()
-          const claims = (cryptrClient.getClaimsFromAccess(
+          const claims = cryptrClient.getClaimsFromAccess(
             tokens.accessToken,
-          ) as unknown) as CryptrTokenClaims | null
+          ) as unknown as CryptrTokenClaims | null
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           await cryptrClient.handleRefreshTokens()
@@ -107,7 +108,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         }
       } finally {
         if (cryptrClient !== undefined) {
-          const user = (cryptrClient.getUser() as unknown) as User | null
+          const user = cryptrClient.getUser() as unknown as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()
           dispatchNewState({ type: 'INITIALIZED', isAuthenticated, user })
         }
@@ -177,7 +178,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         user: () => {
           return state.user
         },
-        decoratedRequest: (config) => cryptrClient.decoratedRequest(config),
+        decoratedRequest: (axiosConfig: AxiosRequestConfig) => {return cryptrClient.decoratedRequest(axiosConfig)},
         config: () => config,
         defaultScopes: () => config.defaultScopes,
         getCurrentAccessToken: () => cryptrClient.getCurrentAccessToken(),

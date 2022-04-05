@@ -46,9 +46,6 @@ const HomePage = (): ReactElement => {
             <LogOutButton
               className="inline-flex items-center justify-center ml-5 px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
               style={{ marginRight: '4px' }}
-              callback={() => {
-                console.log('toto')
-              }}
               targetUrl={process.env.REACT_APP_CRYPTR_TARGET_URL}
             />
             <SignUpButton
