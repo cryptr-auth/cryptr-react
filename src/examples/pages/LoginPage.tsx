@@ -16,13 +16,13 @@ const LoginPage = (): ReactElement => {
                 options={{ locale: 'fr' }}
               />
               {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
-                <small className="text-gray-400">
+                <small className="text-gray-400 text-center">
                   ({process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID})
                 </small>
               )}
             </>
           )}
-        <SignInButton />
+        <SignInButton text="Magic link signin" className="button border px-5 py-3 border-transparent bg-indigo-200 hover:bg-indigo-100 ocus:outline-none focus:shadow-outline transition duration-150 ease-in-out rounded-md" />
         {isLoading === false && isAuthenticated() === true && (
           <div className="w-full">
             <p className="w-full text-center">
