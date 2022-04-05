@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import { useCryptr } from '../../lib'
 
 const BillingsPage = (): ReactElement => {
-  const [billings, setBillings] = useState([])
+  const [billings, setBillings] = useState<unknown>()
   const [accessToken, setAccessToken] = useState()
   const { decoratedRequest, isAuthenticated, isLoading, getCurrentAccessToken } = useCryptr()
 
