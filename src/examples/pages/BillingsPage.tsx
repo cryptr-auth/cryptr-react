@@ -1,8 +1,15 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 import { useCryptr } from '../../lib'
 
+interface Billing {
+  date: string
+  description: string
+  amount: number
+  receiptUrl: string
+}
+
 const BillingsPage = (): ReactElement => {
-  const [billings, setBillings] = useState<unknown>()
+  const [billings, setBillings] = useState<Array<Billing>>([])
   const [accessToken, setAccessToken] = useState()
   const { decoratedRequest, isAuthenticated, isLoading, getCurrentAccessToken } = useCryptr()
 
@@ -11,7 +18,9 @@ const BillingsPage = (): ReactElement => {
       method: 'GET',
       url: 'http://localhost:8081/api/v1/billings',
     }).then((data) => {
-      setBillings(data.data)
+      if (data.data){
+        setBillings(data.data as Array<Billing>)
+      }
     })
   }, [decoratedRequest])
 
