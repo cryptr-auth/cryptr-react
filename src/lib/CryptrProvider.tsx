@@ -7,6 +7,7 @@ import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
 import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
 import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+import { AxiosRequestConfig } from 'axios'
 
 /** Define a default action to perform after authentication */
 const DEFAULT_REDIRECT_CALLBACK = () => {
@@ -177,7 +178,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         user: () => {
           return state.user
         },
-        decoratedRequest: (config) => cryptrClient.decoratedRequest(config),
+        decoratedRequest: (axiosConfig: AxiosRequestConfig) => {return cryptrClient.decoratedRequest(axiosConfig)},
         config: () => config,
         defaultScopes: () => config.defaultScopes,
         getCurrentAccessToken: () => cryptrClient.getCurrentAccessToken(),

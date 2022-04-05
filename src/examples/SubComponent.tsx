@@ -1,6 +1,5 @@
 import React from 'react'
 import { AccountButton, LogOutButton, SignUpButton, useCryptr } from '../lib'
-import { HelloWorld } from '../lib/widgets'
 
 const SubComponent: React.FC = () => {
   const { isAuthenticated, decoratedRequest } = useCryptr()
@@ -29,7 +28,6 @@ const SubComponent: React.FC = () => {
   return (
     <header className="App-header">
       {isAuthenticated() && <div style={{ backgroundColor: 'green' }}>Connecté !</div>}
-      <HelloWorld />
       <AccountButton>
         <div onClick={fetchCourses} className="space-y-1">
           <p className="text-base leading-6 font-medium text-gray-900">Mes courses</p>

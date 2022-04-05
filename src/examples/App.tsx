@@ -91,7 +91,7 @@ const config = {
   default_redirect_uri:
     process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5001',
   default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
-  telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY || false,
+  telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == "true" || false,
 }
 
 const AppContainer = (): ReactElement => {
