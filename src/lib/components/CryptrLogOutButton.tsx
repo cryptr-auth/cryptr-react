@@ -4,7 +4,7 @@ import { hiddenStyle } from '../utils/constants'
 
 type LogOutProps = {
   text?: string
-  callback: () => void
+  callback?: () => void
   style?: CSSProperties
   className?: string
   autoHide?: boolean
