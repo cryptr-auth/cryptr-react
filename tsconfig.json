@@ -17,5 +17,5 @@
     "jsx": "react-jsx",
     "noImplicitAny": false
   },
-  "include": ["src/**/*.ts", "src/**/**/*.ts", "src/lib/utils/cryptr.interfaces.tsx"]
+  "include": ["src", "src/**/*.ts", "src/**/**/*.ts", "src/lib/utils/cryptr.interfaces.tsx"]
 }
