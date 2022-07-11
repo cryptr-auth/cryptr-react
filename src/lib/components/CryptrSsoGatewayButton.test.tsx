@@ -3,8 +3,6 @@ import CryptrSsoGatewayButton from './CryptrSsoGatewayButton'
 import { render, screen } from '@testing-library/react'
 import CryptrProvider from '../CryptrProvider'
 
-
-
 const config = {
   audience: 'http://localhost:5000',
   cryptr_base_url: 'https://samly.howto:4443',
@@ -14,8 +12,6 @@ const config = {
   default_locale: 'fr',
   telemetry: false,
 }
-
-
 
 const idpId = 'tenant_domain_slug'
 
