@@ -13,6 +13,7 @@ const initialContext = {
   signinWithRedirect: error,
   signupWithRedirect: error,
   signinWithSSO: error,
+  signInWithSSOGateway: error,
   isAuthenticated: error,
   userAccountAccess: error,
   logOut: error,

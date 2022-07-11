@@ -9,14 +9,7 @@ import {
 } from '../../lib'
 
 const HomePage = (): ReactElement => {
-  const { isAuthenticated, isLoading } = useCryptr()
-
-  // const idpId = "misapret_QtqpTS7itBLt4HdoCj5Qck"
-  // const idpId = 'leanpay_BmXKRvxe9X5bcUqjKPPRKH'
-
-  // const idpId = "misapret_QtqpTS7itBLt4HdoCj5Qck"
-  // const idpId = 'leanpay_BmXKRvxe9X5bcUqjKPPRKH'
-
+  const { isAuthenticated, isLoading, user } = useCryptr()
   return (
     <>
       <div className="bg-white">
@@ -38,7 +31,16 @@ const HomePage = (): ReactElement => {
             <AccountButton
               className="cursor-pointer mt-2 w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-gray-900 bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:border-yellow-600 focus:shadow-outline-yellow transition duration-150 ease-in-out"
               style={{ marginRight: '4px' }}
-            />
+            >
+              <ul>
+                <li>{user()?.tnt}</li>
+                <li>{user()?.ips}</li>
+                <li>
+                  <small>{user()?.sci}</small>
+                </li>
+                <li>{user()?.scp?.join(', ')}</li>
+              </ul>
+            </AccountButton>
             <SignInButton
               className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-indigo-300 transition duration-150 ease-in-out"
               style={{ marginRight: '4px' }}

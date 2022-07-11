@@ -9,6 +9,7 @@ export interface Config {
   region?: string
   cryptr_base_url?: string
   telemetry?: boolean
+  dedicated_server?: boolean
 }
 export interface ProviderConfig extends Config {
   /* tslint:disable-next-line */
@@ -30,6 +31,11 @@ export interface CryptrClient {
 
 export interface User {
   email: string
+  tnt: string
+  sub: string
+  ips?: string
+  sci?: string
+  scp?: string[]
   given_name?: string
   family_name?: string
   nickname?: string
@@ -52,7 +58,3 @@ export interface CryptrTokenClaims {
   resource_owner_metadata?: { [key: string]: string | number | boolean }
   application_metadata?: { [key: string]: string | number | boolean }
 }
-
-// export interface ProviderProps {
-//   children: PropTypes.node
-// }

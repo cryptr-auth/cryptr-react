@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, useState, useCallback, useRef } from 'react'
-import CryptrSpa from '@cryptr/cryptr-spa-js'
 // import PropTypes from 'prop-types'
 import Client from '../../node_modules/@cryptr/cryptr-spa-js/dist/types/client'
 import CryptrContext from './CryptrContext'
@@ -7,6 +6,7 @@ import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
 import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
 import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+import CryptrSpa from '@cryptr/cryptr-spa-js'
 import { AxiosRequestConfig } from 'axios'
 
 /** Define a default action to perform after authentication */
@@ -48,7 +48,8 @@ const prepareConfig = (options: ProviderOptions): ProviderConfig => {
 
     onLogOutCallback: options.onLogOutCallback || DEFAULT_LOGOUT_CALLBACK,
     defaultScopes: options.defaultScopes || DEFAULT_SCOPE,
-    telemetry: false,
+    telemetry: options.telemetry || false,
+    dedicated_server: options.dedicated_server || false,
   }
 }
 
@@ -100,7 +101,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           console.log('not hanling redirection')
         }
       } catch (error) {
-        console.error(error)
+        console.error('catched error', error)
         if (error instanceof Error) {
           dispatchNewState({ type: 'ERROR', error: error.message })
         } else {
@@ -174,11 +175,15 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           cryptrClient.signUpWithRedirect(scope, redirectUri, locale),
         signinWithSSO: (idpId: string, options?: SsoSignOptsAttrs) =>
           cryptrClient.signInWithSSO(idpId, options),
+        signInWithSSOGateway: (idpIds: string[], options?: SsoSignOptsAttrs) =>
+          cryptrClient.signInWithSSOGateway(idpIds, options),
         userAccountAccess: () => handleUserAccountAccess(),
         user: () => {
           return state.user
         },
-        decoratedRequest: (axiosConfig: AxiosRequestConfig) => {return cryptrClient.decoratedRequest(axiosConfig)},
+        decoratedRequest: (axiosConfig: AxiosRequestConfig) => {
+          return cryptrClient.decoratedRequest(axiosConfig)
+        },
         config: () => config,
         defaultScopes: () => config.defaultScopes,
         getCurrentAccessToken: () => cryptrClient.getCurrentAccessToken(),
