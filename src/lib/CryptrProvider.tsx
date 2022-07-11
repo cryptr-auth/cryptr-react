@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, useState, useCallback, useRef } from 'react'
-import CryptrSpa from '@cryptr/cryptr-spa-js'
 // import PropTypes from 'prop-types'
 import Client from '../../node_modules/@cryptr/cryptr-spa-js/dist/types/client'
 import CryptrContext from './CryptrContext'
@@ -7,6 +6,7 @@ import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
 import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
 import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+import CryptrSpa from '@cryptr/cryptr-spa-js'
 import { AxiosRequestConfig } from 'axios'
 
 /** Define a default action to perform after authentication */
