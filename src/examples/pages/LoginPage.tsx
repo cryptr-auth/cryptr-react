@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { SignInButton, SsoGatewayButton, SsoSignInButton, useCryptr } from '../../lib'
 
 const LoginPage = (): ReactElement => {
-  const { config, isAuthenticated, isLoading } = useCryptr()
+  const { isAuthenticated, isLoading } = useCryptr()
   const idps: string[] = process.env.REACT_APP_CRYPTR_IDPS
     ? process.env.REACT_APP_CRYPTR_IDPS.split(',')
     : []
