@@ -58,7 +58,3 @@ export interface CryptrTokenClaims {
   resource_owner_metadata?: { [key: string]: string | number | boolean }
   application_metadata?: { [key: string]: string | number | boolean }
 }
-
-// export interface ProviderProps {
-//   children: PropTypes.node
-// }

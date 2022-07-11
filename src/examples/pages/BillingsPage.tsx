@@ -18,7 +18,7 @@ const BillingsPage = (): ReactElement => {
       method: 'GET',
       url: 'http://localhost:8081/api/v1/billings',
     }).then((data) => {
-      if (data.data){
+      if (data.data) {
         setBillings(data.data as Array<Billing>)
       }
     })

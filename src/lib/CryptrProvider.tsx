@@ -87,11 +87,15 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
   useEffect(() => {
     const configFn = async () => {
       try {
+        console.debug('start process')
         if (cryptrClient && cryptrClient.canHandleAuthentication()) {
+          console.debug('can handle auth')
           const tokens = await cryptrClient.handleRedirectCallback()
+          console.debug('tokens', tokens)
           const claims = cryptrClient.getClaimsFromAccess(
             tokens.accessToken,
           ) as unknown as CryptrTokenClaims | null
+          console.debug('claims', claims)
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           await cryptrClient.handleRefreshTokens()
@@ -101,13 +105,14 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           console.log('not hanling redirection')
         }
       } catch (error) {
-        console.error(error)
+        console.error('catched error', error)
         if (error instanceof Error) {
           dispatchNewState({ type: 'ERROR', error: error.message })
         } else {
           dispatchNewState({ type: 'ERROR', error: error })
         }
       } finally {
+        console.debug('finally')
         if (cryptrClient !== undefined) {
           const user = cryptrClient.getUser() as unknown as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()
@@ -181,7 +186,9 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         user: () => {
           return state.user
         },
-        decoratedRequest: (axiosConfig: AxiosRequestConfig) => {return cryptrClient.decoratedRequest(axiosConfig)},
+        decoratedRequest: (axiosConfig: AxiosRequestConfig) => {
+          return cryptrClient.decoratedRequest(axiosConfig)
+        },
         config: () => config,
         defaultScopes: () => config.defaultScopes,
         getCurrentAccessToken: () => cryptrClient.getCurrentAccessToken(),
