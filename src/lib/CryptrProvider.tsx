@@ -48,7 +48,8 @@ const prepareConfig = (options: ProviderOptions): ProviderConfig => {
 
     onLogOutCallback: options.onLogOutCallback || DEFAULT_LOGOUT_CALLBACK,
     defaultScopes: options.defaultScopes || DEFAULT_SCOPE,
-    telemetry: false,
+    telemetry: options.telemetry || false,
+    dedicated_server: options.dedicated_server || false,
   }
 }
 
