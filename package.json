@@ -3,8 +3,8 @@
   "version": "1.0.7",
   "private": false,
   "dependencies": {
-    "@cryptr/cryptr-spa-js": "^1.0.8",
-    "axios": "^0.26.1",
+    "@cryptr/cryptr-spa-js": "^1.1.0",
+    "axios": "^0.27.2",
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
@@ -112,7 +112,8 @@
     "authentication",
     "passwordless",
     "sso",
-    "slo"
+    "slo",
+    "gateway"
   ],
   "author": "Cryptr (https://www.cryptr.co)",
   "license": "ISC"
