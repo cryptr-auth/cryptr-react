@@ -31,6 +31,11 @@ export interface CryptrClient {
 
 export interface User {
   email: string
+  tnt: string
+  sub: string
+  ips?: string
+  sci?: string
+  scp?: string[]
   given_name?: string
   family_name?: string
   nickname?: string
