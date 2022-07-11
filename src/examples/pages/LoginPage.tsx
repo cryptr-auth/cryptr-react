@@ -6,8 +6,6 @@ const LoginPage = (): ReactElement => {
   const idps: string[] = process.env.REACT_APP_CRYPTR_IDPS
     ? process.env.REACT_APP_CRYPTR_IDPS.split(',')
     : []
-  console.log(idps)
-  console.log(config())
   return (
     <div>
       <div className="mt-8 w-2/3 flex flex-col">

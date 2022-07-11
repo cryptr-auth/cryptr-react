@@ -87,15 +87,11 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
   useEffect(() => {
     const configFn = async () => {
       try {
-        console.debug('start process')
         if (cryptrClient && cryptrClient.canHandleAuthentication()) {
-          console.debug('can handle auth')
           const tokens = await cryptrClient.handleRedirectCallback()
-          console.debug('tokens', tokens)
           const claims = cryptrClient.getClaimsFromAccess(
             tokens.accessToken,
           ) as unknown as CryptrTokenClaims | null
-          console.debug('claims', claims)
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           await cryptrClient.handleRefreshTokens()
@@ -112,7 +108,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           dispatchNewState({ type: 'ERROR', error: error })
         }
       } finally {
-        console.debug('finally')
         if (cryptrClient !== undefined) {
           const user = cryptrClient.getUser() as unknown as User | null
           const isAuthenticated = await cryptrClient.isAuthenticated()

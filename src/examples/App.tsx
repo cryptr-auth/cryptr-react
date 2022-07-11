@@ -30,8 +30,6 @@ const config = {
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true' || false,
 }
 
-console.log(config)
-
 const AppContainer = (): ReactElement => {
   const { isAuthenticated } = useCryptr()
   return (
