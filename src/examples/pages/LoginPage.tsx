@@ -1,8 +1,13 @@
 import React, { ReactElement } from 'react'
-import { SignInButton, SsoSignInButton, useCryptr } from '../../lib'
+import { SignInButton, SsoGatewayButton, SsoSignInButton, useCryptr } from '../../lib'
 
 const LoginPage = (): ReactElement => {
-  const { isAuthenticated, isLoading } = useCryptr()
+  const { config, isAuthenticated, isLoading } = useCryptr()
+  const idps: string[] = process.env.REACT_APP_CRYPTR_IDPS
+    ? process.env.REACT_APP_CRYPTR_IDPS.split(',')
+    : []
+  console.log(idps)
+  console.log(config())
   return (
     <div>
       <div className="mt-8 w-2/3 flex flex-col">
@@ -22,6 +27,25 @@ const LoginPage = (): ReactElement => {
               )}
             </>
           )}
+        <SsoGatewayButton
+          text="Bare Gateway"
+          className="button border px-5 py-3 outline outline-2  outline-offset-2 transition duration-150 ease-in-out rounded-md my-4 border-teal-500"
+        />
+        {idps != [] && (
+          <>
+            <SsoGatewayButton
+              text="One SSO Gateway"
+              idpIds={[idps[0]]}
+              className="button border px-5 py-3 outline outline-2  outline-offset-2 transition duration-150 ease-in-out rounded-md my-4 border-teal-500"
+            />
+
+            <SsoGatewayButton
+              text="Multiple SSO Gateway"
+              idpIds={idps}
+              className="button border px-5 py-3 outline outline-2  outline-offset-2 transition duration-150 ease-in-out rounded-md my-4 border-teal-500"
+            />
+          </>
+        )}
         <SignInButton
           text="Magic link signin"
           className="button border px-5 py-3 border-transparent bg-indigo-200 hover:bg-indigo-100 ocus:outline-none focus:shadow-outline transition duration-150 ease-in-out rounded-md"
