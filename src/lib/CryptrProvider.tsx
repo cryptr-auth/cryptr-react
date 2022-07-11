@@ -174,6 +174,8 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           cryptrClient.signUpWithRedirect(scope, redirectUri, locale),
         signinWithSSO: (idpId: string, options?: SsoSignOptsAttrs) =>
           cryptrClient.signInWithSSO(idpId, options),
+        signInWithSSOGateway: (idpIds: string[], options?: SsoSignOptsAttrs) =>
+          cryptrClient.signInWithSSOGateway(idpIds, options),
         userAccountAccess: () => handleUserAccountAccess(),
         user: () => {
           return state.user
