@@ -1,6 +1,6 @@
 {
   "name": "@cryptr/cryptr-react",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": false,
   "dependencies": {
     "@cryptr/cryptr-spa-js": "^1.1.0",
@@ -15,7 +15,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "build:react": "react-scripts build",
-    "build:serve:react": "react-scripts build && PORT=5001 serve -s build",
+    "build:serve:react": "react-scripts build && PORT=3000 serve -s build",
     "watch": "npm-watch",
     "lint": "eslint --ext=tsx ./src",
     "eject": "react-scripts eject",
