@@ -120,7 +120,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
 
   const handleUserAccountAccess = () => {
     cryptrClient.userAccountAccess().then((data) => {
-      if (data !== undefined) {
+      if (data !== undefined && data != null) {
         const popupHeight = 935
         const popupwidth = 915
         const popupParams = `location=yes,height=${popupHeight},width=${popupwidth},scrollbars=yes,status=yes`
