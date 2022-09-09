@@ -116,5 +116,13 @@
     "gateway"
   ],
   "author": "Cryptr (https://www.cryptr.co)",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptr-auth/cryptr-spa-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cryptr-auth/cryptr-spa-js/issues"
+  },
+  "homepage": "https://github.com/cryptr-auth/cryptr-spa-js#readme"
 }
