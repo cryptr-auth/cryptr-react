@@ -28,7 +28,7 @@ const config = {
   default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == 'true' || false,
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true' || false,
-  fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE || false
+  fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE == 'true' || false
 }
 
 console.debug(config);
