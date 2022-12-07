@@ -9,8 +9,8 @@ export interface Config {
   region?: string
   cryptr_base_url?: string
   telemetry?: boolean
-  dedicated_server?: boolean,
-  fixed_pkce?: boolean,
+  dedicated_server?: boolean
+  fixed_pkce?: boolean
 }
 export interface ProviderConfig extends Config {
   /* tslint:disable-next-line */
