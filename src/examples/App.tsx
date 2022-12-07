@@ -31,8 +31,6 @@ const config = {
   fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE == 'true' || false
 }
 
-console.debug(config);
-
 const AppContainer = (): ReactElement => {
   const { isAuthenticated } = useCryptr()
   return (
