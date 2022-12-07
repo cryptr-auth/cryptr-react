@@ -119,10 +119,10 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cryptr-auth/cryptr-spa-js.git"
+    "url": "git+https://github.com/cryptr-auth/cryptr-react.git"
   },
   "bugs": {
-    "url": "https://github.com/cryptr-auth/cryptr-spa-js/issues"
+    "url": "https://github.com/cryptr-auth/cryptr-react/issues"
   },
-  "homepage": "https://github.com/cryptr-auth/cryptr-spa-js#readme"
+  "homepage": "https://github.com/cryptr-auth/cryptr-react#readme"
 }
