@@ -14,6 +14,8 @@ const initialContext = {
   signupWithRedirect: error,
   signinWithSSO: error,
   signInWithSSOGateway: error,
+  signInWithDomain: error,
+  signInWithEmail: error,
   isAuthenticated: error,
   userAccountAccess: error,
   logOut: error,
