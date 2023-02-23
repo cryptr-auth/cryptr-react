@@ -4,7 +4,7 @@ import { SignInButton, SignInWithDomainButton, SignInWithEmailButton, SsoGateway
 const LoginPage = (): ReactElement => {
   const { isAuthenticated, isLoading} = useCryptr()
 
-  const email = process.env.REACT_APP_CRYPTR_USER_EMAIL
+  const email = process.env.REACT_APP_CRYPTR_USER_EMAIL || 'john@doe.com'
 
   const idps: string[] = process.env.REACT_APP_CRYPTR_IDPS
     ? process.env.REACT_APP_CRYPTR_IDPS.split(',')
