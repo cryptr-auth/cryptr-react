@@ -12,10 +12,17 @@ type SignInWithEmailProps = {
   options?: SsoSignOptsAttrs
 }
 
-const CryptrSignInWithEmailButton: React.FC<SignInWithEmailProps> = ({email, text, className, style, autoHide = true, options}: SignInWithEmailProps) => {
-  const {config, isAuthenticated, isLoading, signInWithEmail} = useCryptr()
+const CryptrSignInWithEmailButton: React.FC<SignInWithEmailProps> = ({
+  email,
+  text,
+  className,
+  style,
+  autoHide = true,
+  options,
+}: SignInWithEmailProps) => {
+  const { config, isAuthenticated, isLoading, signInWithEmail } = useCryptr()
 
-  const signInWithEmailText = () : string => {
+  const signInWithEmailText = (): string => {
     return text ? text : localizedText(email, options?.locale || config().default_locale)
   }
 
@@ -27,17 +34,12 @@ const CryptrSignInWithEmailButton: React.FC<SignInWithEmailProps> = ({email, tex
     signInWithEmail(email, options)
   }
 
-  if((isAuthenticated !== undefined && isAuthenticated() && autoHide) || isLoading) {
+  if ((isAuthenticated !== undefined && isAuthenticated() && autoHide) || isLoading) {
     return <div data-testid="" style={hiddenStyle}></div>
   }
 
-  return(
-    <button
-      onClick={cryptrSignInWithEmail}
-      data-testid=""
-      className={className}
-      style={style}
-    >
+  return (
+    <button onClick={cryptrSignInWithEmail} data-testid="" className={className} style={style}>
       {signInWithEmailText()}
     </button>
   )

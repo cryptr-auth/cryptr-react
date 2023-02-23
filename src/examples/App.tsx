@@ -19,12 +19,12 @@ const ROUTES: Array<NavLink> = [
 ]
 
 const config = {
-  audience: process.env.REACT_APP_CRYPTR_AUDIENCE || "https://your-react.url",
-  cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || "https://your-company.authent.me",
-  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || "your-company",
-  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || "your-react-app-cryptr-id",
+  audience: process.env.REACT_APP_CRYPTR_AUDIENCE || 'https://your-react.url',
+  cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || 'https://your-company.authent.me',
+  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'your-company',
+  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || 'your-react-app-cryptr-id',
   default_redirect_uri:
-    process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || "https://your-react.url",
+    process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'https://your-react.url',
   default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == 'true',
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true',

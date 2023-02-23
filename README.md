@@ -16,7 +16,6 @@ yarn add @cryptr/cryptr-react
 
 ## Configuration
 
-
 ### CryptrConfig
 
 Here is an example of configuration that will be necessary to implement our solution
@@ -27,8 +26,7 @@ const config = {
   cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL,
   tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN,
   client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID,
-  default_redirect_uri:
-    process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI,
+  default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI,
   default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == 'true',
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true',
@@ -48,7 +46,7 @@ Explanation of config
 | `default_locale`       | Optional          | string locale | `en`    | -                                                    |
 | `dedicated_server`     | Optional          | boolean       | false   | Contact Cryptr Team to set properly                  |
 | `fixed_pkce`           | Optional          | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `telemetry`            | Optional          | boolean       | false   | Set to `true` if debug |
+| `telemetry`            | Optional          | boolean       | false   | Set to `true` if debug                               |
 
 ⚠️ `fixed_pkce`will be removed in the future `1.4.0`release version
 
@@ -93,36 +91,34 @@ On any React element child of the `CryptrProvider` you'll be able to use our hoo
 Here is a quick example
 
 ```typescript
-
 import React, { ReactElement } from 'react'
 import { useCryptr } from '@cryptr/cryptr-react'
 
 const MyComponent = (): ReactElement => {
-  const {isAuthenticated, isLoading} = useCryptr()
+  const { isAuthenticated, isLoading } = useCryptr()
 
-  if(isLoading) {
-    return (<span>Cryptr is processing authentication</span>)
+  if (isLoading) {
+    return <span>Cryptr is processing authentication</span>
   }
 
   if (isAuthenticated()) {
-    return (<span>A Cryptr session is live</span>)
+    return <span>A Cryptr session is live</span>
   } else {
-    return (<span>User is nbot authenticated</span>)
+    return <span>User is nbot authenticated</span>
   }
 }
 
 export default MyComponent
-
 ```
 
 Here is a quick list of tools from our hook
 
-| Name | Purpose |
-| --- | --- |
-| `isLoading` | Cryptr SDK is currently looking for a active authentication (after login or refresh) |
-| `isAuthenticated` | Cryptr SDK has a live Access token ➡️ a user is logged in |
-| `user` | Returns the user objecgt containing all keys from Cryptr ID Token |
-| `logOut` | Asks to Cryptr SDK to run the session log out process |
+| Name                                                | Purpose                                                                                                                                       |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isLoading`                                         | Cryptr SDK is currently looking for a active authentication (after login or refresh)                                                          |
+| `isAuthenticated`                                   | Cryptr SDK has a live Access token ➡️ a user is logged in                                                                                     |
+| `user`                                              | Returns the user objecgt containing all keys from Cryptr ID Token                                                                             |
+| `logOut`                                            | Asks to Cryptr SDK to run the session log out process                                                                                         |
 | `decoratedRequest(axiosConfig: AxiosRequestConfig)` | This method based on axios will decorate the request to the desired endpoint with the current Access Token as **Authorization Bearer Header** |
 
 There are more but major features are just above
@@ -136,13 +132,11 @@ We embedded some components in this SDK to help your integration. Mainly it's bu
 _When you either know which is the entity of the user trying to connect or if you prefer to let him type his email on our gateway_
 
 ```typescript
-import React, {ReactElement}  from "react"
+import React, { ReactElement } from 'react'
 import { SignInWithDomainButton } from '@cryptr/cryptr-react'
 
 const LoginComponent = (): ReactElement => {
-  return (
-    <SignInWithDomainButton domain={'nullable-entity-domain'} />
-  )
+  return <SignInWithDomainButton domain={'nullable-entity-domain'} />
 }
 
 export default LoginComponent
@@ -153,13 +147,11 @@ export default LoginComponent
 _When you already asked the user his email address_
 
 ```typescript
-import React, {ReactElement}  from "react"
+import React, { ReactElement } from 'react'
 import { CryptrSignInWithEmailButton } from '@cryptr/cryptr-react'
 
 const LoginComponent = (): ReactElement => {
-  return (
-    <CryptrSignInWithEmailButton email={'not-nullable-john@doe.com'} />
-  )
+  return <CryptrSignInWithEmailButton email={'not-nullable-john@doe.com'} />
 }
 
 export default LoginComponent

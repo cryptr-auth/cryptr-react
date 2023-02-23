@@ -1,7 +1,7 @@
-import { SsoSignOptsAttrs } from "@cryptr/cryptr-spa-js/dist/types/interfaces"
-import React, { CSSProperties } from "react"
-import useCryptr from "../useCryptr"
-import { hiddenStyle } from "../utils/constants"
+import { SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
+import React, { CSSProperties } from 'react'
+import useCryptr from '../useCryptr'
+import { hiddenStyle } from '../utils/constants'
 
 type SignInWithDomainProps = {
   domain?: string
@@ -12,15 +12,22 @@ type SignInWithDomainProps = {
   options?: SsoSignOptsAttrs
 }
 
-const CryptrSignInWithDomainButton: React.FC<SignInWithDomainProps> = ({domain, text, className, style, options, autoHide = true}: SignInWithDomainProps) => {
+const CryptrSignInWithDomainButton: React.FC<SignInWithDomainProps> = ({
+  domain,
+  text,
+  className,
+  style,
+  options,
+  autoHide = true,
+}: SignInWithDomainProps) => {
   const { config, isAuthenticated, isLoading, signInWithDomain } = useCryptr()
 
-  const signInWithDomainText = () : string => {
+  const signInWithDomainText = (): string => {
     return text ? text : localizedText(domain, options?.locale || config().default_locale)
   }
 
   const localizedText = (domain?: string, locale?: string) => {
-    if(domain) {
+    if (domain) {
       return locale == 'en' ? `Sign in with ${domain}` : `Se connecter avec ${domain}`
     } else {
       return locale == 'en' ? `Sign in` : `Se connecter`
@@ -31,7 +38,7 @@ const CryptrSignInWithDomainButton: React.FC<SignInWithDomainProps> = ({domain, 
     signInWithDomain(domain, options)
   }
 
-  if((isAuthenticated !== undefined && isAuthenticated() && autoHide) || isLoading) {
+  if ((isAuthenticated !== undefined && isAuthenticated() && autoHide) || isLoading) {
     return <div data-testid="CryptrSignInWithDomainButton" style={hiddenStyle}></div>
   }
 
