@@ -25,7 +25,7 @@ const config = {
   client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID,
   default_redirect_uri:
     process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI,
-  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE,
+  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == 'true',
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true',
   fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE == 'true',
