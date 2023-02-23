@@ -19,7 +19,7 @@ yarn add @cryptr/cryptr-react
 
 ### CryptrConfig
 
-Here is an example of config that will be necessary to implement our solution
+Here is an example of configuration that will be necessary to implement our solution
 
 ```javascript
 const config = {
@@ -125,10 +125,11 @@ Here is a quick list of tools from our hook
 | `logOut` | Asks to Cryptr SDK to run the session log out process |
 | `decoratedRequest(axiosConfig: AxiosRequestConfig)` | This method based on axios will decorate the request to the desired endpoint with the current Access Token as **Authorization Bearer Header** |
 
-There is more but main features are just above
+There are more but major features are just above
 
 ## Components
-We embedded some in this SDK some Components to help your integration. Mainly it's button components and can still be configured as you wish (eg: `text`, `className`, `style` ...)
+
+We embedded some components in this SDK to help your integration. Mainly it's button components and can still be configured as you wish (eg: `text`, `className`, `style` ...)
 
 ### SignInWithDomainButton
 
