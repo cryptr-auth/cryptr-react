@@ -1,8 +1,11 @@
 import React, { ReactElement } from 'react'
-import { SignInButton, SsoGatewayButton, SsoSignInButton, useCryptr } from '../../lib'
+import { SignInButton, SignInWithDomainButton, SignInWithEmailButton, SsoGatewayButton, SsoSignInButton, useCryptr } from '../../lib'
 
 const LoginPage = (): ReactElement => {
-  const { isAuthenticated, isLoading } = useCryptr()
+  const { isAuthenticated, isLoading} = useCryptr()
+
+  const email = process.env.REACT_APP_CRYPTR_USER_EMAIL
+
   const idps: string[] = process.env.REACT_APP_CRYPTR_IDPS
     ? process.env.REACT_APP_CRYPTR_IDPS.split(',')
     : []
@@ -56,6 +59,13 @@ const LoginPage = (): ReactElement => {
           </div>
         )}
       </div>
+      <div className='bg-indigo-100 h-1 my-8 w-2/3'></div>
+      <div className="mt-8 w-2/3 flex flex-col">
+        <SignInWithDomainButton domain='leanpay' className='button border px-5 py-3 my-2 outline outline-2' options={{locale: 'fr'}}/>
+        <SignInWithEmailButton email={email} className='button border px-5 py-3 outline outline-2 my-2' text={`Me connecter en tant que ${email}`}/>
+      </div>
+      <hr/>
+      <SignInButton />
     </div>
   )
 }
