@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { renderIntoDocument } from "react-dom/test-utils";
 import CryptrSignInWithDomainButton from "./CryptrSignInWithDomainButton";
 
