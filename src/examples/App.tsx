@@ -20,9 +20,10 @@ const ROUTES: Array<NavLink> = [
 
 const config = {
   audience: process.env.REACT_APP_CRYPTR_AUDIENCE || 'http://localhost:5001',
-  cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || 'https://samly.howto:4443',
-  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'second-tenant',
-  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || 'be332c9f-9d81-4232-9e06-05ecf8c84e09',
+  cryptr_base_url: 'http://localhost:4000',
+  // cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL || 'https://samly.howto:4443',
+  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN || 'cryptr',
+  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID || 'fd4006f2-1d80-445e-9b38-b11de549cc4f',
   default_redirect_uri:
     process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI || 'http://localhost:5001',
   default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
