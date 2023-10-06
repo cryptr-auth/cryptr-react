@@ -8,7 +8,8 @@ type LogOutProps = {
   style?: CSSProperties
   className?: string
   autoHide?: boolean
-  targetUrl?: string
+  targetUrl?: string,
+  sloAfterRevoke?: boolean
 }
 
 const CryptrLogOutButton: React.FC<LogOutProps> = ({
@@ -18,10 +19,11 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
   className,
   autoHide = true,
   targetUrl,
+  sloAfterRevoke
 }: LogOutProps) => {
   const { isAuthenticated, isLoading, logOut, config } = useCryptr()
   const signOut = () => {
-    logOut(callback, targetUrl)
+    logOut(callback, targetUrl, sloAfterRevoke)
   }
 
   const logoutText = (): string => {

@@ -29,6 +29,7 @@ const config = {
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == 'true',
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true',
   fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE == 'true',
+  default_slo_after_revoke: process.env.REACT_APP_CRYPTR_DEFAULT_SLO_AFTER_REVOKE == 'true',
 }
 
 const AppContainer = (): ReactElement => {
