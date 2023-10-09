@@ -1,4 +1,3 @@
-import { SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 import { useContext } from 'react'
 import CryptrContext from './CryptrContext'
 
