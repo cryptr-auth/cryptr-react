@@ -9,7 +9,10 @@ import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/inter
 import CryptrSpa from '@cryptr/cryptr-spa-js'
 import { AxiosRequestConfig } from 'axios'
 
-/** Define a default action to perform after authentication */
+/**
+ * Define a default action to perform after authentication
+ * Basically it's only removing query params from the redirection.
+ * */
 const DEFAULT_REDIRECT_CALLBACK = () => {
   try {
     window.history.replaceState({}, document.title, window.location.pathname)
@@ -18,6 +21,11 @@ const DEFAULT_REDIRECT_CALLBACK = () => {
   }
 }
 
+/**
+ * Defines the default action after successful logout.
+ *
+ * Basically it's alerting user that's logged out and reload the page
+ */
 const DEFAULT_LOGOUT_CALLBACK = () => {
   alert('you are logged out')
   window.location.reload()

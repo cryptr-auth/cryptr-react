@@ -12,6 +12,11 @@ type SsoGatewayProps = {
   options?: SsoSignOptsAttrs
 }
 
+/**
+ * @ignore
+ * @deprecated since version 1.3.0 replaced by SignInWithDomainButton
+ * @name SsoGatewayButton
+ */
 const CryptrSsoGatewayButton: React.FC<SsoGatewayProps> = ({
   idpIds,
   text,

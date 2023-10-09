@@ -1,17 +1,33 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, Props } from 'react'
 import useCryptr from '../useCryptr'
 import { hiddenStyle } from '../utils/constants'
 
+/**
+ * @typedef {Props} LogOutProps
+ */
 type LogOutProps = {
+  /** Desired text in your button */
   text?: string
+  /** Callback called after logout */
   callback?: () => void
+  /** Desired style in your button */
   style?: CSSProperties
+  /** Desired class in your button */
   className?: string
+  /** Set to `false` if you want to display even session is live */
   autoHide?: boolean
+  /** Desired url after url */
   targetUrl?: string,
+  /** Set to `true`if you want also a SLO request among token revokation */
   sloAfterRevoke?: boolean
 }
 
+
+/**
+ * Component to log out your user from it's current session.
+ * Usable props [LogoutProps](#LogOutProps)
+ * @name LogOutButton
+ */
 const CryptrLogOutButton: React.FC<LogOutProps> = ({
   text,
   callback,

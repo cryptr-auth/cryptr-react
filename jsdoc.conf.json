@@ -1,0 +1,40 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": [
+      "src/lib"
+    ],
+    "exclude": [
+      "./src/**/*.text,tsx",
+      "./src/**/*.test.ts"
+    ],
+    "includePattern": "\\.(jsx|js|ts|tsx)$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "typescript",
+    "node_modules/better-docs/typescript",
+    "node_modules/better-docs/component",
+    "node_modules/better-docs/category"
+  ],
+  "templates": {
+    "search": true,
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "better-docs": {
+      "title": "Cryptr React SDK",
+      "logo": "https://docs.cryptr.co/img/cryptr_docs_light_logo.svg"
+    }
+  },
+  "opts": {
+    "destination": "docs/",
+    "encoding": "utf8",
+    "recurse": true,
+    "verbose": true,
+    "readme": "README.md",
+    "template": "./node_modules/better-docs"
+  }
+}

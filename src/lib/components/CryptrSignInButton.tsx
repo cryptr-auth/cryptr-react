@@ -11,11 +11,10 @@ type SignInProps = {
 }
 
 /**
- * Component is described here.
- *
- * @example ./extra.examples.md
+ * @ignore
+ * @deprecated since version 1.3.0 replaced by SignInWithDomainButton
+ * @name SignInButton
  */
-// const CryptrSignInButton: FunctionComponent<SignInState> = ({text = "Sign in", scopes, autoHide = true}) => {
 const CryptrSignInButton: React.FC<SignInProps> = ({
   text,
   scopes,

@@ -12,6 +12,11 @@ type SsoSignInProps = {
   options?: SsoSignOptsAttrs
 }
 
+/**
+ * @ignore
+ * @deprecated since version 1.3.0 replaced by SignInWithDomainButton
+ * @name SsoSignInButton
+ */
 const CryptrSsoSignInButton: React.FC<SsoSignInProps> = ({
   idpId,
   text,
