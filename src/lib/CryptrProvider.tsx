@@ -9,7 +9,11 @@ import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/inter
 import CryptrSpa from '@cryptr/cryptr-spa-js'
 import { AxiosRequestConfig } from 'axios'
 
-/** Define a default action to perform after authentication */
+/**
+ * Define a default action to perform after authentication
+ * Basically it's only removing query params from the redirection.
+ * @category Defaults
+ * */
 const DEFAULT_REDIRECT_CALLBACK = () => {
   try {
     window.history.replaceState({}, document.title, window.location.pathname)
@@ -18,6 +22,12 @@ const DEFAULT_REDIRECT_CALLBACK = () => {
   }
 }
 
+/**
+ * Defines the default action after successful logout.
+ *
+ * Basically it's alerting user that's logged out and reload the page
+ * @category Defaults
+ */
 const DEFAULT_LOGOUT_CALLBACK = () => {
   alert('you are logged out')
   window.location.reload()
@@ -41,15 +51,14 @@ const prepareConfig = (options: ProviderOptions): ProviderConfig => {
     client_id: options.client_id,
     audience: options.audience || window.location.origin,
     cryptr_base_url: options.cryptr_base_url,
-    default_locale: options.default_locale || 'en',
-
+    default_locale: options.default_locale ?? 'en',
     default_redirect_uri: options.default_redirect_uri || window.location.origin,
     onRedirectCallback: options.onRedirectCallback || DEFAULT_REDIRECT_CALLBACK,
-
     onLogOutCallback: options.onLogOutCallback || DEFAULT_LOGOUT_CALLBACK,
     defaultScopes: options.defaultScopes || DEFAULT_SCOPE,
     telemetry: options.telemetry || false,
     dedicated_server: options.dedicated_server || false,
+    default_slo_after_revoke: options.default_slo_after_revoke ?? false,
   }
 }
 
@@ -167,8 +176,8 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         isAuthenticated: () => {
           return state.isAuthenticated
         },
-        logOut: async (callback?: () => void, targetUrl?: string) =>
-          cryptrClient.logOut(callback || logOutCallback, undefined, targetUrl),
+        logOut: async (callback?: () => void, targetUrl?: string, sloAfterRevoke?: boolean) =>
+          cryptrClient.logOut(callback || logOutCallback, undefined, targetUrl, sloAfterRevoke || config.default_slo_after_revoke),
         signinWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
           cryptrClient.signInWithRedirect(scope, redirectUri, locale),
         signupWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>

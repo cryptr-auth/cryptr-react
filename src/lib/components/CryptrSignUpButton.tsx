@@ -10,6 +10,11 @@ type SignUpProps = {
   autoHide?: boolean
 }
 
+/**
+ * @ignore
+ * @deprecated since version 1.3.0 replaced by SignInWithDomainButton
+ * @name SignUpButton
+ */
 const CryptrSignUpButton: React.FC<SignUpProps> = ({
   text,
   scopes,

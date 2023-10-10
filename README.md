@@ -1,10 +1,30 @@
 # 📚 @cryptr/cryptr-react
 
-> Cleeck SDK for React Single Page Applications using passwordless authentication
+> Cryptr SDK for React Single Page Applications using authentication (SSO, Magic link, password ... )
+
+See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online documentation</a>
+
+## Table of Content
+
+- [📚 @cryptr/cryptr-react](#-cryptrcryptr-react)
+  - [Table of Content](#table-of-content)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+    - [CryptrConfig](#cryptrconfig)
+    - [Cryptr Provider](#cryptr-provider)
+  - [Cryptr Hook `useCryptr`](#cryptr-hook-usecryptr)
+  - [Components](#components)
+    - [SignInWithDomainButton](#signinwithdomainbutton)
+    - [SignInWithEmailButton](#signinwithemailbutton)
+  - [Deprecations](#deprecations)
+    - [Since 1.3.0](#since-130)
+      - [Components](#components-1)
+      - [Cryptr Hooks](#cryptr-hooks)
+
 
 ## Installation
 
-Current version `1.2.0`
+Current version `1.3.0`
 
 ```bash
 //npm
@@ -31,24 +51,26 @@ const config = {
   telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == 'true',
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true',
   fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE == 'true',
+  default_slo_after_revoke: process.env.REACT_APP_CRYPTR_DEFAULT_SLO_AFTER_REVOKE == 'true',
 }
 ```
 
 Explanation of config
 
-| key                    | Required/Optional | type          | Default | Description                                          |
-| ---------------------- | ----------------- | ------------- | ------- | ---------------------------------------------------- |
-| `tenant_domain`        | required          | string slug   | -       | Reference to your company entity                     |
-| `client_id`            | required          | uuid          | -       | Reference to your front app id                       |
-| `audience`             | required          | string URL    | -       | Root URL of your front app                           |
-| `default_redirect_uri` | required          | string URL    | -       | Desired redirection URL after authentication process |
-| `cryptr_base_url`      | required          | string URL    | -       | URL of your Cryptr service                           |
-| `default_locale`       | Optional          | string locale | `en`    | -                                                    |
-| `dedicated_server`     | Optional          | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `fixed_pkce`           | Optional          | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `telemetry`            | Optional          | boolean       | false   | Set to `true` if debug                               |
+| key                         | Required/Optional     | type          | Default | Description                                          |
+| --------------------------- | --------------------- | ------------- | ------- | ---------------------------------------------------- |
+| `tenant_domain`             | **required**              | string slug   | -       | Reference to your company entity                     |
+| `client_id`                 | **required**              | uuid          | -       | Reference to your front app id                       |
+| `audience`                  | **required**              | string URL    | -       | Root URL of your front app                           |
+| `default_redirect_uri`      | **required**              | string URL    | -       | Desired redirection URL after authentication process |
+| `cryptr_base_url`           | **required**              | string URL    | -       | URL of your Cryptr service                           |
+| `default_slo_after_revoke`  | **required**(since 1.2.0) | boolean       |         | Defines if SLO has to be done on SSO logout process  |
+| `default_locale`            | Optional                  | string locale | `en`    | -                                                    |
+| `dedicated_server`          | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
+| `fixed_pkce`                | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
+| `telemetry`                 | Optional                  | boolean       | false   | Set to `true` if debug                               |
 
-⚠️ `fixed_pkce`will be removed in the future `1.4.0`release version
+⚠️ `fixed_pkce` will be removed in the future `1.4.0` release version
 
 ### Cryptr Provider
 
@@ -104,7 +126,7 @@ const MyComponent = (): ReactElement => {
   if (isAuthenticated()) {
     return <span>A Cryptr session is live</span>
   } else {
-    return <span>User is nbot authenticated</span>
+    return <span>User is not authenticated</span>
   }
 }
 
@@ -142,17 +164,37 @@ const LoginComponent = (): ReactElement => {
 export default LoginComponent
 ```
 
-### CryptrSignInWithEmailButton
+> 💡 `domain` is optional if you do not know current user's context
+
+### SignInWithEmailButton
 
 _When you already asked the user his email address_
 
 ```typescript
 import React, { ReactElement } from 'react'
-import { CryptrSignInWithEmailButton } from '@cryptr/cryptr-react'
+import { SignInWithEmailButton } from '@cryptr/cryptr-react'
 
 const LoginComponent = (): ReactElement => {
-  return <CryptrSignInWithEmailButton email={'not-nullable-john@doe.com'} />
+  return <SignInWithEmailButton email={'not-nullable-john@doe.com'} />
 }
 
 export default LoginComponent
 ```
+
+## Deprecations
+
+### Since 1.3.0
+
+#### Components
+
+- ~~`SignInButton`~~  -> `SignInWithDomainButton`
+- ~~`SignUpButton`~~  -> `SignInWithDomainButton`
+- ~~`SsoGatewayButton`~~  -> `SignInWithDomainButton`
+- ~~`SsoSignInButton`~~  -> `SignInWithDomainButton`
+
+#### Cryptr Hooks
+
+- ~~`signinWithRedirect`~~
+- ~~`signupWithRedirect`~~
+- ~~`signinWithSSO`~~
+- ~~`signinWithSSOGateway`~~

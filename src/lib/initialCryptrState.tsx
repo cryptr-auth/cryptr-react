@@ -12,6 +12,12 @@
 
 /**
  * The initial auth state.
+ * @category Defaults
+ *
+ * @prop {boolean} isAuthenticated=false - If there is an active session
+ * @prop {boolean} isLoading=false - If there is a Cryptr authentication process in progress
+ * @prop {User} user=null - User representation if session active
+ * @prop {unknown} error=null - Is there any error ongoing
  */
 const initialCryptrState = {
   isAuthenticated: false,
