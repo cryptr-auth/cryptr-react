@@ -1,6 +1,6 @@
 # 📚 @cryptr/cryptr-react
 
-> Cleeck SDK for React Single Page Applications using passwordless authentication
+> Cryptr SDK for React Single Page Applications using authentication (SSO, Magic link, password ... )
 
 ## Table of Content
 
@@ -16,6 +16,8 @@
     - [SignInWithEmailButton](#signinwithemailbutton)
   - [Deprecations](#deprecations)
     - [Since 1.3.0](#since-130)
+      - [Components](#components-1)
+      - [Cryptr Hooks](#cryptr-hooks)
 
 
 ## Installation
@@ -181,13 +183,16 @@ export default LoginComponent
 
 ### Since 1.3.0
 
-- Components
-  - ~~`SignInButton`~~  -> `SignInWithDomain`
-  - ~~`SignUpButton`~~  -> `SignInWithDomain`
-  - ~~`SsoGatewayButton`~~  -> `SignInWithDomain`
-  - ~~`SsoSignInButton`~~  -> `SignInWithDomain`
-- Crpytr Hooks
-  - ~~`signinWithRedirect`~~
-  - ~~`signupWithRedirect`~~
-  - ~~`signinWithSSO`~~
-  - ~~`signinWithSSOGateway`~~
+#### Components
+
+- ~~`SignInButton`~~  -> `SignInWithDomain`
+- ~~`SignUpButton`~~  -> `SignInWithDomain`
+- ~~`SsoGatewayButton`~~  -> `SignInWithDomain`
+- ~~`SsoSignInButton`~~  -> `SignInWithDomain`
+
+#### Cryptr Hooks
+
+- ~~`signinWithRedirect`~~
+- ~~`signupWithRedirect`~~
+- ~~`signinWithSSO`~~
+- ~~`signinWithSSOGateway`~~
