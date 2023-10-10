@@ -1,9 +1,9 @@
-import React, { CSSProperties, Props } from 'react'
+import React, { CSSProperties } from 'react'
 import useCryptr from '../useCryptr'
 import { hiddenStyle } from '../utils/constants'
 
 /**
- * @typedef {Props} LogOutProps
+ * @typedef {Object} LogOutProps
  */
 type LogOutProps = {
   /** Desired text in your button */
