@@ -26,6 +26,7 @@ type SignInWithDomainProps = {
 /**
  * Component to sign in with a specific domain (if known).
  * Usable props : [SignInWithDomainProps](#SignInWithDomainProps)
+ * @category Components
  *
  * @name SignInWithDomainButton
  * @example <caption>When you want user to type email by his own</caption>

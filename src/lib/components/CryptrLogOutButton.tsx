@@ -27,6 +27,7 @@ type LogOutProps = {
  * Component to log out your user from it's current session.
  * Usable props [LogoutProps](#LogOutProps)
  * @name LogOutButton
+ * @category Components
  */
 const CryptrLogOutButton: React.FC<LogOutProps> = ({
   text,

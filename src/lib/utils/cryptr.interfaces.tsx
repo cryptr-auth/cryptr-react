@@ -29,7 +29,7 @@ export interface Config {
  * @prop {boolean} [dedicated_server=false] - Set to `true` if you owns your Cryptr Service
  * @prop {boolean} [fixed_pkce=false] - Since 1.2.0 set to `true`
  * @prop {function} [onRedirectCallback=DEFAULT_REDIRECT_CALLBACK] - The default behaviour after login, see [DEFAULT_REDIRECT_CALLBACK](./global.html#DEFAULT_REDIRECT_CALLBACK)
- * @prop {function} [onLogOutCallback=DEFAULT_LOGOUT_CALLBACK] - The default behaviuor after logout, see [DEFAULT_LOGOUT_CALLBACK](./global.html#DEFAULT_LOGOUT_CALLBACK)
+ * @prop {function} [onLogOutCallback=DEFAULT_LOGOUT_CALLBACK] - The default behaviour after logout, see [DEFAULT_LOGOUT_CALLBACK](./global.html#DEFAULT_LOGOUT_CALLBACK)
  * @prop {string} [defaultScopes='openid email profile'] - The default scopes you want while opening Cryptr oAuth session
  */
 export interface ProviderConfig extends Config {

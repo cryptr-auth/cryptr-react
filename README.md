@@ -2,6 +2,9 @@
 
 > Cryptr SDK for React Single Page Applications using authentication (SSO, Magic link, password ... )
 
+See [Online documentation](https://cryptr-react-doc.onrender.com)
+See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online documentation</a>
+
 ## Table of Content
 
 - [📚 @cryptr/cryptr-react](#-cryptrcryptr-react)
@@ -185,10 +188,10 @@ export default LoginComponent
 
 #### Components
 
-- ~~`SignInButton`~~  -> `SignInWithDomain`
-- ~~`SignUpButton`~~  -> `SignInWithDomain`
-- ~~`SsoGatewayButton`~~  -> `SignInWithDomain`
-- ~~`SsoSignInButton`~~  -> `SignInWithDomain`
+- ~~`SignInButton`~~  -> `SignInWithDomainButton`
+- ~~`SignUpButton`~~  -> `SignInWithDomainButton`
+- ~~`SsoGatewayButton`~~  -> `SignInWithDomainButton`
+- ~~`SsoSignInButton`~~  -> `SignInWithDomainButton`
 
 #### Cryptr Hooks
 

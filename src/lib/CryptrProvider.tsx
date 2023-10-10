@@ -12,6 +12,7 @@ import { AxiosRequestConfig } from 'axios'
 /**
  * Define a default action to perform after authentication
  * Basically it's only removing query params from the redirection.
+ * @category Defaults
  * */
 const DEFAULT_REDIRECT_CALLBACK = () => {
   try {
@@ -25,6 +26,7 @@ const DEFAULT_REDIRECT_CALLBACK = () => {
  * Defines the default action after successful logout.
  *
  * Basically it's alerting user that's logged out and reload the page
+ * @category Defaults
  */
 const DEFAULT_LOGOUT_CALLBACK = () => {
   alert('you are logged out')

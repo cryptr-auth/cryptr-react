@@ -30,6 +30,7 @@ type SignInWithEmailProps = {
  * Usable props : [SignInWithEmailProps](#SignInWithEmailProps)
  *
  * @name SignInWithEmailButton
+ * @category Components
  * @example <caption>When you want to intiate a session knowing the user's email</caption>
  *
  * return (

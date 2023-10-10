@@ -3,6 +3,7 @@ import CryptrContext from './CryptrContext'
 
 /**
  * @function LogOutFunction
+ * @category Hook functions
  * @async
  * @param {function} [callback] - Callback function executed when logout succeeded
  * @param {string} [targetUrl] - Specific URL to redirect after logout
@@ -11,6 +12,7 @@ import CryptrContext from './CryptrContext'
 
 /**
  * @function SignInWithEmailFunction
+ * @category Hook functions
  *
  * @param {string} email - The email of the User you want to authenticate
  * @param {SsoSignOptsAttrs} [options] - Specific options if needed
@@ -18,6 +20,7 @@ import CryptrContext from './CryptrContext'
 
 /**
  * @function SignInWithDomainFunction
+ * @category Hook functions
  *
  * @param {string} [domain] - The domain of the organization you want to use for this authentication process
  * @param {SsoSignOptsAttrs} [options] - Specific options if needed
