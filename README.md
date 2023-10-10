@@ -2,7 +2,6 @@
 
 > Cryptr SDK for React Single Page Applications using authentication (SSO, Magic link, password ... )
 
-See [Online documentation](https://cryptr-react-doc.onrender.com)
 See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online documentation</a>
 
 ## Table of Content
