@@ -26,7 +26,17 @@
     "monospaceLinks": true,
     "better-docs": {
       "title": "Cryptr React SDK",
-      "logo": "https://docs.cryptr.co/img/cryptr_docs_light_logo.svg"
+      "logo": "https://docs.cryptr.co/img/cryptr_docs_light_logo.svg",
+      "navLinks": [
+        {
+          "label": "Github",
+          "href": "https://github.com/cryptr-auth/cryptr-react"
+        },
+        {
+          "label": "Example",
+          "href": "https://github.com/cryptr-examples/cryptr-react-sample"
+        }
+      ]
     }
   },
   "opts": {
