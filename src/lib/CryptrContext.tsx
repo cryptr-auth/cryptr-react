@@ -26,7 +26,9 @@ const initialContext = {
   getCurrentAccessToken: error,
   getCurrentIdToken: error,
 }
-
+/**
+ * @name Cryptr Context
+ */
 const CryptrContext = createContext(initialContext)
 
 export default CryptrContext

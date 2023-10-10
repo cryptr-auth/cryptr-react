@@ -1,9 +1,9 @@
 {
   "name": "@cryptr/cryptr-react",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": false,
   "dependencies": {
-    "@cryptr/cryptr-spa-js": "^1.2.0",
+    "@cryptr/cryptr-spa-js": "^1.3.0",
     "axios": "^0.27.2",
     "prop-types": "^15.8.1"
   },
@@ -23,7 +23,8 @@
     "publish-force": "npm unpublish --force && npm run build && ls && npm publish",
     "build": "npm run lint && rm -rf dist && rollup -c --environment NODE_ENV:production",
     "publish:lib": "npm run build && npm publish",
-    "format": "prettier --write \"**/*.+(ts|tsx|js|jsx|json|css|md)\""
+    "format": "prettier --write \"**/*.+(ts|tsx|js|jsx|json|css|md)\"",
+    "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +68,7 @@
     "@typescript-eslint/parser": "^5.18.0",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-plugin-typescript-to-proptypes": "^1.4.1",
+    "better-docs": "^2.7.2",
     "concurrently": "^6.4.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
@@ -74,6 +76,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.5.0-next-fc47cb1b6-20220404",
     "jest": "^27.5.1",
+    "jsdoc": "^4.0.2",
     "microbundle-crl": "^0.13.11",
     "npm-watch": "^0.11.0",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -94,6 +97,7 @@
     "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
+    "taffydb": "^2.7.3",
     "ts-jest": "^27.1.4",
     "typescript": "^4.5.2",
     "web-vitals": "^0.2.4"
