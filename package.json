@@ -3,7 +3,7 @@
   "version": "1.3.0",
   "private": false,
   "dependencies": {
-    "@cryptr/cryptr-spa-js": "^1.3.0",
+    "@cryptr/cryptr-spa-js": "^1.3.5",
     "axios": "^0.27.2",
     "prop-types": "^15.8.1"
   },
