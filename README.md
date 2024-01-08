@@ -21,7 +21,6 @@ See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online docum
       - [Components](#components-1)
       - [Cryptr Hooks](#cryptr-hooks)
 
-
 ## Installation
 
 Current version `1.3.6`
@@ -57,18 +56,18 @@ const config = {
 
 Explanation of config
 
-| key                         | Required/Optional     | type          | Default | Description                                          |
-| --------------------------- | --------------------- | ------------- | ------- | ---------------------------------------------------- |
-| `tenant_domain`             | **required**              | string slug   | -       | Reference to your company entity                     |
-| `client_id`                 | **required**              | uuid          | -       | Reference to your front app id                       |
-| `audience`                  | **required**              | string URL    | -       | Root URL of your front app                           |
-| `default_redirect_uri`      | **required**              | string URL    | -       | Desired redirection URL after authentication process |
-| `cryptr_base_url`           | **required**              | string URL    | -       | URL of your Cryptr service                           |
-| `default_slo_after_revoke`  | **required**(since 1.2.0) | boolean       |         | Defines if SLO has to be done on SSO logout process  |
-| `default_locale`            | Optional                  | string locale | `en`    | -                                                    |
-| `dedicated_server`          | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `fixed_pkce`                | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `telemetry`                 | Optional                  | boolean       | false   | Set to `true` if debug                               |
+| key                        | Required/Optional         | type          | Default | Description                                          |
+| -------------------------- | ------------------------- | ------------- | ------- | ---------------------------------------------------- |
+| `tenant_domain`            | **required**              | string slug   | -       | Reference to your company entity                     |
+| `client_id`                | **required**              | uuid          | -       | Reference to your front app id                       |
+| `audience`                 | **required**              | string URL    | -       | Root URL of your front app                           |
+| `default_redirect_uri`     | **required**              | string URL    | -       | Desired redirection URL after authentication process |
+| `cryptr_base_url`          | **required**              | string URL    | -       | URL of your Cryptr service                           |
+| `default_slo_after_revoke` | **required**(since 1.2.0) | boolean       |         | Defines if SLO has to be done on SSO logout process  |
+| `default_locale`           | Optional                  | string locale | `en`    | -                                                    |
+| `dedicated_server`         | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
+| `fixed_pkce`               | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
+| `telemetry`                | Optional                  | boolean       | false   | Set to `true` if debug                               |
 
 ⚠️ `fixed_pkce` will be removed in the future `1.4.0` release version
 
@@ -187,10 +186,10 @@ export default LoginComponent
 
 #### Components
 
-- ~~`SignInButton`~~  -> `SignInWithDomainButton`
-- ~~`SignUpButton`~~  -> `SignInWithDomainButton`
-- ~~`SsoGatewayButton`~~  -> `SignInWithDomainButton`
-- ~~`SsoSignInButton`~~  -> `SignInWithDomainButton`
+- ~~`SignInButton`~~ -> `SignInWithDomainButton`
+- ~~`SignUpButton`~~ -> `SignInWithDomainButton`
+- ~~`SsoGatewayButton`~~ -> `SignInWithDomainButton`
+- ~~`SsoSignInButton`~~ -> `SignInWithDomainButton`
 
 #### Cryptr Hooks
 
