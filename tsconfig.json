@@ -13,9 +13,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "declarationDir": "dist"
   },
-  "include": ["src", "src/**/*.ts", "src/**/**/*.ts", "src/lib/utils/cryptr.interfaces.tsx"]
+  "include": ["src", "src/**/*.ts", "src/**/**/*.ts", "src/lib/utils/cryptr.interfaces.tsx"],
+  "exclude": ["src/examples", "src/lib/**/*test*"]
 }
