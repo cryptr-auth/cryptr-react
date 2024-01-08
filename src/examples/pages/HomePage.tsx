@@ -41,7 +41,9 @@ const HomePage = (): ReactElement => {
             />
           </div>
           <div className="mt-8 w-1/3 flex flex-col">
-            {(isAuthenticated !== undefined && isAuthenticated()) && process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID &&
+            {isAuthenticated !== undefined &&
+              isAuthenticated() &&
+              process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID &&
               process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID !== 'to_define' && (
                 <>
                   {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
