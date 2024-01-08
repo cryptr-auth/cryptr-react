@@ -58,7 +58,7 @@ import CryptrContext from './CryptrContext'
  * @example <caption>When you want to initiate a logout process</caption>
  * const { logOut } = useCryptr()
  * //...
- * logout()
+ * logOut()
  */
 const useCryptr = () => useContext(CryptrContext)
 
