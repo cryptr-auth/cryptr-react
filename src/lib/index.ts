@@ -7,14 +7,12 @@
 // import { NomObjet } from './components/nom_du_fichier
 
 import CryptrLogOutBtn from './components/CryptrLogOutButton'
-import CryptrAccountAccessButton from './components/CryptrAccountAccessButton'
 import CryptrSignInWithDomainButton from './components/CryptrSignInWithDomainButton'
 import CryptrSignInWithEmailButton from './components/CryptrSignInWithEmailButton'
 
 export const SignInWithDomainButton = CryptrSignInWithDomainButton
 export const SignInWithEmailButton = CryptrSignInWithEmailButton
 export const LogOutButton = CryptrLogOutBtn
-export const AccountButton = CryptrAccountAccessButton
 export { default as CryptrProvider } from './CryptrProvider'
 export { default as useCryptr } from './useCryptr'
 
