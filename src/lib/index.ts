@@ -6,21 +6,13 @@
 
 // import { NomObjet } from './components/nom_du_fichier
 
-import CryptrSignInBtn from './components/CryptrSignInButton'
-import CryptrSignUpBtn from './components/CryptrSignUpButton'
 import CryptrLogOutBtn from './components/CryptrLogOutButton'
-import CryptrSsoSignInBtn from './components/CryptrSsoSignInButton'
-import CryptrSsoGatewayBtn from './components/CryptrSsoGatewayButton'
 import CryptrAccountAccessButton from './components/CryptrAccountAccessButton'
 import CryptrSignInWithDomainButton from './components/CryptrSignInWithDomainButton'
 import CryptrSignInWithEmailButton from './components/CryptrSignInWithEmailButton'
 
-export const SignInButton = CryptrSignInBtn
-export const SignUpButton = CryptrSignUpBtn
 export const SignInWithDomainButton = CryptrSignInWithDomainButton
 export const SignInWithEmailButton = CryptrSignInWithEmailButton
-export const SsoSignInButton = CryptrSsoSignInBtn
-export const SsoGatewayButton = CryptrSsoGatewayBtn
 export const LogOutButton = CryptrLogOutBtn
 export const AccountButton = CryptrAccountAccessButton
 export { default as CryptrProvider } from './CryptrProvider'
