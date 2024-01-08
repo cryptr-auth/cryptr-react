@@ -21,7 +21,7 @@
     "sourceMap": true,
     "declarationDir": "dist",
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": true
   },
   "include": ["src", "src/**/*.ts", "src/**/**/*.ts", "src/lib/utils/cryptr.interfaces.tsx"],
   "exclude": ["src/examples", "src/lib/**/*test*"]
