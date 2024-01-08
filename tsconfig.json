@@ -10,16 +10,18 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "noImplicitAny": false,
     "declaration": true,
     "emitDeclarationOnly": true,
     "declarationMap": true,
     "sourceMap": true,
-    "declarationDir": "dist"
+    "declarationDir": "dist",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": ["src", "src/**/*.ts", "src/**/**/*.ts", "src/lib/utils/cryptr.interfaces.tsx"],
   "exclude": ["src/examples", "src/lib/**/*test*"]

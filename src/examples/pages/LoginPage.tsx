@@ -1,9 +1,5 @@
 import React, { ReactElement } from 'react'
-import {
-  SignInWithDomainButton,
-  SignInWithEmailButton,
-  useCryptr,
-} from '../../lib'
+import { SignInWithDomainButton, SignInWithEmailButton, useCryptr } from '../../lib'
 
 const LoginPage = (): ReactElement => {
   const { isAuthenticated, isLoading } = useCryptr()
@@ -16,11 +12,11 @@ const LoginPage = (): ReactElement => {
     <div>
       {isLoading === false && isAuthenticated() === true && (
         <div className="bg-indigo-100 h-1 my-8 w-2/3">
-            <div className="w-full">
-              <p className="w-full text-center">
-                Session is live! You can now navigate through app !
-              </p>
-            </div>
+          <div className="w-full">
+            <p className="w-full text-center">
+              Session is live! You can now navigate through app !
+            </p>
+          </div>
         </div>
       )}
       <div className="mt-8 w-2/3 flex flex-col">
