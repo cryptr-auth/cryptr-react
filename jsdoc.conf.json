@@ -3,13 +3,8 @@
     "allowUnknownTags": true
   },
   "source": {
-    "include": [
-      "src/lib"
-    ],
-    "exclude": [
-      "./src/**/*.text,tsx",
-      "./src/**/*.test.ts"
-    ],
+    "include": ["src/lib"],
+    "exclude": ["./src/**/*.text,tsx", "./src/**/*.test.ts"],
     "includePattern": "\\.(jsx|js|ts|tsx)$",
     "excludePattern": "(^|\\/|\\\\)_"
   },

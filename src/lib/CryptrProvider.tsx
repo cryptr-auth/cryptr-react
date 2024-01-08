@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, useState, useCallback, useRef } from 'react'
 // import PropTypes from 'prop-types'
-import Client from '../../node_modules/@cryptr/cryptr-spa-js/dist/types/client'
 import CryptrContext from './CryptrContext'
 import initialCryptrState from './initialCryptrState'
 import CryptrReducer from './CryptrReducer'
@@ -8,10 +7,12 @@ import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfac
 import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 import CryptrSpa from '@cryptr/cryptr-spa-js'
 import { AxiosRequestConfig } from 'axios'
+import Client from '@cryptr/cryptr-spa-js/dist/types/client'
 
 /**
- * Define a default action to perform after authentication
- * Basically it's only removing query params from the redirection.
+ * The default action to perform after authentication:
+ *
+ * *Removes query params from history state*
  * @category Defaults
  * */
 const DEFAULT_REDIRECT_CALLBACK = () => {
@@ -23,9 +24,9 @@ const DEFAULT_REDIRECT_CALLBACK = () => {
 }
 
 /**
- * Defines the default action after successful logout.
+ * The default action after successful logout:
  *
- * Basically it's alerting user that's logged out and reload the page
+ * *Popup alert informing user is logged out + reload the page*
  * @category Defaults
  */
 const DEFAULT_LOGOUT_CALLBACK = () => {
@@ -177,7 +178,12 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           return state.isAuthenticated
         },
         logOut: async (callback?: () => void, targetUrl?: string, sloAfterRevoke?: boolean) =>
-          cryptrClient.logOut(callback || logOutCallback, undefined, targetUrl, sloAfterRevoke || config.default_slo_after_revoke),
+          cryptrClient.logOut(
+            callback || logOutCallback,
+            undefined,
+            targetUrl,
+            sloAfterRevoke || config.default_slo_after_revoke,
+          ),
         signinWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
           cryptrClient.signInWithRedirect(scope, redirectUri, locale),
         signupWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>

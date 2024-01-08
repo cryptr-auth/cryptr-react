@@ -7,7 +7,7 @@ import CryptrContext from './CryptrContext'
  * @async
  * @param {function} [callback] - Callback function executed when logout succeeded
  * @param {string} [targetUrl] - Specific URL to redirect after logout
- * @param {sloAfterRevoke} [targetUrl=false] - If you want to do or not the SLO process after token revokation
+ * @param {boolean} [sloAfterRevoke=false] - If you want to do or not the SLO process after token revokation
  */
 
 /**
@@ -27,7 +27,7 @@ import CryptrContext from './CryptrContext'
  */
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
- /**
+/**
  * @name Cryptr Hooks
  *
  * @prop {function} isAuthenticated - Returns `true` if there is an active session
@@ -58,7 +58,7 @@ import CryptrContext from './CryptrContext'
  * @example <caption>When you want to initiate a logout process</caption>
  * const { logOut } = useCryptr()
  * //...
- * logout()
+ * logOut()
  */
 const useCryptr = () => useContext(CryptrContext)
 

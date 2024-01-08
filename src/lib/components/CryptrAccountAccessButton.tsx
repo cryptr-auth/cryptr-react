@@ -2,8 +2,7 @@ import React, { CSSProperties, useState } from 'react'
 import useCryptr from '../useCryptr'
 import { hiddenStyle } from '../utils/constants'
 import CryptrLogOutButton from './CryptrLogOutButton'
-import CryptrSignInButton from './CryptrSignInButton'
-import CryptrSignUpButton from './CryptrSignUpButton'
+import CryptrSignInWithDomainButton from './CryptrSignInWithDomainButton'
 
 type AccountAccessProps = {
   children?: JSX.Element
@@ -13,14 +12,17 @@ type AccountAccessProps = {
   isWidget?: boolean
   tenantName?: string
   tenantLogo?: string
-  defaultSignType?: string
   defaultSignText?: string
 }
 
+/**
+ * @ignore
+ * @deprecated since version 1.3.6
+ * @name AccountAccessButton
+ */
 const CryptrAccountAccessButton = ({
   children,
   text,
-  defaultSignType = 'signin',
   defaultSignText,
   style,
   className,
@@ -88,12 +90,7 @@ const CryptrAccountAccessButton = ({
   if (isAuthenticated === undefined || !isAuthenticated()) {
     return (
       <div data-testid="CryptrAccountAccessButton">
-        {defaultSignType === 'signin' && (
-          <CryptrSignInButton text={defaultSignText} style={style} className={className} />
-        )}
-        {defaultSignType === 'signup' && (
-          <CryptrSignUpButton text={defaultSignText} style={style} className={className} />
-        )}
+        <CryptrSignInWithDomainButton text={defaultSignText} style={style} className={className} />
       </div>
     )
   }

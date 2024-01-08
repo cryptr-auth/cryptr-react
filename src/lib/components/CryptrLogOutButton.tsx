@@ -17,17 +17,36 @@ type LogOutProps = {
   /** Set to `false` if you want to display even session is live */
   autoHide?: boolean
   /** Desired url after url */
-  targetUrl?: string,
+  targetUrl?: string
   /** Set to `true`if you want also a SLO request among token revokation */
   sloAfterRevoke?: boolean
 }
-
 
 /**
  * Component to log out your user from it's current session.
  * Usable props [LogoutProps](#LogOutProps)
  * @name LogOutButton
  * @category Components
+ *
+ * @example <caption>Simple logout button</caption>
+ * return (
+ *  <LogOutButton />
+ * )
+ *
+ * @example <caption>When you want a specific text</caption>
+ * return (
+ *  <LogOutButton text={'Sign out here'} />
+ * )
+ *
+ * @example <caption>When you want to keep visible even if no session</caption>
+ * return (
+ *  <LogOutButton autoHide={false} />
+ * )
+ *
+ * @example <caption>When you want to do a SLO among token revokation</caption>
+ * return (
+ *  <LogOutButton sloAfterRevoke={true} />
+ * )
  */
 const CryptrLogOutButton: React.FC<LogOutProps> = ({
   text,
@@ -36,7 +55,7 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
   className,
   autoHide = true,
   targetUrl,
-  sloAfterRevoke
+  sloAfterRevoke,
 }: LogOutProps) => {
   const { isAuthenticated, isLoading, logOut, config } = useCryptr()
   const signOut = () => {
