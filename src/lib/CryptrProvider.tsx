@@ -10,8 +10,9 @@ import CryptrSpa from '@cryptr/cryptr-spa-js'
 import { AxiosRequestConfig } from 'axios'
 
 /**
- * Define a default action to perform after authentication
- * Basically it's only removing query params from the redirection.
+ * The default action to perform after authentication:
+ *
+ * *Removes query params from history state*
  * @category Defaults
  * */
 const DEFAULT_REDIRECT_CALLBACK = () => {
@@ -23,9 +24,9 @@ const DEFAULT_REDIRECT_CALLBACK = () => {
 }
 
 /**
- * Defines the default action after successful logout.
+ * The default action after successful logout:
  *
- * Basically it's alerting user that's logged out and reload the page
+ * *Popup alert informing user is logged out + reload the page*
  * @category Defaults
  */
 const DEFAULT_LOGOUT_CALLBACK = () => {

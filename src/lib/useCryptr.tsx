@@ -7,7 +7,7 @@ import CryptrContext from './CryptrContext'
  * @async
  * @param {function} [callback] - Callback function executed when logout succeeded
  * @param {string} [targetUrl] - Specific URL to redirect after logout
- * @param {sloAfterRevoke} [targetUrl=false] - If you want to do or not the SLO process after token revokation
+ * @param {boolean} [sloAfterRevoke=false] - If you want to do or not the SLO process after token revokation
  */
 
 /**

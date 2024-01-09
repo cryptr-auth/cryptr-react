@@ -27,6 +27,26 @@ type LogOutProps = {
  * Usable props [LogoutProps](#LogOutProps)
  * @name LogOutButton
  * @category Components
+ *
+ * @example <caption>Simple logout button</caption>
+ * return (
+ *  <LogOutButton />
+ * )
+ *
+ * @example <caption>When you want a specific text</caption>
+ * return (
+ *  <LogOutButton text={'Sign out here'} />
+ * )
+ *
+ * @example <caption>When you want to keep visible even if no session</caption>
+ * return (
+ *  <LogOutButton autoHide={false} />
+ * )
+ *
+ * @example <caption>When you want to do a SLO among token revokation</caption>
+ * return (
+ *  <LogOutButton sloAfterRevoke={true} />
+ * )
  */
 const CryptrLogOutButton: React.FC<LogOutProps> = ({
   text,

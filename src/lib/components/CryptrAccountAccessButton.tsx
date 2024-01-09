@@ -17,6 +17,11 @@ type AccountAccessProps = {
   defaultSignText?: string
 }
 
+/**
+ * @ignore
+ * @deprecated since version 1.3.6
+ * @name AccountAccessButton
+ */
 const CryptrAccountAccessButton = ({
   children,
   text,
