@@ -17,7 +17,7 @@ type AccountAccessProps = {
 
 /**
  * @ignore
- * @deprecated since version 1.3.6
+ * @deprecated since version 1.3.7
  * @name AccountAccessButton
  */
 const CryptrAccountAccessButton = ({

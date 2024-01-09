@@ -190,6 +190,7 @@ export default LoginComponent
 - ~~`SignUpButton`~~ -> `SignInWithDomainButton`
 - ~~`SsoGatewayButton`~~ -> `SignInWithDomainButton`
 - ~~`SsoSignInButton`~~ -> `SignInWithDomainButton`
+- ~~`AccountAccessButton`~~
 
 #### Cryptr Hooks
 
