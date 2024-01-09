@@ -18,7 +18,6 @@ const SVG = ({ name, active }: NavLink): ReactElement => {
       return (
         <svg
           className={svgClasses(active)}
-          x-description="Heroicon name: home"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -38,7 +37,6 @@ const SVG = ({ name, active }: NavLink): ReactElement => {
         <svg
           className={svgClasses(active)}
           aria-hidden="true"
-          x-description="Heroicon name: user-circle"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -58,7 +56,6 @@ const SVG = ({ name, active }: NavLink): ReactElement => {
         <svg
           className={svgClasses(active)}
           aria-hidden="true"
-          x-description="Heroicon name: cog"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -84,7 +81,6 @@ const SVG = ({ name, active }: NavLink): ReactElement => {
         <svg
           className={svgClasses(active)}
           aria-hidden="true"
-          x-description="Heroicon name: credit-card"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

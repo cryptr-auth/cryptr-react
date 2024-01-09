@@ -88,7 +88,7 @@ const BillingsPage = (): ReactElement => {
                             </th>
                           </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-gray-200" x-max={1}>
+                        <tbody className="bg-white divide-y divide-gray-200">
                           {billings &&
                             billings.map((billing) => {
                               return (
