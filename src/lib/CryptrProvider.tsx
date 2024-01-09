@@ -177,7 +177,12 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           return state.isAuthenticated
         },
         logOut: async (callback?: () => void, targetUrl?: string, sloAfterRevoke?: boolean) =>
-          cryptrClient.logOut(callback || logOutCallback, undefined, targetUrl, sloAfterRevoke || config.default_slo_after_revoke),
+          cryptrClient.logOut(
+            callback || logOutCallback,
+            undefined,
+            targetUrl,
+            sloAfterRevoke || config.default_slo_after_revoke,
+          ),
         signinWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
           cryptrClient.signInWithRedirect(scope, redirectUri, locale),
         signupWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>

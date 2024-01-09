@@ -72,7 +72,6 @@ export interface CryptrTokenClaims {
 
 const CryptrReact = {}
 
-
 /**
  * @interface SsoSignOptsAttrs
  *
@@ -82,7 +81,5 @@ const CryptrReact = {}
  * @prop {string} [redirectUri] - Specific redirect URI for this login request
  * @prop {string} [locale] - Specific locale for this login request
  */
-
-
 
 export default CryptrReact

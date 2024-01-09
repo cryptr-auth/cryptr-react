@@ -9,7 +9,7 @@ import { hiddenStyle } from '../utils/constants'
 type SignInWithDomainProps = {
   /**
    * The (optional) Organization domain
-  */
+   */
   domain?: string
   /** Text you want for your button */
   text?: string
