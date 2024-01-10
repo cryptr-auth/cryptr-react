@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, useState, useCallback, useRef } from 'react'
-// import PropTypes from 'prop-types'
 import Client from '../../node_modules/@cryptr/cryptr-spa-js/dist/types/client'
 import CryptrContext from './CryptrContext'
 import initialCryptrState from './initialCryptrState'
@@ -69,7 +68,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
   const [config] = useState<ProviderConfig>(prepareConfig(options))
 
   const [cryptrClient] = useState<Client>(new CryptrSpa.client(config))
-  const [accountPopup, setAccountPopup] = useState<Window | null>()
   const [state, dispatch] = useReducer(CryptrReducer, initialCryptrState)
 
   const logOutCallback = () => {
@@ -83,11 +81,10 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
 
   const popupHandler = useCallback(
     () => {
-      accountPopup?.close()
       cryptrClient.logOut(logOutCallback)
     },
     // eslint-disable-next-line
-    [cryptrClient, accountPopup],
+    [cryptrClient],
   )
 
   const dispatchNewState = (newState) => {
@@ -128,16 +125,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
     configFn()
   }, [config, cryptrClient])
 
-  const handleUserAccountAccess = () => {
-    cryptrClient.userAccountAccess().then((data) => {
-      if (data !== undefined && data != null) {
-        const popupHeight = 935
-        const popupwidth = 915
-        const popupParams = `location=yes,height=${popupHeight},width=${popupwidth},scrollbars=yes,status=yes`
-        setAccountPopup(window.open(data.data.data.url, '_blank', popupParams))
-      }
-    })
-  }
 
   const useEventListener = (eventName: string, handler, element = window) => {
     const savedHandler = useRef(handler)
@@ -174,9 +161,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
       data-testid="CryptrProvider"
       value={{
         ...state,
-        isAuthenticated: () => {
-          return state.isAuthenticated
-        },
+        isAuthenticated: () => state.isAuthenticated,
         logOut: async (callback?: () => void, targetUrl?: string, sloAfterRevoke?: boolean) =>
           cryptrClient.logOut(
             callback || logOutCallback,
@@ -184,22 +169,11 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
             targetUrl,
             sloAfterRevoke || config.default_slo_after_revoke,
           ),
-        signinWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
-          cryptrClient.signInWithRedirect(scope, redirectUri, locale),
-        signupWithRedirect: (scope?: string, redirectUri?: string, locale?: string) =>
-          cryptrClient.signUpWithRedirect(scope, redirectUri, locale),
-        signinWithSSO: (idpId: string, options?: SsoSignOptsAttrs) =>
-          cryptrClient.signInWithSSO(idpId, options),
-        signInWithSSOGateway: (idpIds: string[], options?: SsoSignOptsAttrs) =>
-          cryptrClient.signInWithSSOGateway(idpIds, options),
         signInWithEmail: (email: string, options?: SsoSignOptsAttrs) =>
           cryptrClient.signInWithEmail(email, options),
         signInWithDomain: (organizationDomain?: string, options?: SsoSignOptsAttrs) =>
           cryptrClient.signInWithDomain(organizationDomain, options),
-        userAccountAccess: () => handleUserAccountAccess(),
-        user: () => {
-          return state.user
-        },
+        user: () => state.user,
         decoratedRequest: (axiosConfig: AxiosRequestConfig) => {
           return cryptrClient.decoratedRequest(axiosConfig)
         },
