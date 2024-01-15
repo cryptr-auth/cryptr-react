@@ -1,8 +1,12 @@
 import React, { ReactElement } from 'react'
-import { AccountButton, LogOutButton, useCryptr } from '../../lib'
+import {
+  LogOutButton,
+  SignInWithDomainButton,
+  useCryptr,
+} from '../../lib'
 
 const HomePage = (): ReactElement => {
-  const { isAuthenticated, isLoading, user } = useCryptr()
+  const { isLoading } = useCryptr()
   return (
     <>
       <div className="bg-white">
@@ -21,60 +25,15 @@ const HomePage = (): ReactElement => {
             ) : (
               <strong>Logged in !</strong>
             )}
-            <AccountButton
-              className="cursor-pointer mt-2 w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-gray-900 bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:border-yellow-600 focus:shadow-outline-yellow transition duration-150 ease-in-out"
+            <SignInWithDomainButton
+              className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline focus:border-indigo-300 transition duration-150 ease-in-out"
               style={{ marginRight: '4px' }}
-            >
-              <ul>
-                <li>{user()?.tnt}</li>
-                <li>{user()?.ips}</li>
-                <li>
-                  <small>{user()?.sci}</small>
-                </li>
-                <li>{user()?.scp?.join(', ')}</li>
-              </ul>
-            </AccountButton>
+            />
             <LogOutButton
               className="inline-flex items-center justify-center ml-5 px-5 py-3 border border-transparent text-base leading-6 font-bold rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
               style={{ marginRight: '4px' }}
               targetUrl={process.env.REACT_APP_CRYPTR_TARGET_URL}
             />
-          </div>
-          <div className="mt-8 w-1/3 flex flex-col">
-            {(isAuthenticated !== undefined && isAuthenticated()) && process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID &&
-              process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID !== 'to_define' && (
-                <>
-                  {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
-                    <small className="text-gray-400">
-                      ({process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID})
-                    </small>
-                  )}
-                </>
-              )}
-          </div>
-          <div className="mt-8 w-1/3 flex flex-col">
-            {process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID &&
-              process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID !== 'to_define' && (
-                <>
-                  {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
-                    <small className="text-gray-400">
-                      ({process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID})
-                    </small>
-                  )}
-                </>
-              )}
-          </div>
-          <div className="mt-8 w-1/3 flex flex-col">
-            {process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID &&
-              process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID !== 'to_define' && (
-                <>
-                  {!((isAuthenticated !== undefined && isAuthenticated()) || isLoading) && (
-                    <small className="text-gray-400">
-                      ({process.env.REACT_APP_MAIN_IDENTITY_PROVIDER_ID})
-                    </small>
-                  )}
-                </>
-              )}
           </div>
         </div>
       </div>
