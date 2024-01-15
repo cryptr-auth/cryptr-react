@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { AccountButton, useCryptr } from '../../lib'
+import { useCryptr } from '../../lib'
 
 const ProfilePage = (): ReactElement => {
   const { user, isAuthenticated, isLoading } = useCryptr()
@@ -168,13 +168,6 @@ const ProfilePage = (): ReactElement => {
                     className="form-input mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                   />
                 </div>
-              </div>
-              <div className="grid grid-cols-12 gap-6">
-                <AccountButton
-                  isWidget={false}
-                  text="Manage my Account"
-                  className="cursor-pointer mt-2 w-full flex items-center justify-center px-2 py-1 border border-transparent text-xs uppercase leading-6 font-bold rounded-md text-gray-900 bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:border-yellow-600 focus:shadow-outline-yellow transition duration-150 ease-in-out"
-                />
               </div>
             </>
           ) : (

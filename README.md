@@ -20,12 +20,10 @@ See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online docum
     - [Since 1.3.0](#since-130)
       - [Components](#components-1)
       - [Cryptr Hooks](#cryptr-hooks)
-    - [Since 1.3.6](#since-136)
-      - [Components](#components-2)
 
 ## Installation
 
-Current version `1.3.6`
+Current version `1.3.0`
 
 ```bash
 //npm
@@ -192,6 +190,7 @@ export default LoginComponent
 - ~~`SignUpButton`~~ -> `SignInWithDomainButton`
 - ~~`SsoGatewayButton`~~ -> `SignInWithDomainButton`
 - ~~`SsoSignInButton`~~ -> `SignInWithDomainButton`
+- ~~`AccountAccessButton`~~
 
 #### Cryptr Hooks
 
@@ -199,9 +198,3 @@ export default LoginComponent
 - ~~`signupWithRedirect`~~
 - ~~`signinWithSSO`~~
 - ~~`signinWithSSOGateway`~~
-
-### Since 1.3.6
-
-#### Components
-
-- ~~`AccountButton`~~ Discontinued feature

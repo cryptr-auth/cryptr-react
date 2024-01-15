@@ -10,14 +10,9 @@ const error = (...args) => {
 
 const initialContext = {
   ...initialCryptrState,
-  signinWithRedirect: error,
-  signupWithRedirect: error,
-  signinWithSSO: error,
-  signInWithSSOGateway: error,
   signInWithDomain: error,
   signInWithEmail: error,
   isAuthenticated: error,
-  userAccountAccess: error,
   logOut: error,
   user: error as unknown as () => User | null,
   decoratedRequest: error as unknown as (axiosConfig: AxiosRequestConfig) => AxiosPromise<unknown>,
