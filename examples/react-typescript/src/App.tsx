@@ -9,6 +9,7 @@ const InnerComponent = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <em>react@{React.version}</em>
         <p style={{textAlign: 'left', fontSize: '0.8rem'}}>
           <pre>
             <code>
