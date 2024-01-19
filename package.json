@@ -104,6 +104,7 @@
   },
   "description": "Cryptr React Authentication SDK",
   "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "module": "dist/index.modern.js",
   "files": [
     "dist",
