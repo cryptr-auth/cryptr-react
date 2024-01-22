@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {CryptrProvider, useCryptr} from '@cryptr/cryptr-react';
+import { CryptrProvider, useCryptr, Config, CryptrTokenClaims} from '@cryptr/cryptr-react';
+
 
 const InnerComponent = () => {
   const {error, isAuthenticated, isLoading, logOut, signInWithDomain, user} = useCryptr()
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <em>react@{React.version}</em>
         <p style={{textAlign: 'left', fontSize: '0.8rem'}}>
           <pre>
@@ -18,7 +18,7 @@ const InnerComponent = () => {
           </pre>
           <pre>
             <code>
-              {isLoading ? 'loading': 'not'}
+              {isLoading ? 'loading': 'not loading'}
             </code>
           </pre>
           <pre>
@@ -37,7 +37,7 @@ const InnerComponent = () => {
             Log out
           </button>
         ): (
-          <button onClick={() => signInWithDomain()}>
+          <button onClick={() => signInWithDomain(null, {locale: 'en'})}>
             Log in
           </button>
         )
@@ -48,13 +48,13 @@ const InnerComponent = () => {
 }
 
 function App() {
-  const config = {
+  const config: Config = {
     audience: process.env.REACT_APP_CRYPTR_AUDIENCE!,
     cryptr_base_url: process.env.REACT_APP_CRYPTR_BASE_URL!,
     tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN!,
     client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID!,
     default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI!,
-    default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
+    // default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
     telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY === 'true',
     dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER === 'true',
     fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE === 'true',
