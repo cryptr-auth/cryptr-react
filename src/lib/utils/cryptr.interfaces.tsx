@@ -47,6 +47,7 @@ export interface CryptrClient {
   getClaimsFromAccess: () => void
   handleRedirectCallback: () => void
   isAuthenticated: () => void
+  /** @deprecated */
   signInWithRedirect: () => void
 }
 
