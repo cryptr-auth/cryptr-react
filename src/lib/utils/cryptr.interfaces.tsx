@@ -78,6 +78,33 @@ export interface User {
   picture?: string
 }
 
+/**
+ * Key/value Array representing extra data on a specific resource (User/application)
+ * @interface
+ */
+export interface MetaDatas {
+  [key: string]: string | number | boolean
+}
+
+/**
+ * Decoded claims from a token (ID/Access)
+ * @interface
+ *
+ * @prop {number} iat - Unix timestamp of Token issued at
+ * @prop {string} aud - Audience of the React app that generetaed this token
+ * @prop {string} cid - Client ID of the React app that generetaed this token
+ * @prop {string} dbs - Database/environment of the app/user
+ * @prop {string} iss - Cryptr service that issued the token
+ * @prop {string[]} scp - Authorized scopes while using this token
+ * @prop {string} tnt - Organization's domain that user belongs to.
+ * @prop {string} sub - Cryptr User's unique identifier
+ * @prop {number} exp - Unix timestamp for the expiration date for this token
+ * @prop {number} jti - JSON web Token unique Identifier
+ * @prop {number} ver - Current version of Cryptr token
+ * @prop {number} jtt - JSON web Token type. ex `openid`
+ * @prop {MetaDatas} resource_owner_metadata - Array of key/pair of data identifying the user (populated for exemple by SSO)
+ * @prop {MetaDatas} application_metadata - Array of key/pair of data related to the application
+ */
 export interface CryptrTokenClaims {
   iat: number
   aud: string
