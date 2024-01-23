@@ -11,12 +11,12 @@ function FriendSuggestion({friend}: FriendSuggestionProps) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-sm font-medium text-gray-900">
-          <a href="#">
+          <a href="/">
             {name}
             </a>
         </p>
         <p className="text-sm text-gray-500">
-          <a href="#">
+          <a href="/">
             @{nickname}
           </a>
         </p>

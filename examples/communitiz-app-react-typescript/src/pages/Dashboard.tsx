@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import FriendsSuggestions from '../components/FriendsSuggestions'
 import Header from '../components/Header'
 import News from '../components/News'
@@ -26,9 +26,7 @@ const Dashboard = () => {
     }
   }
 
-  useEffect(() => {
-    fetchAPIData()
-  }, [])
+  fetchAPIData()
 
 
   return (

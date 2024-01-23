@@ -6,7 +6,7 @@ function SidebarNav() {
   return (
     <nav aria-label="Sidebar" className="sticky top-4 divide-y divide-gray-300">
       <div className="space-y-1 pb-8">
-        <a href="#" className="bg-indigo-200 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
+        <a href="/" className="bg-indigo-200 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
           aria-current="page">
           <svg className="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-5 w-5" viewBox="0 0 23 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@ function SidebarNav() {
           <span className="truncate">Home</span>
         </a>
 
-        <a href="#" className="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+        <a href="/" className="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
           <svg className="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-5 w-5" viewBox="0 0 23 24"
             fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -32,7 +32,7 @@ function SidebarNav() {
           <span className="truncate">Popular</span>
         </a>
 
-        <a href="#" className="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+        <a href="/" className="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
           <svg className="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-5 w-5" viewBox="0 0 24 24"
             fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -43,7 +43,7 @@ function SidebarNav() {
           <span className="truncate">Communities</span>
         </a>
 
-        <a href="#" className="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+        <a href="/" className="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
           <svg className="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-5 w-5" viewBox="0 0 24 21"
             fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -57,27 +57,27 @@ function SidebarNav() {
       <div className="pt-10">
         <p className="px-3 text-sm font-medium text-gray-500" id="communities-headline">Communities</p>
         <div className="mt-3 space-y-2" aria-labelledby="communities-headline">
-          <a href="#"
+          <a href="/"
             className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
             <span className="truncate">Gaming</span>
           </a>
 
-          <a href="#"
+          <a href="/"
             className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
             <span className="truncate">Other</span>
           </a>
 
-          <a href="#"
+          <a href="/"
             className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
             <span className="truncate">Science</span>
           </a>
 
-          <a href="#"
+          <a href="/"
             className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
             <span className="truncate">Tech</span>
           </a>
 
-          <a href="#"
+          <a href="/"
             className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
             <span className="truncate">Anime</span>
           </a>

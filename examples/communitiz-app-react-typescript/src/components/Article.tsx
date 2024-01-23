@@ -15,12 +15,12 @@ const Article = ({article}: ArticleProps) => {
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-medium text-gray-900">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   { author }
                 </a>
               </p>
               <p className="text-sm text-gray-500">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   <time dateTime="2020-12-09T11:43:00">
                     {publish_date.toString()}
                   </time>
