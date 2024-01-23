@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { CryptrProvider, useCryptr, Config, CryptrTokenClaims} from '@cryptr/cryptr-react';
+import { CryptrProvider, useCryptr, Config} from '@cryptr/cryptr-react';
 
 
 const InnerComponent = () => {
@@ -10,7 +10,7 @@ const InnerComponent = () => {
     <div className="App">
       <header className="App-header">
         <em>react@{React.version}</em>
-        <p style={{textAlign: 'left', fontSize: '0.8rem'}}>
+        <div style={{textAlign: 'left', fontSize: '0.8rem'}}>
           <pre>
             <code>
               {isAuthenticated() ? 'authenticated': 'unauthenticated'}
@@ -31,7 +31,7 @@ const InnerComponent = () => {
               {error ? JSON.stringify(error, null, 2) : 'no error'}
             </code>
           </pre>
-        </p>
+        </div>
         {isAuthenticated() ? (
           <button onClick={() => logOut()}>
             Log out
@@ -55,9 +55,9 @@ function App() {
     client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID!,
     default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI!,
     // default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
-    telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY === 'true',
+    // telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY === 'true',
     dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER === 'true',
-    fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE === 'true',
+    // fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE === 'true',
     default_slo_after_revoke: process.env.REACT_APP_CRYPTR_DEFAULT_SLO_AFTER_REVOKE === 'true',
   }
 
