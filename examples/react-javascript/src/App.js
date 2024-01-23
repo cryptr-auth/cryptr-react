@@ -4,6 +4,7 @@ import {CryptrProvider, useCryptr} from '@cryptr/cryptr-react'
 import React from 'react'
 
 function InnerComponent() {
+  // eslint-disable-line no-eval
   const {isAuthenticated, isLoading, error, logOut, signInWithDomain, user} = useCryptr() // eslint-disable-line no-eval
 
   return (

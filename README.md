@@ -17,9 +17,6 @@ See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online docum
     - [SignInWithDomainButton](#signinwithdomainbutton)
     - [SignInWithEmailButton](#signinwithemailbutton)
   - [Deprecations](#deprecations)
-    - [Since 1.3.0](#since-130)
-      - [Components](#components-1)
-      - [Cryptr Hooks](#cryptr-hooks)
 
 ## Installation
 
@@ -37,7 +34,7 @@ yarn add @cryptr/cryptr-react
 
 ### CryptrConfig
 
-Here is an example of configuration that will be necessary to implement our solution
+Here is an example of a configuration that will be necessary to implement our solution
 
 ```javascript
 const config = {
@@ -142,7 +139,7 @@ Here is a quick list of tools from our hook
 | `logOut`                                            | Asks to Cryptr SDK to run the session log out process                                                                                         |
 | `decoratedRequest(axiosConfig: AxiosRequestConfig)` | This method based on axios will decorate the request to the desired endpoint with the current Access Token as **Authorization Bearer Header** |
 
-There are more but major features are just above
+There are more but the major features are just above
 
 ## Components
 
@@ -182,19 +179,18 @@ export default LoginComponent
 
 ## Deprecations
 
-### Since 1.3.0
-
-#### Components
-
-- ~~`SignInButton`~~ -> `SignInWithDomainButton`
-- ~~`SignUpButton`~~ -> `SignInWithDomainButton`
-- ~~`SsoGatewayButton`~~ -> `SignInWithDomainButton`
-- ~~`SsoSignInButton`~~ -> `SignInWithDomainButton`
-- ~~`AccountAccessButton`~~
-
-#### Cryptr Hooks
-
-- ~~`signinWithRedirect`~~
-- ~~`signupWithRedirect`~~
-- ~~`signinWithSSO`~~
-- ~~`signinWithSSOGateway`~~
+| Since | Type | Name | Reason |
+| --- | --- | --- | --- |
+| `1.3.0` | Component | ~~`SignInButton`~~ | replaced by `SignInWithDomainButton` |
+|  |  | ~~`SignUpButton`~~ | replaced by `SignInWithDomainButton` |
+|  |  | ~~`SsoGatewayButton`~~ | replaced by `SignInWithDomainButton` |
+|  |  | ~~`SsoSignInButton`~~ | replaced by `SignInWithDomainButton` |
+|  |  | ~~`AccountAccessButton`~~ | discontinuated |
+|  | hooks | ~~`signinWithRedirect`~~ | replaced by `signInWithDomain` |
+|  | hooks | ~~`signupWithRedirect`~~ | replaced by `signInWithDomain` |
+|  | hooks | ~~`signinWithSSO`~~ | replaced by `signInWithDomain` |
+|  | hooks | ~~`signinWithSSOGateway`~~ | replaced by `signInWithDomain` |
+| --- | --- | --- | --- |
+| `1.4.0` | Config | ~~`telemetry`~~ | discontinuated |
+|  |  | ~~`default_locale`~~ | If you want to use a different locale than english provide the option in your opening session calls |
+|  |  | ~~`fixed_pkce`~~ | As mentioned in previous version this property is now considered as `true` |
