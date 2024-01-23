@@ -14,6 +14,10 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "install:examples": "npm i --prefix=examples/react-javascript --no-package-lock && npm i --prefix=examples/react-typescript --no-package-lock && npm i --prefix=examples/communitiz-app-react-typescript --no-package-lock",
+    "start:example:react-javascript": "npm start --prefix=examples/react-javascript",
+    "start:example:react-typescript": "npm start --prefix=examples/react-typescript",
+    "start:example:communitiz-app": "npm start --prefix=examples/communitiz-app-react-typescript",
     "build:react": "react-scripts build",
     "build:serve:react": "react-scripts build && PORT=3000 serve -s build",
     "watch": "npm-watch",
