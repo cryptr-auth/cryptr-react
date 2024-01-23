@@ -6,12 +6,9 @@ export interface Config {
   audience: string
   default_redirect_uri: string
   default_slo_after_revoke: boolean
-  default_locale?: string
   region?: string
   cryptr_base_url?: string
-  telemetry?: boolean
   dedicated_server?: boolean
-  fixed_pkce?: boolean
 }
 
 /**

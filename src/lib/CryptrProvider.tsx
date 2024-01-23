@@ -51,12 +51,10 @@ const prepareConfig = (options: ProviderOptions): ProviderConfig => {
     client_id: options.client_id,
     audience: options.audience || window.location.origin,
     cryptr_base_url: options.cryptr_base_url,
-    default_locale: options.default_locale ?? 'en',
     default_redirect_uri: options.default_redirect_uri || window.location.origin,
     onRedirectCallback: options.onRedirectCallback || DEFAULT_REDIRECT_CALLBACK,
     onLogOutCallback: options.onLogOutCallback || DEFAULT_LOGOUT_CALLBACK,
     defaultScopes: options.defaultScopes || DEFAULT_SCOPE,
-    telemetry: options.telemetry || false,
     dedicated_server: options.dedicated_server || false,
     default_slo_after_revoke: options.default_slo_after_revoke ?? false,
   }
