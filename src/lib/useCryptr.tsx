@@ -28,6 +28,7 @@ import CryptrContext from './CryptrContext'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 /**
+ * Tools to handle your Cryptr context
  * @name Cryptr Hooks
  *
  * @prop {function} isAuthenticated - Returns `true` if there is an active session

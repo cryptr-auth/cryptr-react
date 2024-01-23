@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import FriendsSuggestions from '../components/FriendsSuggestions'
 import Header from '../components/Header'
 import News from '../components/News'
@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [articles, setArticles] = useState([])
   const [friends, setFriends] = useState([])
   const [news, setNews] = useState([])
+  const [fetched, setFetched] = useState(false)
   const {getCurrentAccessToken} = useCryptr()
 
   async function fetchAPIData(){
@@ -21,12 +22,17 @@ const Dashboard = () => {
       setArticles(articles)
       setNews(news)
       setFriends(friends)
+      setFetched(true)
     } catch (error) {
      console.error(error)
     }
   }
 
-  fetchAPIData()
+  useEffect(() => {
+    if(!fetched) {
+      fetchAPIData()
+    }
+  }, [fetched])
 
 
   return (

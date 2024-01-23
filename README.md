@@ -43,10 +43,7 @@ const config = {
   tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN,
   client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID,
   default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI,
-  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
-  telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == 'true',
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true',
-  fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE == 'true',
   default_slo_after_revoke: process.env.REACT_APP_CRYPTR_DEFAULT_SLO_AFTER_REVOKE == 'true',
 }
 ```
@@ -61,12 +58,9 @@ Explanation of config
 | `default_redirect_uri`     | **required**              | string URL    | -       | Desired redirection URL after authentication process |
 | `cryptr_base_url`          | **required**              | string URL    | -       | URL of your Cryptr service                           |
 | `default_slo_after_revoke` | **required**(since 1.2.0) | boolean       |         | Defines if SLO has to be done on SSO logout process  |
-| `default_locale`           | Optional                  | string locale | `en`    | -                                                    |
 | `dedicated_server`         | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `fixed_pkce`               | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `telemetry`                | Optional                  | boolean       | false   | Set to `true` if debug                               |
 
-⚠️ `fixed_pkce` will be removed in the future `1.4.0` release version
+⚠️ `fixed_pkce` has been removed in the  `1.4.0` release version
 
 ### Cryptr Provider
 
@@ -100,7 +94,7 @@ const App = (): ReactElement => {
 return default App
 ```
 
-Then you will be able to handle cryptr session through our hook and our components
+Then you will be able to handle Cryptr session through our hook and our components
 
 ## Cryptr Hook `useCryptr`
 

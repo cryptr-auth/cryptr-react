@@ -22,6 +22,7 @@ const initialContext = {
   getCurrentIdToken: error,
 }
 /**
+ * Context that gives you the current Cryptr state and possible hooks
  * @name Cryptr Context
  */
 const CryptrContext = createContext(initialContext)

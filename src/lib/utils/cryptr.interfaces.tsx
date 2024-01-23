@@ -1,5 +1,17 @@
 // import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 
+/**
+ * Your Basic Cryptr config settings for your React application
+ * @interface
+ * @prop {string} tenant_domain - Your Account `domain`
+ * @prop {string} client_id - Your React Application ID in Cryptr
+ * @prop {string} audience - Your React Application base URL
+ * @prop {string} default_redirect_uri - Your default URI endpoint adter login
+ * @prop {boolean} default_slo_after_revoke - (For SSO) If SLO has to be done for `logOut` process
+ * @prop {string} [region] - **Deprecated:** since 1.3.0
+ * @prop {string} [cryptr_base_url] - Your Cryptr service URL, ex: `https://my-company.authent.me`
+ * @prop {boolean} [dedicated_server=false] - Set to `true` if you owns your Cryptr Service
+ */
 export interface Config {
   tenant_domain: string
   client_id: string
@@ -12,19 +24,10 @@ export interface Config {
 }
 
 /**
- * Your Global Cryptr config settings for your React application
+ * Your Precise Cryptr config settings for your React application, extending {@link Config}
+ * @see Config
  * @interface
- * @prop {string} tenant_domain - Your Account `domain`
- * @prop {string} client_id - Your React Application ID in Cryptr
- * @prop {string} audience - Your React Application base URL
- * @prop {string} default_redirect_uri - Your default URI endpoint adter login
- * @prop {boolean} default_slo_after_revoke - (For SSO) If SLO has to be done for `logOut` process
- * @prop {string} [default_locale="en"] - Your React Application default language
- * @prop {string} [region] - **Deprecated:** since 1.3.0
- * @prop {string} [cryptr_base_url] - Your Cryptr service URL, ex: `https://my-company.authent.me`
- * @prop {boolean} [telemetry=false] - Activates monitoring of your React to Cryptr
- * @prop {boolean} [dedicated_server=false] - Set to `true` if you owns your Cryptr Service
- * @prop {boolean} [fixed_pkce=false] - Since 1.2.0 set to `true`
+ * @extends Config
  * @prop {function} [onRedirectCallback=DEFAULT_REDIRECT_CALLBACK] - The default behaviour after login, see [DEFAULT_REDIRECT_CALLBACK](./global.html#DEFAULT_REDIRECT_CALLBACK)
  * @prop {function} [onLogOutCallback=DEFAULT_LOGOUT_CALLBACK] - The default behaviour after logout, see [DEFAULT_LOGOUT_CALLBACK](./global.html#DEFAULT_LOGOUT_CALLBACK)
  * @prop {string} [defaultScopes='openid email profile'] - The default scopes you want while opening Cryptr oAuth session
