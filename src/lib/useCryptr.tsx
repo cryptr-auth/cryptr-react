@@ -11,6 +11,14 @@ import CryptrContext from './CryptrContext'
  */
 
 /**
+ * @function DecoratedRequestFunction
+ * @category Hook functions
+ * @sync
+ * @param {string} url - endpoint of the request to decorate
+ * @param {KyOptions?} [kyOptions] - `ky` options for the request (ex: additional headers, specific method ...)
+ */
+
+/**
  * @function SignInWithEmailFunction
  * @category Hook functions
  *
@@ -37,7 +45,7 @@ import CryptrContext from './CryptrContext'
  * @prop {function} user - Function that returns a User if there is an active session
  * @prop {SignInWithEmailFunction} signInWithEmail - Initiates a sign in process while providing the user's email
  * @prop {SignInWithDomainFunction} signInWithDomain - Initiates a sign in process while providing the organization's domain if known
- * @prop {function} decorateRequest - Function that automatically decorate a request with the current session access token
+ * @prop {DecoratedRequestFunction} decorateRequest - Function that automatically decorate a request with the current session access token (based on `ky`)
  * @prop {function} config - Function that returns the current config
  * @prop {function} getCurrentAccessToken - Function that returns the current access token if there is an active session. Usefull if you want to process your own decoration process with your back-end.
  * @prop {function} getCurrentIdToken - Function that returns the current id token if there is an active session
