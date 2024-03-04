@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
+    "lib": ["es6", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "noImplicitAny": false
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es5"
   },
-  "include": ["src", "src/**/*.ts", "src/**/**/*.ts", "src/lib/utils/cryptr.interfaces.tsx"]
+  "include": ["src/lib/"]
 }

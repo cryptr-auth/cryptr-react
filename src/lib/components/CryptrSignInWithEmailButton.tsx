@@ -56,10 +56,10 @@ const CryptrSignInWithEmailButton: React.FC<SignInWithEmailProps> = ({
   autoHide = true,
   options,
 }: SignInWithEmailProps) => {
-  const { config, isAuthenticated, isLoading, signInWithEmail } = useCryptr()
+  const { isAuthenticated, isLoading, signInWithEmail } = useCryptr()
 
   const signInWithEmailText = (): string => {
-    return text ? text : localizedText(email, options?.locale || config().default_locale)
+    return text ?? localizedText(email, options?.locale || 'en')
   }
 
   const localizedText = (email: string, locale?: string): string => {

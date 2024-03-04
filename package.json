@@ -3,8 +3,8 @@
   "version": "1.3.7",
   "private": false,
   "dependencies": {
-    "@cryptr/cryptr-spa-js": "^1.3.6",
-    "axios": "^1.6.5",
+    "@cryptr/cryptr-spa-js": "^1.3.8",
+    "ky": "^1.2.2",
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
@@ -14,6 +14,10 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "install:examples": "npm i --prefix=examples/react-javascript --no-package-lock && npm i --prefix=examples/react-typescript --no-package-lock && npm i --prefix=examples/communitiz-app-react-typescript --no-package-lock",
+    "start:example:react-javascript": "npm start --prefix=examples/react-javascript",
+    "start:example:react-typescript": "npm start --prefix=examples/react-typescript",
+    "start:example:communitiz-app": "npm start --prefix=examples/communitiz-app-react-typescript",
     "build:react": "react-scripts build",
     "build:serve:react": "react-scripts build && PORT=3000 serve -s build",
     "watch": "npm-watch",
@@ -104,6 +108,7 @@
   },
   "description": "Cryptr React Authentication SDK",
   "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "module": "dist/index.modern.js",
   "files": [
     "dist",

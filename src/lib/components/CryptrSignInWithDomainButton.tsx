@@ -58,10 +58,10 @@ const CryptrSignInWithDomainButton: React.FC<SignInWithDomainProps> = ({
   options,
   autoHide = true,
 }: SignInWithDomainProps) => {
-  const { config, isAuthenticated, isLoading, signInWithDomain } = useCryptr()
+  const { isAuthenticated, isLoading, signInWithDomain } = useCryptr()
 
   const signInWithDomainText = (): string => {
-    return text ? text : localizedText(domain, options?.locale || config().default_locale)
+    return text ?? localizedText(domain, options?.locale || 'en')
   }
 
   const localizedText = (domain?: string, locale?: string) => {
