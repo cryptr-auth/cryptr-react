@@ -38,27 +38,26 @@
   }
 }
 
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#header button:focus~.dropdown-menu {
+#header button:focus ~ .dropdown-menu {
   display: block;
 }
 
-#header button:active~.dropdown-menu {
+#header button:active ~ .dropdown-menu {
   display: none;
 }
 
 .article {
-  button:focus~.dropdown-menu {
+  button:focus ~ .dropdown-menu {
     display: block;
   }
 
-  button:active~.dropdown-menu {
+  button:active ~ .dropdown-menu {
     display: none;
   }
 

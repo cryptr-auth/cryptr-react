@@ -58,7 +58,7 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
   autoHide = true,
   targetUrl,
   sloAfterRevoke,
-  locale
+  locale,
 }: LogOutProps) => {
   const { isAuthenticated, isLoading, logOut } = useCryptr()
   const signOut = () => {
@@ -66,7 +66,7 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
   }
 
   const logoutText = (): string => {
-    return text ?? (locale == 'fr' ? 'Déconnexion' : 'Log out');
+    return text ?? (locale == 'fr' ? 'Déconnexion' : 'Log out')
   }
 
   if ((isAuthenticated !== undefined && !isAuthenticated() && autoHide) || isLoading) {

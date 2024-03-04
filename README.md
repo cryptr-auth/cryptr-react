@@ -50,17 +50,17 @@ const config = {
 
 Explanation of config
 
-| key                        | Required/Optional         | type          | Default | Description                                          |
-| -------------------------- | ------------------------- | ------------- | ------- | ---------------------------------------------------- |
-| `tenant_domain`            | **required**              | string slug   | -       | Reference to your company entity                     |
-| `client_id`                | **required**              | uuid          | -       | Reference to your front app id                       |
-| `audience`                 | **required**              | string URL    | -       | Root URL of your front app                           |
-| `default_redirect_uri`     | **required**              | string URL    | -       | Desired redirection URL after authentication process |
-| `cryptr_base_url`          | **required**              | string URL    | -       | URL of your Cryptr service                           |
-| `default_slo_after_revoke` | **required**(since 1.2.0) | boolean       |         | Defines if SLO has to be done on SSO logout process  |
-| `dedicated_server`         | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
+| key                        | Required/Optional         | type        | Default | Description                                          |
+| -------------------------- | ------------------------- | ----------- | ------- | ---------------------------------------------------- |
+| `tenant_domain`            | **required**              | string slug | -       | Reference to your company entity                     |
+| `client_id`                | **required**              | uuid        | -       | Reference to your front app id                       |
+| `audience`                 | **required**              | string URL  | -       | Root URL of your front app                           |
+| `default_redirect_uri`     | **required**              | string URL  | -       | Desired redirection URL after authentication process |
+| `cryptr_base_url`          | **required**              | string URL  | -       | URL of your Cryptr service                           |
+| `default_slo_after_revoke` | **required**(since 1.2.0) | boolean     |         | Defines if SLO has to be done on SSO logout process  |
+| `dedicated_server`         | Optional                  | boolean     | false   | Contact Cryptr Team to set properly                  |
 
-⚠️ `fixed_pkce` has been removed in the  `1.4.0` release version
+⚠️ `fixed_pkce` has been removed in the `1.4.0` release version
 
 ### Cryptr Provider
 
@@ -173,18 +173,18 @@ export default LoginComponent
 
 ## Deprecations
 
-| Since | Type | Name | Reason |
-| --- | --- | --- | --- |
-| `1.3.0` | Component | ~~`SignInButton`~~ | replaced by `SignInWithDomainButton` |
-|  |  | ~~`SignUpButton`~~ | replaced by `SignInWithDomainButton` |
-|  |  | ~~`SsoGatewayButton`~~ | replaced by `SignInWithDomainButton` |
-|  |  | ~~`SsoSignInButton`~~ | replaced by `SignInWithDomainButton` |
-|  |  | ~~`AccountAccessButton`~~ | discontinuated |
-|  | hooks | ~~`signinWithRedirect`~~ | replaced by `signInWithDomain` |
-|  | hooks | ~~`signupWithRedirect`~~ | replaced by `signInWithDomain` |
-|  | hooks | ~~`signinWithSSO`~~ | replaced by `signInWithDomain` |
-|  | hooks | ~~`signinWithSSOGateway`~~ | replaced by `signInWithDomain` |
-| --- | --- | --- | --- |
-| `1.4.0` | Config | ~~`telemetry`~~ | discontinuated |
-|  |  | ~~`default_locale`~~ | If you want to use a different locale than english provide the option in your opening session calls |
-|  |  | ~~`fixed_pkce`~~ | As mentioned in previous version this property is now considered as `true` |
+| Since   | Type      | Name                       | Reason                                                                                              |
+| ------- | --------- | -------------------------- | --------------------------------------------------------------------------------------------------- |
+| `1.3.0` | Component | ~~`SignInButton`~~         | replaced by `SignInWithDomainButton`                                                                |
+|         |           | ~~`SignUpButton`~~         | replaced by `SignInWithDomainButton`                                                                |
+|         |           | ~~`SsoGatewayButton`~~     | replaced by `SignInWithDomainButton`                                                                |
+|         |           | ~~`SsoSignInButton`~~      | replaced by `SignInWithDomainButton`                                                                |
+|         |           | ~~`AccountAccessButton`~~  | discontinuated                                                                                      |
+|         | hooks     | ~~`signinWithRedirect`~~   | replaced by `signInWithDomain`                                                                      |
+|         | hooks     | ~~`signupWithRedirect`~~   | replaced by `signInWithDomain`                                                                      |
+|         | hooks     | ~~`signinWithSSO`~~        | replaced by `signInWithDomain`                                                                      |
+|         | hooks     | ~~`signinWithSSOGateway`~~ | replaced by `signInWithDomain`                                                                      |
+| ---     | ---       | ---                        | ---                                                                                                 |
+| `1.4.0` | Config    | ~~`telemetry`~~            | discontinuated                                                                                      |
+|         |           | ~~`default_locale`~~       | If you want to use a different locale than english provide the option in your opening session calls |
+|         |           | ~~`fixed_pkce`~~           | As mentioned in previous version this property is now considered as `true`                          |

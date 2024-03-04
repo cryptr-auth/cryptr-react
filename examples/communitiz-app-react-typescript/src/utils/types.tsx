@@ -1,27 +1,27 @@
 // Models
 export type Friend = {
-  avatar: string;
-  name: string;
+  avatar: string
+  name: string
   nickname: string
 }
 
 export type NewsPiece = {
-  id: number;
-  avatar: string;
-  content: string;
+  id: number
+  avatar: string
+  content: string
   comments_count: number
 }
 
 export type ArticleItem = {
-  id: number;
-  avatar: string;
-  publish_date: Date;
-  author: string;
-  title: string;
-  content: string;
-  likes: number;
-  replies: number;
-  views: number;
+  id: number
+  avatar: string
+  publish_date: Date
+  author: string
+  title: string
+  content: string
+  likes: number
+  replies: number
+  views: number
 }
 
 export enum SortType {
@@ -39,7 +39,6 @@ export type ArticlesProps = {
 export type ArticleProps = {
   article: ArticleItem
 }
-
 
 export type FriendsSuggestionsProps = {
   friends?: Friend[]

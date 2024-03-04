@@ -1,47 +1,33 @@
-import React from 'react';
-import './App.css';
-import { CryptrProvider, useCryptr, Config} from '@cryptr/cryptr-react';
-
+import React from 'react'
+import './App.css'
+import { CryptrProvider, useCryptr, Config } from '@cryptr/cryptr-react'
 
 const InnerComponent = () => {
-  const {error, isAuthenticated, isLoading, logOut, signInWithDomain, user} = useCryptr()
+  const { error, isAuthenticated, isLoading, logOut, signInWithDomain, user } = useCryptr()
 
   return (
     <div className="App">
       <header className="App-header">
         <em>react@{React.version}</em>
-        <div style={{textAlign: 'left', fontSize: '0.8rem'}}>
+        <div style={{ textAlign: 'left', fontSize: '0.8rem' }}>
           <pre>
-            <code>
-              {isAuthenticated() ? 'authenticated': 'unauthenticated'}
-            </code>
+            <code>{isAuthenticated() ? 'authenticated' : 'unauthenticated'}</code>
           </pre>
           <pre>
-            <code>
-              {isLoading ? 'loading': 'not loading'}
-            </code>
+            <code>{isLoading ? 'loading' : 'not loading'}</code>
           </pre>
           <pre>
-            <code>
-              {user() ? JSON.stringify(user(), null, 2) : 'no user'}
-            </code>
+            <code>{user() ? JSON.stringify(user(), null, 2) : 'no user'}</code>
           </pre>
           <pre>
-            <code>
-              {error ? JSON.stringify(error, null, 2) : 'no error'}
-            </code>
+            <code>{error ? JSON.stringify(error, null, 2) : 'no error'}</code>
           </pre>
         </div>
         {isAuthenticated() ? (
-          <button onClick={() => logOut()}>
-            Log out
-          </button>
-        ): (
-          <button onClick={() => signInWithDomain(null, {locale: 'en'})}>
-            Log in
-          </button>
-        )
-      }
+          <button onClick={() => logOut()}>Log out</button>
+        ) : (
+          <button onClick={() => signInWithDomain(null, { locale: 'en' })}>Log in</button>
+        )}
       </header>
     </div>
   )
@@ -65,7 +51,7 @@ function App() {
     <CryptrProvider {...config}>
       <InnerComponent />
     </CryptrProvider>
-  );
+  )
 }
 
-export default App;
+export default App

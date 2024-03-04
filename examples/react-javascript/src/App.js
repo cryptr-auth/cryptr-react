@@ -1,47 +1,34 @@
-import './App.css';
-import {CryptrProvider, useCryptr} from '@cryptr/cryptr-react'
+import './App.css'
+import { CryptrProvider, useCryptr } from '@cryptr/cryptr-react'
 import React from 'react'
 
 function InnerComponent() {
   // eslint-disable-line no-eval
-  const {isAuthenticated, isLoading, error, logOut, signInWithDomain, user} = useCryptr() // eslint-disable-line no-eval
+  const { isAuthenticated, isLoading, error, logOut, signInWithDomain, user } = useCryptr() // eslint-disable-line no-eval
 
   return (
     <div className="App">
       <header className="App-header">
         <em>react@{React.version}</em>
-        <p style={{textAlign: 'left', fontSize: '0.8rem'}}>
+        <p style={{ textAlign: 'left', fontSize: '0.8rem' }}>
           <pre>
-            <code>
-              {isAuthenticated() ? 'authenticated': 'unauthenticated'}
-            </code>
+            <code>{isAuthenticated() ? 'authenticated' : 'unauthenticated'}</code>
           </pre>
           <pre>
-            <code>
-              {isLoading ? 'loading': 'not'}
-            </code>
+            <code>{isLoading ? 'loading' : 'not'}</code>
           </pre>
           <pre>
-            <code>
-              {user() ? JSON.stringify(user(), null, 2) : 'no user'}
-            </code>
+            <code>{user() ? JSON.stringify(user(), null, 2) : 'no user'}</code>
           </pre>
           <pre>
-            <code>
-              {error ? JSON.stringify(error, null, 2) : 'no error'}
-            </code>
+            <code>{error ? JSON.stringify(error, null, 2) : 'no error'}</code>
           </pre>
         </p>
         {isAuthenticated() ? (
-          <button onClick={() => logOut()}>
-            Log out
-          </button>
-        ): (
-          <button onClick={() => signInWithDomain()}>
-            Log in
-          </button>
-        )
-      }
+          <button onClick={() => logOut()}>Log out</button>
+        ) : (
+          <button onClick={() => signInWithDomain()}>Log in</button>
+        )}
       </header>
     </div>
   )
@@ -62,10 +49,10 @@ function App() {
   return (
     <CryptrProvider {...config}>
       <div className="App">
-        <InnerComponent/>
+        <InnerComponent />
       </div>
     </CryptrProvider>
-  );
+  )
 }
 
-export default App;
+export default App

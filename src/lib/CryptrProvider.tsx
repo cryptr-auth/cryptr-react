@@ -120,7 +120,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
     configFn()
   }, [config, cryptrClient])
 
-
   const useEventListener = (eventName: string, handler, element = window) => {
     const savedHandler = useRef(handler)
 

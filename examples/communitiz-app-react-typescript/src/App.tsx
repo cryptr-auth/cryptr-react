@@ -1,8 +1,14 @@
-import React from 'react';
-import './App.css';
-import {Config, CryptrProvider, SignInWithDomainButton, SignInWithEmailButton, useCryptr} from '@cryptr/cryptr-react'
-import Loading from './pages/Loading';
-import Dashboard from './pages/Dashboard';
+import React from 'react'
+import './App.css'
+import {
+  Config,
+  CryptrProvider,
+  SignInWithDomainButton,
+  SignInWithEmailButton,
+  useCryptr,
+} from '@cryptr/cryptr-react'
+import Loading from './pages/Loading'
+import Dashboard from './pages/Dashboard'
 
 const cryptrConfig: Config = {
   audience: process.env.REACT_APP_CRYPTR_AUDIENCE!,
@@ -16,43 +22,51 @@ const cryptrConfig: Config = {
 // console.log(cryptrConfig)
 
 const Pages = () => {
-  const {isLoading, isAuthenticated} = useCryptr()
-  if(isAuthenticated()) {
+  const { isLoading, isAuthenticated } = useCryptr()
+  if (isAuthenticated()) {
     return <Dashboard />
   }
-  if(!isLoading) {
+  if (!isLoading) {
     const orgDomain = 'decathlon'
     const userEmail = process.env.REACT_APP_CRYPTR_USER_SAMPLE
 
     return (
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="mx-auto h-10 w-auto" src="https://res.cloudinary.com/cryptr/image/upload/v1675156380/Cleeck%20demo/communitiz.app_logo_uu32em.svg" alt="Your Company" />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in</h2>
+          <img
+            className="mx-auto h-10 w-auto"
+            src="https://res.cloudinary.com/cryptr/image/upload/v1675156380/Cleeck%20demo/communitiz.app_logo_uu32em.svg"
+            alt="Your Company"
+          />
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Sign in
+          </h2>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="space-y-6 divide-y divide-slate-400 divide-dashed">
-            <div className='pt-4'>
+            <div className="pt-4">
               <SignInWithDomainButton
-                className='flex w-full justify-center rounded-md py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible: outline focus-visible:outline-2 focus-visible:outlineoffset-2 bg-teal-600 px-3 hover:bg-teal-500 focus-visible:outline-teal-600'
-                text='Without context'
-                />
+                className="flex w-full justify-center rounded-md py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible: outline focus-visible:outline-2 focus-visible:outlineoffset-2 bg-teal-600 px-3 hover:bg-teal-500 focus-visible:outline-teal-600"
+                text="Without context"
+              />
             </div>
-            <div className='pt-4'>
+            <div className="pt-4">
               <SignInWithDomainButton
-                className='flex w-full justify-center rounded-md py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible: outline focus-visible:outline-2 focus-visible:outlineoffset-2 bg-cyan-600 px-3 hover:bg-cyan-500 focus-visible:outline-cyan-600'
+                className="flex w-full justify-center rounded-md py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible: outline focus-visible:outline-2 focus-visible:outlineoffset-2 bg-cyan-600 px-3 hover:bg-cyan-500 focus-visible:outline-cyan-600"
                 domain={orgDomain}
-                />
+              />
             </div>
 
-            {userEmail && <div className='pt-4'>
-              <SignInWithEmailButton
-                className='flex w-full justify-center rounded-md py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible: outline focus-visible:outline-2 focus-visible:outlineoffset-2 bg-amber-600 px-3 hover:bg-amber-500 focus-visible:outline-amber-600'
-                email={userEmail}
-                text={`with ${orgDomain} user email`}
+            {userEmail && (
+              <div className="pt-4">
+                <SignInWithEmailButton
+                  className="flex w-full justify-center rounded-md py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible: outline focus-visible:outline-2 focus-visible:outlineoffset-2 bg-amber-600 px-3 hover:bg-amber-500 focus-visible:outline-amber-600"
+                  email={userEmail}
+                  text={`with ${orgDomain} user email`}
                 />
-            </div>}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -63,14 +77,13 @@ const Pages = () => {
 }
 
 function App() {
-
   return (
     <CryptrProvider {...cryptrConfig}>
       <div className="App">
-        <Pages/>
+        <Pages />
       </div>
     </CryptrProvider>
-  );
+  )
 }
 
-export default App;
+export default App

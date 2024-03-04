@@ -8,7 +8,13 @@ export const LogOutButton = CryptrLogOutBtn
 export { default as CryptrProvider } from './CryptrProvider'
 export { default as useCryptr } from './useCryptr'
 
-export {Config, ProviderConfig, User, MetaDatas, CryptrTokenClaims} from './utils/cryptr.interfaces'
+export {
+  Config,
+  ProviderConfig,
+  User,
+  MetaDatas,
+  CryptrTokenClaims,
+} from './utils/cryptr.interfaces'
 
 const CryptrReact = {}
 
