@@ -22,7 +22,8 @@ const Pages = () => {
   }
   if(!isLoading) {
     const orgDomain = 'decathlon'
-    const userEmail = 'john@decathlon.fr'
+    const userEmail = process.env.REACT_APP_CRYPTR_USER_SAMPLE
+    console.debug('userEmail', userEmail)
 
     return (
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -46,13 +47,13 @@ const Pages = () => {
                 />
             </div>
 
-            <div className='pt-4'>
+            {userEmail && <div className='pt-4'>
               <SignInWithEmailButton
                 className='flex w-full justify-center rounded-md py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible: outline focus-visible:outline-2 focus-visible:outlineoffset-2 bg-amber-600 px-3 hover:bg-amber-500 focus-visible:outline-amber-600'
                 email={userEmail}
                 text={`with ${orgDomain} user email`}
                 />
-            </div>
+            </div>}
           </div>
         </div>
       </div>
