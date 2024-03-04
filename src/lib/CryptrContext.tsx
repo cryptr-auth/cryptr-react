@@ -15,7 +15,7 @@ const initialContext = {
   isAuthenticated: error,
   logOut: error,
   user: error as unknown as () => User | null,
-  decoratedRequest: error as unknown as (url: string, kyOptions: object) => ResponsePromise,
+  decoratedRequest: error as unknown as (url: string, kyOptions?: object | undefined) => ResponsePromise,
   config: error as unknown as () => ProviderConfig,
   defaultScopes: error,
   getCurrentAccessToken: error,
