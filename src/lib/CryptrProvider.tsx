@@ -6,7 +6,6 @@ import CryptrReducer from './CryptrReducer'
 import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
 import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 import CryptrSpa from '@cryptr/cryptr-spa-js'
-import { AxiosRequestConfig } from 'axios'
 
 /**
  * The default action to perform after authentication:
@@ -170,8 +169,8 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         signInWithDomain: (organizationDomain?: string, options?: SsoSignOptsAttrs) =>
           cryptrClient.signInWithDomain(organizationDomain, options),
         user: () => state.user,
-        decoratedRequest: (axiosConfig: AxiosRequestConfig) => {
-          return cryptrClient.decoratedRequest(axiosConfig)
+        decoratedRequest: (url: string, kyOptions?: object) => {
+          return cryptrClient.decoratedRequest(url, kyOptions)
         },
         config: () => config,
         defaultScopes: () => config.defaultScopes,

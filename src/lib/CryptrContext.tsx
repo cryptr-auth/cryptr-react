@@ -1,4 +1,4 @@
-import { AxiosPromise, AxiosRequestConfig } from 'axios'
+import { ResponsePromise } from 'ky'
 import { createContext } from 'react'
 import initialCryptrState from './initialCryptrState'
 import { ProviderConfig, User } from './utils/cryptr.interfaces'
@@ -15,7 +15,7 @@ const initialContext = {
   isAuthenticated: error,
   logOut: error,
   user: error as unknown as () => User | null,
-  decoratedRequest: error as unknown as (axiosConfig: AxiosRequestConfig) => AxiosPromise<unknown>,
+  decoratedRequest: error as unknown as (url: string, kyOptions: object) => ResponsePromise,
   config: error as unknown as () => ProviderConfig,
   defaultScopes: error,
   getCurrentAccessToken: error,
