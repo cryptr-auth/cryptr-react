@@ -5,19 +5,19 @@ import News from '../components/News'
 import Articles from '../components/Articles'
 import SidebarNav from '../components/SidebarNav'
 import { useCryptr } from '@cryptr/cryptr-react'
+import { ArticleItem, Friend, NewsPiece, ResponseData } from '../utils/types'
 
 
 const Dashboard = () => {
-  const [articles, setArticles] = useState([])
-  const [friends, setFriends] = useState([])
-  const [news, setNews] = useState([])
+  const [articles, setArticles] = useState<ArticleItem[]>([])
+  const [friends, setFriends] = useState<Friend[]>([])
+  const [news, setNews] = useState<NewsPiece[]>([])
   const [fetched, setFetched] = useState(false)
-  const {getCurrentAccessToken} = useCryptr()
+  const {decoratedRequest} = useCryptr()
 
   async function fetchAPIData(){
     try {
-      const response = await fetch('http://localhost:5000', {method: 'GET', headers: {Authorization: `Bearer ${getCurrentAccessToken()}`}})
-      const data = await response.json()
+      const data = await decoratedRequest('http://localhost:5000', {}).json() as ResponseData
       const {articles, friends, news} = data
       setArticles(articles)
       setNews(news)

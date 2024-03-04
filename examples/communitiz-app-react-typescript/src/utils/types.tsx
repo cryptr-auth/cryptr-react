@@ -56,3 +56,9 @@ export type NewsProps = {
 export type NewsItemProps = {
   newsItem: NewsPiece
 }
+
+export type ResponseData = {
+  articles: ArticleItem[]
+  friends: Friend[]
+  news: NewsPiece[]
+}
