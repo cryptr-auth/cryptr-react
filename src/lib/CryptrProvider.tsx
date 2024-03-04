@@ -169,7 +169,7 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         signInWithDomain: (organizationDomain?: string, options?: SsoSignOptsAttrs) =>
           cryptrClient.signInWithDomain(organizationDomain, options),
         user: () => state.user,
-        decoratedRequest: (url: string, kyOptions?: object) => {
+        decoratedRequest: (url: string, kyOptions?: object | undefined) => {
           return cryptrClient.decoratedRequest(url, kyOptions)
         },
         config: () => config,

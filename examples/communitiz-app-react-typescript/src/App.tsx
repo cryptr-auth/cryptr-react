@@ -23,7 +23,6 @@ const Pages = () => {
   if(!isLoading) {
     const orgDomain = 'decathlon'
     const userEmail = process.env.REACT_APP_CRYPTR_USER_SAMPLE
-    console.debug('userEmail', userEmail)
 
     return (
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
