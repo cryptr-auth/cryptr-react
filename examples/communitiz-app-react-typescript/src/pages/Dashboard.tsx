@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   async function fetchAPIData(){
     try {
-      const data = await decoratedRequest('http://localhost:5000', {}).json() as ResponseData
+      const data = await decoratedRequest('http://localhost:500').json() as ResponseData
       const {articles, friends, news} = data
       setArticles(articles)
       setNews(news)
