@@ -15,7 +15,7 @@
     "start:example:react-javascript": "npm start --prefix=examples/react-javascript",
     "start:example:react-typescript": "npm start --prefix=examples/react-typescript",
     "start:example:communitiz-app": "npm start --prefix=examples/communitiz-app-react-typescript",
-    "build:example:communitiz-app": "npm run build --prefix=examples/communitiz-app-react-typescript",
+    "build:install:example:communitiz-app": "npm i --prefix=examples/communitiz-app-react-typescript --no-package-lock && npm run build --prefix=examples/communitiz-app-react-typescript",
     "lint": "eslint --ext=tsx ./src",
     "rollup:start": "rollup -cw",
     "publish-force": "npm unpublish --force && npm run build && ls && npm publish",
