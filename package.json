@@ -11,18 +11,15 @@
     "react-dom": "^17 || ^18"
   },
   "scripts": {
-    "install:examples": "npm i --prefix=examples/react-javascript --no-package-lock && npm i --prefix=examples/react-typescript --no-package-lock && npm i --prefix=examples/communitiz-app-react-typescript --no-package-lock",
-    "start:example:react-javascript": "npm start --prefix=examples/react-javascript",
-    "start:example:react-typescript": "npm start --prefix=examples/react-typescript",
-    "start:example:communitiz-app": "npm start --prefix=examples/communitiz-app-react-typescript",
-    "build:example:communitiz-app": "npm run build --prefix=examples/communitiz-app-react-typescript",
+    "build": "npm run lint && rm -rf dist && rollup -c --environment NODE_ENV:production",
+    "docs": "jsdoc -c jsdoc.conf.json",
+    "format": "prettier --write \"**/*.+(ts|tsx|js|jsx|json|css|md)\"",
     "lint": "eslint --ext=tsx ./src",
     "rollup:start": "rollup -cw",
-    "publish-force": "npm unpublish --force && npm run build && ls && npm publish",
-    "build": "npm run lint && rm -rf dist && rollup -c --environment NODE_ENV:production",
     "publish:lib": "npm run build && npm publish",
-    "format": "prettier --write \"**/*.+(ts|tsx|js|jsx|json|css|md)\"",
-    "docs": "jsdoc -c jsdoc.conf.json"
+    "start:example": "npm start --prefix=examples/$PREFIX",
+    "build:install:example": "npm i --prefix=examples/$PREFIX --no-package-lock && npm run build --prefix=examples/$PREFIX",
+    "build:install:example:communitiz-app": "PREFIX='communitiz-app-react-typescript' npm run build:install:example"
   },
   "eslintConfig": {
     "extends": [
