@@ -20,7 +20,7 @@ See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online docum
 
 ## Installation
 
-Current version `1.3.0`
+Current version `1.4.0`
 
 ```bash
 //npm
@@ -173,18 +173,4 @@ export default LoginComponent
 
 ## Deprecations
 
-| Since   | Type      | Name                       | Reason                                                                                              |
-| ------- | --------- | -------------------------- | --------------------------------------------------------------------------------------------------- |
-| `1.3.0` | Component | ~~`SignInButton`~~         | replaced by `SignInWithDomainButton`                                                                |
-|         |           | ~~`SignUpButton`~~         | replaced by `SignInWithDomainButton`                                                                |
-|         |           | ~~`SsoGatewayButton`~~     | replaced by `SignInWithDomainButton`                                                                |
-|         |           | ~~`SsoSignInButton`~~      | replaced by `SignInWithDomainButton`                                                                |
-|         |           | ~~`AccountAccessButton`~~  | discontinuated                                                                                      |
-|         | hooks     | ~~`signinWithRedirect`~~   | replaced by `signInWithDomain`                                                                      |
-|         | hooks     | ~~`signupWithRedirect`~~   | replaced by `signInWithDomain`                                                                      |
-|         | hooks     | ~~`signinWithSSO`~~        | replaced by `signInWithDomain`                                                                      |
-|         | hooks     | ~~`signinWithSSOGateway`~~ | replaced by `signInWithDomain`                                                                      |
-| ---     | ---       | ---                        | ---                                                                                                 |
-| `1.4.0` | Config    | ~~`telemetry`~~            | discontinuated                                                                                      |
-|         |           | ~~`default_locale`~~       | If you want to use a different locale than english provide the option in your opening session calls |
-|         |           | ~~`fixed_pkce`~~           | As mentioned in previous version this property is now considered as `true`                          |
+Some legacy items have been deleted since `1.3.0`. If you need some support for migration [contact us](https://meet.cryptr.tech/team/developer-success)
