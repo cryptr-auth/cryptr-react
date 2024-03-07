@@ -1,0 +1,36 @@
+{
+  "name": "communitiz-app-react-typescript",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@cryptr/cryptr-react": "file:../..",
+    "@types/node": "^20.11.24",
+    "@types/react": "file:../../node_modules/@types/react",
+    "@types/react-dom": "file:../../node_modules/@types/react-dom",
+    "react": "file:../../node_modules/react",
+    "react-dom": "file:../../node_modules/react-dom",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

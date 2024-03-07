@@ -1,30 +1,25 @@
 {
   "name": "@cryptr/cryptr-react",
-  "version": "1.3.7",
+  "version": "1.4.0",
   "private": false,
   "dependencies": {
-    "@cryptr/cryptr-spa-js": "^1.3.6",
-    "axios": "^1.6.5",
-    "prop-types": "^15.8.1"
+    "@cryptr/cryptr-spa-js": "^1.4.0",
+    "ky": "^1.2.2"
   },
   "peerDependencies": {
     "react": "^17 || ^18",
     "react-dom": "^17 || ^18"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "build:react": "react-scripts build",
-    "build:serve:react": "react-scripts build && PORT=3000 serve -s build",
-    "watch": "npm-watch",
-    "lint": "eslint --ext=tsx ./src",
-    "eject": "react-scripts eject",
-    "rollup:start": "rollup -cw",
-    "publish-force": "npm unpublish --force && npm run build && ls && npm publish",
     "build": "npm run lint && rm -rf dist && rollup -c --environment NODE_ENV:production",
-    "publish:lib": "npm run build && npm publish",
+    "docs": "jsdoc -c jsdoc.conf.json",
     "format": "prettier --write \"**/*.+(ts|tsx|js|jsx|json|css|md)\"",
-    "docs": "jsdoc -c jsdoc.conf.json"
+    "lint": "eslint --ext=tsx ./src",
+    "rollup:start": "rollup -cw",
+    "publish:lib": "npm run build && npm publish",
+    "start:example": "npm start --prefix=examples/$PREFIX",
+    "build:install:example": "npm i --prefix=examples/$PREFIX --no-package-lock && npm run build --prefix=examples/$PREFIX",
+    "build:install:example:communitiz-app": "PREFIX='communitiz-app-react-typescript' npm run build:install:example"
   },
   "eslintConfig": {
     "extends": [
@@ -67,9 +62,7 @@
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
-    "babel-plugin-typescript-to-proptypes": "^1.4.1",
-    "better-docs": "^2.7.2",
-    "concurrently": "^6.4.0",
+    "babel-plugin-typescript-to-proptypes": "^2.1.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
@@ -77,18 +70,12 @@
     "eslint-plugin-react-hooks": "^4.5.0-next-fc47cb1b6-20220404",
     "jest": "^27.5.1",
     "jsdoc": "^4.0.2",
-    "microbundle-crl": "^0.13.11",
-    "npm-watch": "^0.11.0",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-normalize": "^10.0.1",
-    "postcss-preset-env": "^7.4.3",
     "prettier": "^2.0.5",
-    "prettier-eslint": "^8.2.2",
+    "prettier-eslint": "^16.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-intl": "^5.8.8",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.0",
     "rollup": "^2.70.1",
     "rollup-plugin-analyzer": "^3.3.0",
     "rollup-plugin-delete": "^2.0.0",
@@ -97,13 +84,13 @@
     "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
-    "taffydb": "^2.7.3",
     "ts-jest": "^27.1.4",
     "typescript": "^4.5.2",
     "web-vitals": "^0.2.4"
   },
   "description": "Cryptr React Authentication SDK",
   "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "module": "dist/index.modern.js",
   "files": [
     "dist",

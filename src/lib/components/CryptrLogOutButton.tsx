@@ -20,6 +20,8 @@ type LogOutProps = {
   targetUrl?: string
   /** Set to `true`if you want also a SLO request among token revokation */
   sloAfterRevoke?: boolean
+  /** Define the component's text to if not provided */
+  locale?: string
 }
 
 /**
@@ -56,17 +58,15 @@ const CryptrLogOutButton: React.FC<LogOutProps> = ({
   autoHide = true,
   targetUrl,
   sloAfterRevoke,
+  locale,
 }: LogOutProps) => {
-  const { isAuthenticated, isLoading, logOut, config } = useCryptr()
+  const { isAuthenticated, isLoading, logOut } = useCryptr()
   const signOut = () => {
     logOut(callback, targetUrl, sloAfterRevoke)
   }
 
   const logoutText = (): string => {
-    if (text) {
-      return text
-    }
-    return config().default_locale == 'en' ? 'Log out' : 'Déconnexion'
+    return text ?? (locale == 'fr' ? 'Déconnexion' : 'Log out')
   }
 
   if ((isAuthenticated !== undefined && !isAuthenticated() && autoHide) || isLoading) {

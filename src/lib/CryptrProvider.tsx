@@ -6,7 +6,6 @@ import CryptrReducer from './CryptrReducer'
 import { CryptrTokenClaims, ProviderConfig, User } from './utils/cryptr.interfaces'
 import { Config, SsoSignOptsAttrs } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 import CryptrSpa from '@cryptr/cryptr-spa-js'
-import { AxiosRequestConfig } from 'axios'
 
 /**
  * The default action to perform after authentication:
@@ -51,12 +50,10 @@ const prepareConfig = (options: ProviderOptions): ProviderConfig => {
     client_id: options.client_id,
     audience: options.audience || window.location.origin,
     cryptr_base_url: options.cryptr_base_url,
-    default_locale: options.default_locale ?? 'en',
     default_redirect_uri: options.default_redirect_uri || window.location.origin,
     onRedirectCallback: options.onRedirectCallback || DEFAULT_REDIRECT_CALLBACK,
     onLogOutCallback: options.onLogOutCallback || DEFAULT_LOGOUT_CALLBACK,
     defaultScopes: options.defaultScopes || DEFAULT_SCOPE,
-    telemetry: options.telemetry || false,
     dedicated_server: options.dedicated_server || false,
     default_slo_after_revoke: options.default_slo_after_revoke ?? false,
   }
@@ -102,8 +99,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
           config.onRedirectCallback(claims)
         } else if (cryptrClient && cryptrClient.canRefresh(cryptrClient.getRefreshStore())) {
           await cryptrClient.handleRefreshTokens()
-        } else if (cryptrClient && cryptrClient.canHandleInvitation()) {
-          await cryptrClient.handleInvitationState()
         } else {
           console.log('not hanling redirection')
         }
@@ -124,7 +119,6 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
     }
     configFn()
   }, [config, cryptrClient])
-
 
   const useEventListener = (eventName: string, handler, element = window) => {
     const savedHandler = useRef(handler)
@@ -174,8 +168,8 @@ const CryptrProvider = (props: ProviderProps): JSX.Element => {
         signInWithDomain: (organizationDomain?: string, options?: SsoSignOptsAttrs) =>
           cryptrClient.signInWithDomain(organizationDomain, options),
         user: () => state.user,
-        decoratedRequest: (axiosConfig: AxiosRequestConfig) => {
-          return cryptrClient.decoratedRequest(axiosConfig)
+        decoratedRequest: (url: string, kyOptions?: object | undefined) => {
+          return cryptrClient.decoratedRequest(url, kyOptions)
         },
         config: () => config,
         defaultScopes: () => config.defaultScopes,

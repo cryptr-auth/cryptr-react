@@ -1,33 +1,33 @@
 // import { Config } from '@cryptr/cryptr-spa-js/dist/types/interfaces'
 
-export interface Config {
-  tenant_domain: string
-  client_id: string
-  audience: string
-  default_redirect_uri: string
-  default_slo_after_revoke: boolean
-  default_locale?: string
-  region?: string
-  cryptr_base_url?: string
-  telemetry?: boolean
-  dedicated_server?: boolean
-  fixed_pkce?: boolean
-}
-
 /**
- * Your Global Cryptr config settings for your React application
+ * Your Basic Cryptr config settings for your React application
  * @interface
  * @prop {string} tenant_domain - Your Account `domain`
  * @prop {string} client_id - Your React Application ID in Cryptr
  * @prop {string} audience - Your React Application base URL
  * @prop {string} default_redirect_uri - Your default URI endpoint adter login
  * @prop {boolean} default_slo_after_revoke - (For SSO) If SLO has to be done for `logOut` process
- * @prop {string} [default_locale="en"] - Your React Application default language
  * @prop {string} [region] - **Deprecated:** since 1.3.0
  * @prop {string} [cryptr_base_url] - Your Cryptr service URL, ex: `https://my-company.authent.me`
- * @prop {boolean} [telemetry=false] - Activates monitoring of your React to Cryptr
  * @prop {boolean} [dedicated_server=false] - Set to `true` if you owns your Cryptr Service
- * @prop {boolean} [fixed_pkce=false] - Since 1.2.0 set to `true`
+ */
+export interface Config {
+  tenant_domain: string
+  client_id: string
+  audience: string
+  default_redirect_uri: string
+  default_slo_after_revoke: boolean
+  region?: string
+  cryptr_base_url?: string
+  dedicated_server?: boolean
+}
+
+/**
+ * Your Precise Cryptr config settings for your React application, extending {@link Config}
+ * @see Config
+ * @interface
+ * @extends Config
  * @prop {function} [onRedirectCallback=DEFAULT_REDIRECT_CALLBACK] - The default behaviour after login, see [DEFAULT_REDIRECT_CALLBACK](./global.html#DEFAULT_REDIRECT_CALLBACK)
  * @prop {function} [onLogOutCallback=DEFAULT_LOGOUT_CALLBACK] - The default behaviour after logout, see [DEFAULT_LOGOUT_CALLBACK](./global.html#DEFAULT_LOGOUT_CALLBACK)
  * @prop {string} [defaultScopes='openid email profile'] - The default scopes you want while opening Cryptr oAuth session
@@ -47,6 +47,7 @@ export interface CryptrClient {
   getClaimsFromAccess: () => void
   handleRedirectCallback: () => void
   isAuthenticated: () => void
+  /** @deprecated */
   signInWithRedirect: () => void
 }
 
@@ -78,6 +79,33 @@ export interface User {
   picture?: string
 }
 
+/**
+ * Key/value Array representing extra data on a specific resource (User/application)
+ * @interface
+ */
+export interface MetaDatas {
+  [key: string]: string | number | boolean
+}
+
+/**
+ * Decoded claims from a token (ID/Access)
+ * @interface
+ *
+ * @prop {number} iat - Unix timestamp of Token issued at
+ * @prop {string} aud - Audience of the React app that generetaed this token
+ * @prop {string} cid - Client ID of the React app that generetaed this token
+ * @prop {string} dbs - Database/environment of the app/user
+ * @prop {string} iss - Cryptr service that issued the token
+ * @prop {string[]} scp - Authorized scopes while using this token
+ * @prop {string} tnt - Organization's domain that user belongs to.
+ * @prop {string} sub - Cryptr User's unique identifier
+ * @prop {number} exp - Unix timestamp for the expiration date for this token
+ * @prop {number} jti - JSON web Token unique Identifier
+ * @prop {number} ver - Current version of Cryptr token
+ * @prop {number} jtt - JSON web Token type. ex `openid`
+ * @prop {MetaDatas} resource_owner_metadata - Array of key/pair of data identifying the user (populated for exemple by SSO)
+ * @prop {MetaDatas} application_metadata - Array of key/pair of data related to the application
+ */
 export interface CryptrTokenClaims {
   iat: number
   aud: string

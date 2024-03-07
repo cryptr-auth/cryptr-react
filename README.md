@@ -17,15 +17,10 @@ See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online docum
     - [SignInWithDomainButton](#signinwithdomainbutton)
     - [SignInWithEmailButton](#signinwithemailbutton)
   - [Deprecations](#deprecations)
-    - [Since 1.3.0](#since-130)
-      - [Components](#components-1)
-      - [Cryptr Hooks](#cryptr-hooks)
-    - [Since 1.3.6](#since-136)
-      - [Components](#components-2)
 
 ## Installation
 
-Current version `1.3.6`
+Current version `1.4.0`
 
 ```bash
 //npm
@@ -39,7 +34,7 @@ yarn add @cryptr/cryptr-react
 
 ### CryptrConfig
 
-Here is an example of configuration that will be necessary to implement our solution
+Here is an example of a configuration that will be necessary to implement our solution
 
 ```javascript
 const config = {
@@ -48,30 +43,24 @@ const config = {
   tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN,
   client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID,
   default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI,
-  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE || 'en',
-  telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY == 'true',
   dedicated_server: process.env.REACT_APP_CRYPTR_DEDICATED_SERVER == 'true',
-  fixed_pkce: process.env.REACT_APP_CRYPTR_FIXED_PKCE == 'true',
   default_slo_after_revoke: process.env.REACT_APP_CRYPTR_DEFAULT_SLO_AFTER_REVOKE == 'true',
 }
 ```
 
 Explanation of config
 
-| key                        | Required/Optional         | type          | Default | Description                                          |
-| -------------------------- | ------------------------- | ------------- | ------- | ---------------------------------------------------- |
-| `tenant_domain`            | **required**              | string slug   | -       | Reference to your company entity                     |
-| `client_id`                | **required**              | uuid          | -       | Reference to your front app id                       |
-| `audience`                 | **required**              | string URL    | -       | Root URL of your front app                           |
-| `default_redirect_uri`     | **required**              | string URL    | -       | Desired redirection URL after authentication process |
-| `cryptr_base_url`          | **required**              | string URL    | -       | URL of your Cryptr service                           |
-| `default_slo_after_revoke` | **required**(since 1.2.0) | boolean       |         | Defines if SLO has to be done on SSO logout process  |
-| `default_locale`           | Optional                  | string locale | `en`    | -                                                    |
-| `dedicated_server`         | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `fixed_pkce`               | Optional                  | boolean       | false   | Contact Cryptr Team to set properly                  |
-| `telemetry`                | Optional                  | boolean       | false   | Set to `true` if debug                               |
+| key                        | Required/Optional         | type        | Default | Description                                          |
+| -------------------------- | ------------------------- | ----------- | ------- | ---------------------------------------------------- |
+| `tenant_domain`            | **required**              | string slug | -       | Reference to your company entity                     |
+| `client_id`                | **required**              | uuid        | -       | Reference to your front app id                       |
+| `audience`                 | **required**              | string URL  | -       | Root URL of your front app                           |
+| `default_redirect_uri`     | **required**              | string URL  | -       | Desired redirection URL after authentication process |
+| `cryptr_base_url`          | **required**              | string URL  | -       | URL of your Cryptr service                           |
+| `default_slo_after_revoke` | **required**(since 1.2.0) | boolean     |         | Defines if SLO has to be done on SSO logout process  |
+| `dedicated_server`         | Optional                  | boolean     | false   | Contact Cryptr Team to set properly                  |
 
-⚠️ `fixed_pkce` will be removed in the future `1.4.0` release version
+⚠️ `fixed_pkce` has been removed in the `1.4.0` release version
 
 ### Cryptr Provider
 
@@ -105,7 +94,7 @@ const App = (): ReactElement => {
 return default App
 ```
 
-Then you will be able to handle cryptr session through our hook and our components
+Then you will be able to handle Cryptr session through our hook and our components
 
 ## Cryptr Hook `useCryptr`
 
@@ -144,7 +133,7 @@ Here is a quick list of tools from our hook
 | `logOut`                                            | Asks to Cryptr SDK to run the session log out process                                                                                         |
 | `decoratedRequest(axiosConfig: AxiosRequestConfig)` | This method based on axios will decorate the request to the desired endpoint with the current Access Token as **Authorization Bearer Header** |
 
-There are more but major features are just above
+There are more but the major features are just above
 
 ## Components
 
@@ -184,24 +173,4 @@ export default LoginComponent
 
 ## Deprecations
 
-### Since 1.3.0
-
-#### Components
-
-- ~~`SignInButton`~~ -> `SignInWithDomainButton`
-- ~~`SignUpButton`~~ -> `SignInWithDomainButton`
-- ~~`SsoGatewayButton`~~ -> `SignInWithDomainButton`
-- ~~`SsoSignInButton`~~ -> `SignInWithDomainButton`
-
-#### Cryptr Hooks
-
-- ~~`signinWithRedirect`~~
-- ~~`signupWithRedirect`~~
-- ~~`signinWithSSO`~~
-- ~~`signinWithSSOGateway`~~
-
-### Since 1.3.6
-
-#### Components
-
-- ~~`AccountButton`~~ Discontinued feature
+Some legacy items have been deleted since `1.3.0`. If you need some support for migration [contact us](https://meet.cryptr.tech/team/developer-success)

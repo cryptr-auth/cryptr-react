@@ -24,3 +24,5 @@ yarn-error.log*
 audit.json
 
 docs/
+
+examples/react-18-typescript
