@@ -18,7 +18,8 @@
     "rollup:start": "rollup -cw",
     "publish:lib": "npm run build && npm publish",
     "start:example": "npm start --prefix=examples/$PREFIX",
-    "build:install:example": "npm i --prefix=examples/$PREFIX --no-package-lock && npm run build --prefix=examples/$PREFIX"
+    "build:install:example": "npm i --prefix=examples/$PREFIX --no-package-lock && npm run build --prefix=examples/$PREFIX",
+    "build:install:example:communitiz-app": "PREFIX='communitiz-app-react-typescript' npm run build:install:example"
   },
   "eslintConfig": {
     "extends": [
