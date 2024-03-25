@@ -10,6 +10,7 @@
     "react": "file:../../node_modules/react",
     "react-dom": "file:../../node_modules/react-dom",
     "react-scripts": "5.0.1",
+    "postcss": ">=8.4.31",
     "nth-check": ">=2.0.1",
     "typescript": "^4.9.5",
     "webpack-dev-middleware": ">=5.3.4"
