@@ -4,7 +4,7 @@
   "private": false,
   "dependencies": {
     "@cryptr/cryptr-spa-js": "^1.4.0",
-    "ky": "^1.2.2"
+    "ky": "^1.2.3"
   },
   "peerDependencies": {
     "react": "^17 || ^18",
