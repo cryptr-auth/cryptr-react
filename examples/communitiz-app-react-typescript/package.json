@@ -10,14 +10,17 @@
     "react": "file:../../node_modules/react",
     "react-dom": "file:../../node_modules/react-dom",
     "react-scripts": "^5.0.1",
-    "nth-check": ">=2.0.1",
-    "postcss": ">=8.4.31",
     "typescript": "^4.9.5",
     "webpack-dev-middleware": ">=5.3.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build"
+  },
+  "overrides": {
+    "express": ">=4.19.2",
+    "nth-check": ">=2.0.1",
+    "postcss": ">=8.4.31"
   },
   "eslintConfig": {
     "extends": [
