@@ -73,7 +73,7 @@ import React, { ReactElement } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // import from cryptr SDK
-import { CryptrProvider } from '@crypptr/cryptr-react'
+import { CryptrProvider } from '@cryptr/cryptr-react'
 
 const config = {/*... your config */}
 
