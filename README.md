@@ -20,7 +20,7 @@ See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online docum
 
 ## Installation
 
-Current version `2.0.0`
+Current version `2.0.1`
 
 ```bash
 //npm
