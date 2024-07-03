@@ -3,7 +3,7 @@
   "version": "1.5.0",
   "private": false,
   "dependencies": {
-    "@cryptr/cryptr-spa-js": "^1.4.0",
+    "@cryptr/cryptr-spa-js": "^2.1.0",
     "ky": "^1.2.2"
   },
   "peerDependencies": {
@@ -18,7 +18,9 @@
     "rollup:start": "rollup -cw",
     "publish:lib": "npm run build && npm publish",
     "start:example": "npm start --prefix=examples/$PREFIX",
-    "build:install:example": "npm i --prefix=examples/$PREFIX --no-package-lock && npm run build --prefix=examples/$PREFIX",
+    "start:example:communitiz-app": "PREFIX='communitiz-app-react-typescript' npm run start:example",
+    "build:start:example:communitiz-app": "npm run build:install:example:communitiz-app && npm run start:example:communitiz-app",
+    "build:install:example": "npm i --prefix=examples/$PREFIX && npm run build --prefix=examples/$PREFIX",
     "build:install:example:communitiz-app": "PREFIX='communitiz-app-react-typescript' npm run build:install:example"
   },
   "eslintConfig": {
@@ -49,6 +51,7 @@
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/plugin-proposal-export-default-from": "^7.12.1",
+    "@babel/plugin-transform-modules-umd": "^7.24.1",
     "@babel/preset-react": "^7.12.1",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@rollup/plugin-replace": "^2.3.4",
@@ -61,7 +64,6 @@
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
-    "@babel/plugin-transform-modules-umd": "^7.24.1",
     "babel-plugin-typescript-to-proptypes": "^2.1.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
