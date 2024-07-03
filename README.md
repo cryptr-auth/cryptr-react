@@ -20,7 +20,7 @@ See <a href="https://cryptr-react-doc.onrender.com" target="_blank">Online docum
 
 ## Installation
 
-Current version `1.4.0`
+Current version `2.0.0`
 
 ```bash
 //npm
@@ -73,7 +73,7 @@ import React, { ReactElement } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // import from cryptr SDK
-import { CryptrProvider } from '@crypptr/cryptr-react'
+import { CryptrProvider } from '@cryptr/cryptr-react'
 
 const config = {/*... your config */}
 
